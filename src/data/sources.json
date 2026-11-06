@@ -1,0 +1,742 @@
+[
+  {
+    "id": "src-4aed42c8513b",
+    "name": "（非正式ECE法规查询）World Forum for Harmonization of Vehicle Regulations (WP.29) | UNECE",
+    "url": "https://unece.org/transport/vehicle-regulations/world-forum-harmonization-vehicle-regulations-wp29",
+    "category": "UNECE / WP.29 全球统一法规",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-d74762a20471",
+    "name": "最新目录UN Regulations (Addenda to the 1958 Agreement) | UNECE",
+    "url": "https://unece.org/un-regulations-addenda-1958-agreement",
+    "category": "UNECE / WP.29 全球统一法规",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "automated",
+    "adapterId": "unece"
+  },
+  {
+    "id": "src-8f6f1dc71f21",
+    "name": "GTR标准查询",
+    "url": "https://unece.org/transport/standards/transport/vehicle-regulations-wp29/global-technical-regulations-gtrs",
+    "category": "UNECE / WP.29 全球统一法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-40eef0bb1d31",
+    "name": "Resolutions | UNECE假人定义",
+    "url": "https://unece.org/resolutions",
+    "category": "UNECE / WP.29 全球统一法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-8940a4e1490b",
+    "name": "Addenda to the 1958 Agreement (Regulations 0-20) | UNECE",
+    "url": "https://unece.org/transport/vehicle-regulations-wp29/standards/addenda-1958-agreement-regulations-0-20",
+    "category": "UNECE / WP.29 全球统一法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-e1afb8b66f27",
+    "name": "Inland Transport Committee | UNECE",
+    "url": "https://unece.org/transport/inland-transport-committee",
+    "category": "UNECE / WP.29 全球统一法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-9aa62dafe0ce",
+    "name": "ECE R.E.3 汽车结构强化标准（Consolidated Resolution R.E.3）",
+    "url": "http://www.doc88.com/p-14160514356.html",
+    "category": "UNECE / WP.29 全球统一法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-c1198e9fbf00",
+    "name": "Text of the 1958 Agreement - Transport - UNECE",
+    "url": "https://www.unece.org/trans/main/wp29/wp29regs.html",
+    "category": "UNECE / WP.29 全球统一法规",
+    "bookmarkLocation": "技术",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-c08e64268cbe",
+    "name": "UNECE WP.29/GRSP 第65次会议工作文件 GRSP-65-31e（PDF）",
+    "url": "https://unece.org/fileadmin/DAM/trans/doc/2018/wp29grsp/GRSP-65-31e.pdf",
+    "category": "UNECE / WP.29 全球统一法规",
+    "bookmarkLocation": "技术",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-d7b79d783cf8",
+    "name": "欧盟指令查询EUR-Lex",
+    "url": "https://eur-lex.europa.eu/search.html?scope=EURLEX&text=2019%2F2144&lang=en&type=quick&qid=1767939337448",
+    "category": "欧盟法规与协调标准",
+    "bookmarkLocation": "其他",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-aede829598d8",
+    "name": "Homepage - ECHA",
+    "url": "https://echa.europa.eu",
+    "category": "欧盟法规与协调标准",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-dcd84560cd0c",
+    "name": "欧盟委员会Official website of the European Union | European Union",
+    "url": "https://europa.eu/european-union/index_en",
+    "category": "欧盟法规与协调标准",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-db36202abed8",
+    "name": "EC Harmonised Standards",
+    "url": "https://single-market-economy.ec.europa.eu/single-market/european-standards/harmonised-standards_en",
+    "category": "欧盟法规与协调标准",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-f32a1a2997bc",
+    "name": "European Commission  Search",
+    "url": "http://ec.europa.eu/geninfo/query/index.do?queryText=end-of+life+vehicle&query_source=europa_default&page=&filter=&swlang=en&filterSource=europa_default&more_options_date=*&more_options_language=en&more_options_f_formats=pdf",
+    "category": "欧盟法规与协调标准",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-a50f0bc5aea4",
+    "name": "GB/T 228.1-2021 金属材料 拉伸试验 第1部分：室温试验方法",
+    "url": "https://www.doc88.com/p-28547615059922.html",
+    "category": "中国国家标准与强制性法规",
+    "bookmarkLocation": "工作",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-742c39553750",
+    "name": "首页 - 全国标准信息公共服务平台",
+    "url": "https://std.samr.gov.cn",
+    "category": "中国国家标准与强制性法规",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-31727a534539",
+    "name": "市场监管总局关于调整强制性产品认证目录内部分产品认证模式的公告",
+    "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/rzjgs/art/2026/art_28ba93dcb0414369863a9ac8e85ec6a6.html",
+    "category": "中国国家标准与强制性法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-0762b0b30cee",
+    "name": "GB 14167-2024 在线预览（国家标准全文公开系统）",
+    "url": "http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=21DD8BFD6059935369C02BB322D0C21D",
+    "category": "中国国家标准与强制性法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-3e2b21e00644",
+    "name": "国家标准|GB/T 10000-2023",
+    "url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=B19DCCA575D9406856ABF87A511EE11F",
+    "category": "中国国家标准与强制性法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-e6dda6627c8f",
+    "name": "GB强制性国家标准",
+    "url": "https://openstd.samr.gov.cn/bzgk/gb/std_list_type?p.p1=1&p.p90=circulation_date&p.p91=desc",
+    "category": "中国国家标准与强制性法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-ed7fd1278778",
+    "name": "中国国家认证认可监督管理委员会",
+    "url": "http://www.cnca.gov.cn",
+    "category": "中国国家标准与强制性法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-ba524ce04999",
+    "name": "标准网 - 免费国家标准查询、下载网站 - 标准网_www.biaozhun.org",
+    "url": "https://www.biaozhun.org",
+    "category": "中国国家标准与强制性法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-dd8089153d79",
+    "name": "工业和信息化部公告《汽车有害物质和可回收利用率管理要求》",
+    "url": "https://www.miit.gov.cn/jgsj/jns/gzdt/art/2020/art_6154448a8d3a4081893ddbd46cab4c2c.html?f_link_type=f_linkinlinenote&flow_extra=eyJpbmxpbmVfZGlzcGxheV9wb3NpdGlvbiI6MCwiZG9jX3Bvc2l0aW9uIjowLCJkb2NfaWQiOiIxOTYzZjViMWNkMjczN2EyLWQ3MTdiODhhZDEzN2UzMjIifQ%3D%3D",
+    "category": "中国国家标准与强制性法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-f62c28ddaab6",
+    "name": "强制性国家标准全文公开系统（GB 688）",
+    "url": "http://www.gb688.cn/bzgk/gb/std_list_type?p.p1=1&p.p90=circulation_date&p.p91=desc",
+    "category": "中国国家标准与强制性法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-7e8df03c7f27",
+    "name": "GB 13057—2003　客车座椅及其车辆固定件的强度",
+    "url": "http://www.autoinfo.gov.cn/autoinfo_cn/hybz/gb/lsan/webinfo/2003/01/1177670442482527.htm",
+    "category": "中国国家标准与强制性法规",
+    "bookmarkLocation": "工作",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-04c50911ee83",
+    "name": "eCFR :: 49 CFR Subtitle B -- Other Regulations Relating to Transportation",
+    "url": "https://www.ecfr.gov/current/title-49/subtitle-B",
+    "category": "美国联邦机动车安全法规",
+    "bookmarkLocation": "技术",
+    "monitoringMode": "automated",
+    "adapterId": "ecfr"
+  },
+  {
+    "id": "src-abeec1296dc2",
+    "name": "FMVSS查询",
+    "url": "https://www.govinfo.gov",
+    "category": "美国联邦机动车安全法规",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-92f69b114c87",
+    "name": "eCFR :: 49 CFR Part 572 -- Anthropomorphic Test Devices",
+    "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-572?toc=1",
+    "category": "美国联邦机动车安全法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "automated",
+    "adapterId": "ecfr"
+  },
+  {
+    "id": "src-5e33e3d84e53",
+    "name": "Guidance Documents | NHTSA",
+    "url": "https://www.nhtsa.gov/laws-regulations/guidance-documents",
+    "category": "美国联邦机动车安全法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-3d61b2450384",
+    "name": "Regulations.gov",
+    "url": "https://www.regulations.gov/document/NHTSA-2006-26555-0114",
+    "category": "美国联邦机动车安全法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-a938110b7b9a",
+    "name": "Federal Register  Toyota Motor Engineering &amp; Manufacturing North America, Inc., Grant of Petition for Decision of Inconse",
+    "url": "https://www.federalregister.gov/documents/2018/03/14/2018-05136/toyota-motor-engineering-and-manufacturing-north-america-inc-grant-of-petition-for-decision-of",
+    "category": "美国联邦机动车安全法规",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-998c7255b8ff",
+    "name": "Regulations | NHTSA",
+    "url": "https://www.nhtsa.gov/laws-regulations/fmvss",
+    "category": "美国联邦机动车安全法规",
+    "bookmarkLocation": "技术",
+    "monitoringMode": "automated",
+    "adapterId": "nhtsa"
+  },
+  {
+    "id": "src-156880a821e2",
+    "name": "车辆、轮胎和儿童汽车安全座椅的安全标准",
+    "url": "https://tc.canada.ca/en/road-transportation/safety-standards-vehicles-tires-child-car-seats",
+    "category": "加拿大机动车安全法规",
+    "bookmarkLocation": "其他收藏夹",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-71e08ef4fbc5",
+    "name": "Motor Vehicle Safety Regulations (C.R.C., c. 1038)",
+    "url": "https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038",
+    "category": "加拿大机动车安全法规",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-555fab194e45",
+    "name": "Motor Vehicle Safety Regulations (C.R.C., c. 1038): Regulatory change",
+    "url": "https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change",
+    "category": "加拿大机动车安全法规",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "automated",
+    "adapterId": "transport-canada"
+  },
+  {
+    "id": "src-5235afbf8862",
+    "name": "CMVSS - Motor Vehicle Safety Regulations",
+    "url": "https://laws-lois.justice.gc.ca/eng/regulations/C.R.C.,_c._1038/FULLText.html",
+    "category": "加拿大机动车安全法规",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-11c47c3b10eb",
+    "name": "Motor Vehicle Safety Regulations",
+    "url": "https://laws-lois.justice.gc.ca/eng/regulations/C.R.C.%2C_c._1038/page-11.html",
+    "category": "加拿大机动车安全法规",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-ff0bc2db8802",
+    "name": "Safety standards for vehicles",
+    "url": "https://tc.canada.ca/en/road-transportation/safety-standards-vehicles-tires-child-car-seats/safety-standards-vehicles",
+    "category": "加拿大机动车安全法规",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-2a33f2232847",
+    "name": "Current Australian Design Rules | Department of Infrastructure, Transport, Regional Development, Communications and the Arts",
+    "url": "https://www.infrastructure.gov.au/infrastructure-transport-vehicles/vehicles/vehicle-design-regulation/australian-design-rules/third-edition",
+    "category": "澳大利亚设计规则",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-732cd39a4d82",
+    "name": "Vehicle Standard (Australian Design Rule 34-03 – Child Restraint Anchorages and Child Restraint Anchor Fittings) 2017",
+    "url": "https://www.legislation.gov.au/Details/F2017L01351",
+    "category": "澳大利亚设计规则",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-1873d386811a",
+    "name": "印度标准局",
+    "url": "https://www.bis.gov.in",
+    "category": "亚太其他国家与地区",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-5fcfdb203107",
+    "name": "现行法律 > 法令案文 > 자동차 및 자동차부품의 성능과 기준에 관한 규칙 | 국가법령정보센터",
+    "url": "https://law.go.kr/lsSc.do?menuId=1&subMenuId=15&tabMenuId=81&query=",
+    "category": "亚太其他国家与地区",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-bc91515b49eb",
+    "name": "法律>现行法律>法律法规 |国家法律法规信息中心",
+    "url": "https://www.law.go.kr/lsSc.do?menuId=1&subMenuId=15&tabMenuId=81&query=",
+    "category": "亚太其他国家与地区",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-0a6fc576b9f5",
+    "name": "JIS D4701-1988 scan_北极星标准文库",
+    "url": "https://www.bjxwk.com/doc/222011",
+    "category": "亚太其他国家与地区",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-cd643aadb79a",
+    "name": "Automotive Industry Standards (AIS) – Official Downloads | ARAI",
+    "url": "https://www.araiindia.com/downloads/ais-downloads",
+    "category": "亚太其他国家与地区",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-36c1034c300d",
+    "name": "JISC-Japanese Industrial Standards Committee",
+    "url": "https://www.jisc.go.jp/eng/index.html",
+    "category": "亚太其他国家与地区",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-0b5e233ee3e5",
+    "name": "AIS Regulations, Automotive Industry Regulations in India",
+    "url": "https://icat.in/information/ais",
+    "category": "亚太其他国家与地区",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-bbd557e72685",
+    "name": "越南标准Quy chuẩn QCVN 09:2011/BGTVT Chất lượng an toàn kỹ thuật, BVMT với ô tô",
+    "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-09-2011-bgtvt-chat-luong-an-toan-ky-thuat-bvmt-voi-o-to-161274-d3.html",
+    "category": "亚太其他国家与地区",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-b37190f3d87d",
+    "name": "Automotive Research And Development, Automotive Service Provider, India, Vehicle Type Certification, Automotive Testing And Calibration, Vehicle Design Labs, Advanced Automotive Design Standards, Automotive Engineering Course",
+    "url": "https://www.araiindia.com/downloads",
+    "category": "亚太其他国家与地区",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-fb10ceadcc5f",
+    "name": "印度 AIS-145 及修正案（PDF）",
+    "url": "https://hmr.araiindia.com/api/AISFiles/7_AIS_145%20and%20Amds_124e76b4-2435-4fd7-a605-0d31ef1accaa.pdf",
+    "category": "亚太其他国家与地区",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-6605743440c6",
+    "name": "香港第374F章 《道路交通(安全装备)规例》 - Cap. 374F Road Traffic (Safety Equipment) Regulations",
+    "url": "https://www.elegislation.gov.hk/hk/cap374F!en-sc?xpid=ID_1438403126612_001&INDEX_CS=N",
+    "category": "亚太其他国家与地区",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-8fd8b0697641",
+    "name": "http--www.mt.gov.vn-Images-FileVanBan-_QCVN09.signed.pdf",
+    "url": "http://www.mt.gov.vn/Images/FileVanBan/_QCVN09.signed.pdf",
+    "category": "亚太其他国家与地区",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-9b088441480b",
+    "name": "墨西哥汽车安全框架性法规NOM-194-SE-2021发布_汽车检测行业资讯__汽车测试网",
+    "url": "https://www.auto-testing.net/news/show-112252.html",
+    "category": "全球法规指南与其他市场",
+    "bookmarkLocation": "其他收藏夹",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-3153b5cd675b",
+    "name": "墨西哥轻型车安全框架法规NOM-194-SE-2021发布",
+    "url": "https://www.atic-zh.com/%e3%80%90%e6%b3%b0%e6%b5%8b%ef%bd%9c%e6%b3%95%e8%a7%84%e8%bf%bd%e8%b8%aa%e3%80%91%e5%a2%a8%e8%a5%bf%e5%93%a5%e8%bd%bb%e5%9e%8b%e8%bd%a6%e5%ae%89%e5%85%a8%e6%a1%86%e6%9e%b6%e6%b3%95%e8%a7%84nom-194-se",
+    "category": "全球法规指南与其他市场",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-8cd97eb51c50",
+    "name": "世界各地汽车法规目录Automotive Regulatory Guide – 2022 - ACEA - European Automobile Manufacturers' Association",
+    "url": "https://www.acea.auto/publication/automotive-regulatory-guide-2022",
+    "category": "全球法规指南与其他市场",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-7e1c68e89540",
+    "name": "Automotive Regulatory Guide – 2023 - ACEA - European Automobile Manufacturers' Association",
+    "url": "https://www.acea.auto/publication/automotive-regulatory-guide-2023",
+    "category": "全球法规指南与其他市场",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-7d81ae99db48",
+    "name": "GCC认证检测标准清单2007GSO 海湾车车辆认证GCC 澳德检测技术开发",
+    "url": "http://www.ceaode.com/www/hylb/jdc/gcc/html/148.html",
+    "category": "全球法规指南与其他市场",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-a9755270960d",
+    "name": "基于海湾标准化组织（GSO）海湾标准的技术法规。所有通报的文件均为英语的。机动车辆：冲击强度测试方法第2部分：移动障碍物后部碰撞 - 技术壁垒资源网",
+    "url": "http://www.tbtmap.cn/portal/tbt/detail.jsf?id=7619364",
+    "category": "全球法规指南与其他市场",
+    "bookmarkLocation": "技术",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-144d608a9c70",
+    "name": "K-NCAP 韩国新车评价规程官网",
+    "url": "https://www.kncap.org/indexNew.jsp",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "技术",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-719b37eb882e",
+    "name": "LATIN NCAP - Our tests",
+    "url": "https://www.latinncap.com/en/our-tests",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-40dda9b63936",
+    "name": "Crash Test Assessment & Rating Protocols | ANCAP Testing Policies",
+    "url": "https://www.ancap.com.au/protocols-and-policies",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-8e547acf4788",
+    "name": "中国新车评价规程（C-NCAP）官方网站",
+    "url": "http://www.c-ncap.org.cn",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-e01e9e75574e",
+    "name": "中国保险汽车安全指数",
+    "url": "http://www.ciasi.org.cn",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-1ae66054c509",
+    "name": "Euro NCAP官网",
+    "url": "http://www.euroncap.com/home.aspx",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-4c404891a7be",
+    "name": "ANCAP官网",
+    "url": "https://www.ancap.com.au",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-8478fe7aa9b2",
+    "name": "JNCAP_Protect｜National agency for Automotive Safety & Victim's Aid",
+    "url": "https://www.nasva.go.jp/mamoru/en",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-3a95d73ae12b",
+    "name": "J-NCAP儿童座椅安装",
+    "url": "https://www.nasva.go.jp/mamoru/en/assessment_child/use_test.html",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-161b56563ab3",
+    "name": "NHTSA 美国国家公路交通安全管理局（US NCAP）官网",
+    "url": "https://www.nhtsa.gov",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-75bb1fa32393",
+    "name": "东南亚The Ratings Explained – Aseancap",
+    "url": "http://www.aseancap.org",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-4e2310ed3077",
+    "name": "IIHS官网协议_IIHS Test protocols and technical information",
+    "url": "https://www.iihs.org/ratings/about-our-tests/test-protocols-and-technical-information",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-9c34d31ce188",
+    "name": "Global NCAP官网",
+    "url": "https://www.globalncap.org/car-ratings",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-f2dbb901f4f9",
+    "name": "Collision Safety Performance Tests / National agency for Automotive Safety & Victim's Aid",
+    "url": "https://www.nasva.go.jp/mamoru/en/assessment_car/crackup_test.html",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-ca6d1f940847",
+    "name": "IIHS LATCH 儿童座椅固定装置试验规程（PDF）",
+    "url": "https://www.iihs.org/media/836d8002-3dd0-489a-8d0e-57790db3b3d7/iw0pnw/Ratings/Protocols/current/LATCH_protocol.pdf",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-319965c4b8da",
+    "name": "U-NCAP 美国 NHTSA 新车评价规程",
+    "url": "https://www.nhtsa.gov/ratings",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-dc586460da5c",
+    "name": "Euro NCAP | What's New?",
+    "url": "https://www.euroncap.com/en/for-engineers",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-427c06ecad1a",
+    "name": "C-NCAP官方网站|技术规程",
+    "url": "http://www.c-ncap.org.cn/guicheng/cncap?columnId=cb6014a591dd4b2fb7192367fec9012b&childindex=1",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-ae4af2d5c834",
+    "name": "J-NCAP Download / National agency for Automotive Safety & Victims' Aid",
+    "url": "https://www.nasva.go.jp/mamoru/en/download/car_download.html",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-e5cc0e508bd1",
+    "name": "JNCAP 2023 评价结果与试验方法说明（PDF）",
+    "url": "https://www.nasva.go.jp/mamoru/en/download/2023_en.pdf",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-3c45dbc3fac2",
+    "name": "首頁 - TNCAP",
+    "url": "https://www.tncap.org.tw",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-02339cf87211",
+    "name": "C-NCAP官方网站",
+    "url": "http://c-ncap.org/C-NCAP/index.htm",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-c9091138ddfe",
+    "name": "Euro NCAP  The European New Car Assessment Programme",
+    "url": "https://www.euroncap.com/en",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "技术",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-b2b823f8d57b",
+    "name": "RCAR  About RCAR",
+    "url": "http://www.rcar.org/About/About_RCAR.htm",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "技术",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-56e345224d6d",
+    "name": "thatcham.org  Safety  New Car Whiplash Ratings",
+    "url": "http://www.thatcham.org/ncwr",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "技术",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-6c395f27fd6d",
+    "name": "中国新车评价规程（C-NCAP）官方网站",
+    "url": "http://www.c-ncap.org/content/pzjg/Alcyc.htm",
+    "category": "全球新车评价规程与保险安全指数",
+    "bookmarkLocation": "技术",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-db4e3741f7ef",
+    "name": "ISO 1798:2008 - Flexible cellular polymeric materials — Determination of tensile strength and elongation at break",
+    "url": "https://www.iso.org/standard/41059.html",
+    "category": "国际与行业标准文本",
+    "bookmarkLocation": "技术",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-512c239eca25",
+    "name": "The Mission of SAE International is to advance mobility knowledge and solutions",
+    "url": "https://www.sae.org",
+    "category": "标准组织、标准检索与检测认证机构",
+    "bookmarkLocation": "收藏夹栏",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-54f4f9507153",
+    "name": "Standardization - VDA",
+    "url": "https://www.vda.de/en/association/departments/department-standardization/standardization.html",
+    "category": "标准组织、标准检索与检测认证机构",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-b363ce3d26ef",
+    "name": "中国质量标准出版传媒有限公司",
+    "url": "http://webstore.spc.net.cn/produce/showonebook.asp?strid=121518",
+    "category": "标准组织、标准检索与检测认证机构",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-393043c8755e",
+    "name": "中国汽车健康指数",
+    "url": "http://c-ahi.caeri.com.cn/download/detail?type=1",
+    "category": "标准组织、标准检索与检测认证机构",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-7dd4393c19de",
+    "name": "CATARC标志认证",
+    "url": "https://www.catarc-cert.cn/h-col-137.html",
+    "category": "标准组织、标准检索与检测认证机构",
+    "bookmarkLocation": "标准网站",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-c9d03cba8545",
+    "name": "国家轿车质量监督检验中心",
+    "url": "http://www.tatc.com.cn/html/zxkx.html",
+    "category": "标准组织、标准检索与检测认证机构",
+    "bookmarkLocation": "舒适性分析",
+    "monitoringMode": "catalogued"
+  },
+  {
+    "id": "src-f2b8382ea3aa",
+    "name": "检测机构专题 - 中机车辆技术服务中心",
+    "url": "http://www.cvtsc.org.cn/cvtsc/zhxx/409.htm",
+    "category": "标准组织、标准检索与检测认证机构",
+    "bookmarkLocation": "其他收藏夹",
+    "monitoringMode": "catalogued"
+  }
+]

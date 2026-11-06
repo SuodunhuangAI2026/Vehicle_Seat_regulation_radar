@@ -1,0 +1,27 @@
+{
+  "isMaterialChange": true,
+  "changeType": "revision",
+  "titleZh": "UN R17 头枕要求更新观察",
+  "summaryZh": "官方列表显示版本记录发生变化，具体条款和试验方法仍须核对原文。",
+  "oldVersion": "Rev.7",
+  "newVersion": "Rev.8",
+  "publicationDate": null,
+  "commentStart": null,
+  "commentEnd": null,
+  "approvalDate": null,
+  "effectiveDate": null,
+  "transitionEnd": null,
+  "repealDate": null,
+  "impactedDesignAreas": ["头枕"],
+  "impactedTestMethods": ["待官方原文核验"],
+  "recommendedActions": ["打开官方来源核对版本与条款"],
+  "evidence": [
+    {
+      "label": "UNECE official listing",
+      "url": "https://unece.org/transport/vehicle-regulations/1958-agreement/r17",
+      "quote": "Revision 8"
+    }
+  ],
+  "confidence": "medium",
+  "needsHumanReview": true
+}

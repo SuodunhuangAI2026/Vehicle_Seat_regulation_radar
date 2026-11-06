@@ -1,0 +1,24 @@
+:root {
+  color-scheme: light;
+  --paper: #f3f0e8;
+  --paper-raised: #fbf9f3;
+  --ink: #13232d;
+  --navy: #173d54;
+  --steel: #56717c;
+  --orange: #e65a2e;
+  --green: #2f725f;
+  --red: #b33a2b;
+  --amber: #c68a2b;
+  --line: rgba(19, 35, 45, 0.14);
+  --line-strong: rgba(19, 35, 45, 0.28);
+  --shadow: 0 24px 60px rgba(23, 61, 84, 0.12);
+  --serif: "Iowan Old Style", Baskerville, Georgia, "Noto Serif SC",
+    "Source Han Serif SC", "Songti SC", STSong, SimSun, serif;
+  --sans: Aptos, "IBM Plex Sans", "PingFang SC", "Microsoft YaHei",
+    "Noto Sans CJK SC", sans-serif;
+  --mono: "IBM Plex Mono", "Cascadia Mono", SFMono-Regular, Consolas,
+    monospace;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+}

@@ -1,0 +1,17 @@
+{
+  "standards": {
+    "visibleRows": 141,
+    "summaryRows": 107,
+    "workbookReportedDocuments": 155,
+    "workbookReportedIdentifiers": 111
+  },
+  "sources": {
+    "extractedUrls": 92,
+    "sectionReportedItems": 117
+  },
+  "notes": [
+    "统计页面与可见明细的文档数不一致，页面同时保留两个口径。",
+    "信源文档部分栏目标注数量高于实际可提取链接数，未虚构补齐。",
+    "标准数据导入时间：2026-11-05T14:33:17.533Z"
+  ]
+}
