@@ -130,5 +130,55 @@
     "reviewStatus": "draft",
     "model": "library-observation",
     "promptVersion": "seed-v1"
+  },
+  {
+    "id": "chg-b7bc7d89014385",
+    "standardIds": [],
+    "standardNumbers": [],
+    "title": "《机动车安全法规》（C.R.C., c. 1038）监管变更",
+    "system": "CMVSS",
+    "issuer": "Transport Canada",
+    "changeType": "amendment",
+    "severity": "unassessed",
+    "detectedAt": "2026-11-07T00:48:51.774Z",
+    "summaryZh": "官方“Regulatory change”页面显示该法规存在3项版本变化记录：2020年10月21日启动的“更新法规以现代化并加强加拿大机动车安全”条目，标注SOR/2024-274，日期为2025年1月1日；2025年7月23日“《机动车安全法》（MVSA）下的多项法规变更”；2026年1月30日“《机动车安全法》（MVSA）下的多项法规变更”。证据未提供任何具体条款、座椅相关技术要求、试验方法或过渡期内容，涉及M1座椅总成、骨架、滑轨、固定点、ISOFIX、头枕、安全带约束的影响待官方原文核验。",
+    "impactedDesignAreas": [
+      "待官方原文核验（证据未涉及座椅总成、骨架、滑轨、固定点、ISOFIX、头枕、安全带约束等具体设计领域）"
+    ],
+    "impactedTestMethods": [
+      "待官方原文核验（证据未涉及任何试验方法）"
+    ],
+    "recommendedActions": [
+      "获取并核验SOR/2024-274及相关法规变更的官方原文，确认是否涉及M1座椅相关要求",
+      "核验2025年7月23日与2026年1月30日两项法规变更的具体内容与适用范围",
+      "在官方原文确认前，不对现有座椅设计、试验或认证状态作任何调整结论"
+    ],
+    "evidence": [
+      {
+        "label": "Regulatory change 页面：版本变化条目1",
+        "url": "https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change",
+        "quote": "[版本变化] October 21, 2020 | https://tc.canada.ca/en/corporate-services/consultations/updating-regulations-modernize-strengthen-motor-vehicle-safety-canadians | Updating regulations to modernize and strengthen motor vehicles safety for CanadiansOctober 21, 2020June 17, 2023SOR/2024-274 - January 01, 2025"
+      },
+      {
+        "label": "Regulatory change 页面：版本变化条目2",
+        "url": "https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change",
+        "quote": "[版本变化] July 23, 2025 | https://tc.canada.ca/en/corporate-services/consultations/various-changes-motor-vehicle-safety-regulations-mvsr-2025 | Various changes to the regulations under the Motor Vehicle Safety Act (MVSA)July 23, 2025 & January 30, 2026"
+      },
+      {
+        "label": "Regulatory change 页面：版本变化条目3",
+        "url": "https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change",
+        "quote": "[版本变化] January 30, 2026 | https://tc.canada.ca/en/corporate-services/consultations/various-changes-regulations-under-motor-vehicle-safety-act-mvsa-2026 | Various changes to the regulations under the Motor Vehicle Safety Act (MVSA)July 23, 2025 & January 30, 2026"
+      },
+      {
+        "label": "Regulatory change 页面：抓取摘要",
+        "url": "https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change",
+        "quote": "抓取摘要：Acts and regulations | List of regulations | Motor Vehicle Safety Regulations (C.R.C., c. 1038) | About the regulations | October 21, 2020 | July 23, 2025 | January 30, 2026"
+      }
+    ],
+    "confidence": "low",
+    "reviewStatus": "draft",
+    "model": "deepseek-chat",
+    "promptVersion": "seats-v1",
+    "reportPath": "reports/2026-11-07-chg-b7bc7d89014385.html"
   }
 ]
