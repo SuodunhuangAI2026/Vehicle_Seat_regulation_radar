@@ -4,7 +4,7 @@
     "src-04c50911ee83": {
       "sourceId": "src-04c50911ee83",
       "sourceUrl": "https://www.ecfr.gov/current/title-49/subtitle-B",
-      "fetchedAt": "2026-11-08T00:48:46.241Z",
+      "fetchedAt": "2026-11-09T00:50:56.581Z",
       "hash": "2599a4a1893ac07ddef535c7cd8c1f7bf5451332ad4207480ee48ff061cf9938",
       "title": "eCFR :: 49 CFR Subtitle B -- Other Regulations Relating to Transportation",
       "items": [
@@ -624,7 +624,7 @@
     "src-92f69b114c87": {
       "sourceId": "src-92f69b114c87",
       "sourceUrl": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-572?toc=1",
-      "fetchedAt": "2026-11-08T00:48:48.783Z",
+      "fetchedAt": "2026-11-09T00:51:02.562Z",
       "hash": "b042a1eb7d4780eb24d1cb452fb2c1bc3b452c950517e2ecc916d93a9356a30f",
       "title": "eCFR :: 49 CFR Part 572 -- Anthropomorphic Test Devices",
       "items": [
@@ -1587,7 +1587,7 @@
     "src-998c7255b8ff": {
       "sourceId": "src-998c7255b8ff",
       "sourceUrl": "https://www.nhtsa.gov/laws-regulations/fmvss",
-      "fetchedAt": "2026-11-08T00:48:49.565Z",
+      "fetchedAt": "2026-11-09T00:51:03.928Z",
       "hash": "65328bb91bdbdf47a7178c90b6ee6cf92d465c36e69352a3047e7ed0beffa77e",
       "title": "Regulations | NHTSA",
       "items": [
@@ -2216,13 +2216,13 @@
         }
       ],
       "excerpt": "571.1 Scope. | 571.3 Definitions. | 571.4 Explanation of usage. | 571.5 Matter incorporated by reference. | 571.7 Applicability. | 571.8 Effective date. | 571.9 Separability. | 571.10 Designation of seating positions. | 571.101 Standard No. 101; Controls and displays. | 571.102 Standard No. 102; Transmission shift position sequence, starter interlock, and transmission braking effect. | 571.103 Standard No. 103; Windshield defrosting and defogging systems. | 571.104 Standard No. 104; Windshield wiping and washing systems. | 571.105 Standard No. 105; Hydraulic and electric brake systems. | 571.106 Standard No. 106; Brake hoses. | 571.107",
-      "lastModified": "Tue, 11 Aug 2026 18:16:54 GMT",
+      "lastModified": "Sun, 08 Nov 2026 01:42:29 GMT",
       "warning": "NHTSA 页面无法自动读取（HTTP 403 Forbidden for https://www.nhtsa.gov/laws-regulations/fmvss），本轮使用美国 GPO 2025 版 49 CFR Part 571 XML 作官方备份。"
     },
     "src-555fab194e45": {
       "sourceId": "src-555fab194e45",
       "sourceUrl": "https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change",
-      "fetchedAt": "2026-11-08T00:48:50.644Z",
+      "fetchedAt": "2026-11-09T00:51:05.085Z",
       "hash": "f58a3dfb78ffbf032b9697dc5a5c0e49b177064573ea30db25e73583a5dedd86",
       "title": "Motor Vehicle Safety Regulations (C.R.C., c. 1038): Regulatory change",
       "items": [
