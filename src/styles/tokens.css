@@ -1,3 +1,27 @@
+@font-face {
+  font-family: 'SiteSerif';
+  src: local('Times New Roman'), local('TimesNewRomanPSMT');
+  unicode-range: U+0041-005A, U+0061-007A;
+}
+
+@font-face {
+  font-family: 'SiteSerif';
+  src: local('宋体'), local('SimSun'), local('STSong'), local('Songti SC');
+  unicode-range: U+0030-0039, U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: 'SiteSans';
+  src: local('Times New Roman'), local('TimesNewRomanPSMT');
+  unicode-range: U+0041-005A, U+0061-007A;
+}
+
+@font-face {
+  font-family: 'SiteSans';
+  src: local('宋体'), local('SimSun'), local('STSong'), local('Songti SC');
+  unicode-range: U+0030-0039, U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
+}
+
 :root {
   color-scheme: light;
   --paper: #f3f0e8;
@@ -12,8 +36,8 @@
   --line: rgba(19, 35, 45, 0.14);
   --line-strong: rgba(19, 35, 45, 0.28);
   --shadow: 0 24px 60px rgba(23, 61, 84, 0.12);
-  --serif: "宋体", SimSun, STSong, "Songti SC", serif;
-  --sans: "宋体", SimSun, STSong, "Songti SC", sans-serif;
+  --serif: 'SiteSerif', serif;
+  --sans: 'SiteSans', sans-serif;
   --mono: "IBM Plex Mono", "Cascadia Mono", SFMono-Regular, Consolas,
     monospace;
   --radius-sm: 10px;
