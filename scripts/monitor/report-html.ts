@@ -215,6 +215,7 @@ export function renderReportHtml(change: RegulationChange): string {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23173d54'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23f8f5ed' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23e65a2e'/%3E%3C/svg%3E">
   <title>${escapeHtml(change.title)} · SeatScope 审核稿</title>
   <style>
     :root {

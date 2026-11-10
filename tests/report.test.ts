@@ -150,6 +150,7 @@ it("escapes model and source text in standalone report HTML", () => {
   });
   expect(html).not.toContain('<script>alert("x")</script>');
   expect(html).toContain("&lt;script&gt;");
+  expect(html).toContain('rel="icon"');
   expect(escapeHtml(`<a href="'">`)).toBe(
     "&lt;a href=&quot;&#39;&quot;&gt;",
   );
