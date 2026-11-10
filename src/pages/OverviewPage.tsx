@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { ChangeCard } from "../components/ChangeCard";
 import { DataQualityNote } from "../components/DataQualityNote";
 import { MetricCard } from "../components/MetricCard";
@@ -38,12 +39,6 @@ function sourceStatusCounts(health: SourceHealth[]) {
     },
     { unchanged: 0, changed: 0, failed: 0, skipped: 0 },
   );
-}
-
-function tickerSequence(items: NewsFeedItem[]): NewsFeedItem[] {
-  if (items.length === 0) return [];
-  const repeat = Math.max(2, Math.ceil(8 / items.length));
-  return Array.from({ length: repeat }, () => items).flat();
 }
 
 export function OverviewPage({
@@ -111,7 +106,18 @@ export function OverviewPage({
       : [...newsfeed]
           .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
           .slice(0, 5);
-  const topNewsSequence = tickerSequence(topNews);
+
+  const [activeNews, setActiveNews] = useState(0);
+  const newsTimer = useRef<number | null>(null);
+  useEffect(() => {
+    newsTimer.current = window.setInterval(() => {
+      setActiveNews((current) => (topNews.length ? (current + 1) % topNews.length : 0));
+    }, 5000);
+    return () => {
+      if (newsTimer.current !== null) window.clearInterval(newsTimer.current);
+    };
+  }, [topNews.length]);
+  const currentNews = topNews[activeNews];
 
   const topKnowledge = [...knowledge]
     .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
@@ -171,34 +177,50 @@ export function OverviewPage({
       </section>
 
       {topNews.length > 0 && (
-        <section className="news-ticker" aria-label="变化报告">
-          <div className="news-ticker-track">
-            {[false, true].map((clone) => (
-              <div
-                className="news-ticker-copy"
-                data-clone={clone ? "true" : "false"}
-                aria-hidden={clone ? true : undefined}
-                key={clone ? "clone" : "primary"}
-              >
-                {topNewsSequence.map((item, index) => (
+        <section className="news-carousel" aria-label="变化报告头条">
+          {topNews.length > 0 && (
+            <>
+              <div className="news-carousel-current">
+                <div className="news-carousel-head">
+                  <span className="eyebrow">Change headlines</span>
+                  <StatusBadge value={currentNews.severity} />
+                </div>
+                <Link to={currentNews.href}>
+                  <h2>{currentNews.title}</h2>
+                </Link>
+                <p>{formatDateTime(currentNews.updatedAt)}</p>
+                <div className="news-dots" aria-label="轮播指示器">
+                  {topNews.map((item, index) => (
+                    <button
+                      key={`${item.id}-${item.title}`}
+                      type="button"
+                      className={index === activeNews ? "is-active" : ""}
+                      aria-label={`显示第 ${index + 1} 条变化报告`}
+                      aria-current={index === activeNews ? "true" : undefined}
+                      onClick={() => setActiveNews(index)}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="news-carousel-side" aria-label="其他变化报告">
+                {topNews.slice(1).map((item, index) => (
                   <Link
-                    key={`${clone ? "clone" : "primary"}-${item.id}-${index}`}
+                    key={`${item.id}-${item.title}`}
                     to={item.href}
-                    className="news-ticker-item"
-                    aria-hidden={
-                      clone || index >= topNews.length ? true : undefined
+                    className={
+                      index + 1 === activeNews ? "is-active" : undefined
                     }
-                    tabIndex={
-                      clone || index >= topNews.length ? -1 : undefined
-                    }
+                    onClick={() => setActiveNews(index + 1)}
                   >
-                    <StatusBadge value={item.severity} />
-                    <span className="news-ticker-title">{item.title}</span>
+                    <span>
+                      <StatusBadge value={item.severity} />
+                    </span>
+                    <b>{item.title}</b>
                   </Link>
                 ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
         </section>
       )}
 

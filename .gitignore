@@ -9,3 +9,4 @@ dist/
 monitor/tmp/
 output/
 .playwright-cli/
+.tmp/

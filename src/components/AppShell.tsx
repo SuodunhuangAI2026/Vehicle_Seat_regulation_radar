@@ -34,6 +34,10 @@ export function AppShell({ children }: { children: ReactNode }) {
             </NavLink>
           ))}
         </nav>
+        <aside className="site-header-aside" aria-label="监控状态">
+          <span className="live-dot" />
+          <span>每周三 06:30 自动抓取</span>
+        </aside>
       </header>
       <main id="main-content">{children}</main>
       <footer className="site-footer">

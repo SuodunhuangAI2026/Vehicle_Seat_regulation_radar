@@ -35,8 +35,8 @@ it("renders metrics, source health, and the latest change", () => {
   expect(screen.getByText("监控数据已载入")).toBeInTheDocument();
 });
 
-it("duplicates the five-item change ticker for a seamless loop", () => {
-  const changes = Array.from({ length: 6 }, (_, index) => ({
+it("shows one active change headline and clickable dots for up to five items", () => {
+  const changes = Array.from({ length: 5 }, (_, index) => ({
     ...sampleChanges[0],
     id: `change-${index}`,
     title: `变化报告 ${index + 1}`,
@@ -57,15 +57,8 @@ it("duplicates the five-item change ticker for a seamless loop", () => {
     </MemoryRouter>,
   );
 
-  const copies = container.querySelectorAll(".news-ticker-copy");
-  expect(copies).toHaveLength(2);
-  expect(copies[0].querySelectorAll(".news-ticker-item")).toHaveLength(10);
-  expect(copies[0].querySelectorAll("a:not([aria-hidden])")).toHaveLength(5);
-  expect(copies[1].getAttribute("aria-hidden")).toBe("true");
-  expect(copies[1].querySelectorAll('a[tabindex="-1"]')).toHaveLength(10);
-  expect(
-    [...copies[0].querySelectorAll(".news-ticker-title")].some(
-      (item) => item.textContent === "变化报告 1",
-    ),
-  ).toBe(false);
+  expect(container.querySelectorAll(".news-carousel")).toHaveLength(1);
+  expect(container.querySelectorAll(".news-dots button")).toHaveLength(5);
+  const heading = container.querySelector(".news-carousel h2")?.textContent ?? "";
+  expect(/^变化报告 [1-5]$/.test(heading)).toBe(true);
 });

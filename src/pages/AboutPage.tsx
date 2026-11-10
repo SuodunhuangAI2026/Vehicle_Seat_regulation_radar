@@ -75,10 +75,11 @@ export function AboutPage({
       <section className="admin-entry">
         <div>
           <span className="eyebrow">Lightweight JSON management</span>
-          <h2>管理员：编辑数据并导出 JSON</h2>
+          <h2>轻量管理台：编辑数据并导出 JSON</h2>
           <p>
             标准、信源、法规小知识和首页变化报告均通过 JSON 维护。
-            修改后导出文件、提交 Git，即可由 GitHub Actions 自动构建部署。
+            该页面供任何访客查看和编辑草稿，但没有直接写库权限；
+            只有克隆仓库并拥有 GitHub 写权限的人，才能真正提交并触发部署。
           </p>
         </div>
         <Link className="button button-primary" to="/admin">
