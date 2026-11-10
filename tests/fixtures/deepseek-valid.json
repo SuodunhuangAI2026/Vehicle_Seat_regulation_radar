@@ -23,5 +23,20 @@
     }
   ],
   "confidence": "medium",
-  "needsHumanReview": true
+  "needsHumanReview": true,
+  "comparison": {
+    "status": "complete",
+    "sections": [
+      {
+        "section": "头枕位置要求",
+        "clause": "7.2",
+        "changeType": "modified",
+        "oldText": "头枕高度应保持在合适位置。",
+        "newText": "头枕高度和前后位置应保持在合适位置。",
+        "impactZh": "需要复核头枕调节范围与测量方法。",
+        "confidence": "medium"
+      }
+    ],
+    "limitations": ["仅比较已提取的公开原文片段。"]
+  }
 }

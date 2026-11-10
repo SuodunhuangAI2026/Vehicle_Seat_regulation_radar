@@ -5,7 +5,6 @@ const links = [
   ["/", "总览"],
   ["/changes", "变更雷达"],
   ["/standards", "标准库"],
-  ["/sources", "信源中心"],
   ["/reports", "审核稿"],
   ["/about", "方法与说明"],
 ] as const;

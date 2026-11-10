@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { DataQualityNote } from "../components/DataQualityNote";
 import { StatusBadge } from "../components/StatusBadge";
 import { formatDateTime } from "../lib/format";
@@ -21,12 +22,12 @@ const pipeline = [
   {
     number: "03",
     title: "对比",
-    text: "比较稳定条目键、版本与内容哈希，只把发生变化的证据交给 DeepSeek，避免让模型猜测未提供的条款。",
+    text: "先比较稳定条目键、版本与内容哈希，再下载可访问的新旧公开原文并提取文本；原文不可解析时只标记失败，不生成条款结论。",
   },
   {
     number: "04",
     title: "校验",
-    text: "DeepSeek 必须返回严格 JSON，并由 Zod 校验。日期不明确时要求 null；格式错误或字段越界时拒绝模型输出。",
+    text: "DeepSeek 必须返回严格 JSON，并由 Zod 和原文逐字比对双重校验。日期不明确时要求 null；引用不在原文中或字段越界时拒绝输出。",
   },
   {
     number: "05",
@@ -66,10 +67,24 @@ export function AboutPage({
         </div>
         <div className="method-stamp">
           <span>PROMPT</span>
-          <b>{meta.promptVersion ?? "seats-v1"}</b>
+          <b>{meta.promptVersion ?? "seats-v2"}</b>
           <small>{meta.model ?? "deepseek-chat"}</small>
         </div>
       </header>
+
+      <section className="admin-entry">
+        <div>
+          <span className="eyebrow">Lightweight JSON management</span>
+          <h2>管理员：编辑数据并导出 JSON</h2>
+          <p>
+            标准、信源、法规小知识和首页变化报告均通过 JSON 维护。
+            修改后导出文件、提交 Git，即可由 GitHub Actions 自动构建部署。
+          </p>
+        </div>
+        <Link className="button button-primary" to="/admin">
+          打开轻量管理台
+        </Link>
+      </section>
 
       <section className="method-flow">
         {pipeline.map((step) => (
@@ -124,7 +139,7 @@ export function AboutPage({
             </div>
             <div>
               <dt>提示词版本</dt>
-              <dd>{meta.promptVersion ?? "seats-v1"}</dd>
+              <dd>{meta.promptVersion ?? "seats-v2"}</dd>
             </div>
           </dl>
         </section>

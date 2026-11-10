@@ -1,0 +1,740 @@
+[
+  {
+    "id": "std-65fc31d83507",
+    "standardNo": "FMVSS No.3",
+    "title": "定义（Definitions）",
+    "version": "2024",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-497077d6b8e2",
+    "standardNo": "FMVSS No.201",
+    "title": "乘员保护（Occupant protection）",
+    "version": "2024",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-152e2490420a",
+    "standardNo": "FMVSS No.208",
+    "title": "乘员碰撞保护（Occupant crash protection）",
+    "version": "2024",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-db7b9136a781",
+    "standardNo": "FMVSS No.213",
+    "title": "儿童约束系统（Child restraint systems）",
+    "version": "2024",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-f416eb30c4dc",
+    "standardNo": "FMVSS No.214",
+    "title": "侧面碰撞保护（Side impact protection）",
+    "version": "2024",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-0e8d34d5b188",
+    "standardNo": "FMVSS No.225",
+    "title": "儿童约束固定点系统（Child restraint anchorage systems）",
+    "version": "2024",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-c104a4268f95",
+    "standardNo": "FMVSS No.301",
+    "title": "燃油系统完整性（Fuel system integrity）",
+    "version": "2024",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-a12b469810ac",
+    "standardNo": "FMVSS No.302",
+    "title": "内饰材料燃烧特性（Flammability of interior materials）",
+    "version": "2024",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-90bf251a12be",
+    "standardNo": "CMVSS 201",
+    "title": "乘员保护（Occupant Protection）",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-3da6084849a0",
+    "standardNo": "CMVSS 208",
+    "title": "乘员碰撞保护（Occupant Collision Protection）",
+    "version": "Rev.2",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-5a911cb08a05",
+    "standardNo": "CMVSS 301",
+    "title": "燃油系统完整性（Fuel System Integrity）",
+    "version": "Rev.2",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-8fdde474866c",
+    "standardNo": "CMVSS 302",
+    "title": "内饰材料燃烧特性（Flammability of Interior Materials）",
+    "version": "Rev.0",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-6c0dbcb1ef06",
+    "standardNo": "ECE-TRANS-WP.29-78",
+    "title": "1958 年协定书（车辆构造决议）",
+    "version": "Rev.7",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-a7e2bddfc978",
+    "standardNo": "ECE-TRANS-WP.29-78",
+    "title": "1958 年协定书（车辆构造决议）",
+    "version": "Rev.7",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-99521e85bc89",
+    "standardNo": "ECE-TRANS-WP.29-2025-46",
+    "title": "UN R17 第 12 系列修订草案（非正式文件）",
+    "version": "草案",
+    "reason": "同一标准版本重复记录，保留 ECE-TRANS-WP.29-2025-46 草案 的首条记录。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-cbaf6cc48fb6",
+    "standardNo": "UN R10",
+    "title": "电磁兼容性（Electromagnetic compatibility）",
+    "version": "Rev.6",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-b393f7624c9f",
+    "standardNo": "UN R14",
+    "title": "安全带固定点（Safety-belt anchorages）",
+    "version": "Rev.7",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-2a3e4e389382",
+    "standardNo": "UN R14",
+    "title": "安全带固定点（Safety-belt anchorages）",
+    "version": "Rev.7 / Amd.1",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-8b236012d459",
+    "standardNo": "UN R14",
+    "title": "安全带固定点（Safety-belt anchorages）",
+    "version": "Rev.7 / Amd.2",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-be54765b839b",
+    "standardNo": "UN R14",
+    "title": "安全带固定点（Safety-belt anchorages）",
+    "version": "Rev.7 / Amd.3",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-e19de295585d",
+    "standardNo": "UN R14",
+    "title": "安全带固定点（Safety-belt anchorages）",
+    "version": "Rev.7 / Amd.4",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-43c872ad65a0",
+    "standardNo": "UN R21",
+    "title": "车内内饰件（Interior fittings）",
+    "version": "Rev.2",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-f67de025715c",
+    "standardNo": "UN R21",
+    "title": "车内内饰件（Interior fittings）",
+    "version": "Rev.2",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-9390509ee414",
+    "standardNo": "UN R21",
+    "title": "车内内饰件（Interior fittings）",
+    "version": "Rev.2 / Amd.1",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-9afa179cab3f",
+    "standardNo": "UN R21",
+    "title": "车内内饰件（Interior fittings）",
+    "version": "Rev.2 / Amd.2",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-8c2bafe97cfc",
+    "standardNo": "UN R21",
+    "title": "车内内饰件（Interior fittings）",
+    "version": "Rev.2 / Amd.3",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-50af96028143",
+    "standardNo": "UN R21",
+    "title": "车内内饰件（Interior fittings）",
+    "version": "Rev.2 / Amd.4",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-5116196dbadf",
+    "standardNo": "UN R21",
+    "title": "车内内饰件（Interior fittings）",
+    "version": "Rev.2 / Corr.1",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-ae091e2cd358",
+    "standardNo": "UN R118",
+    "title": "内饰材料燃烧特性（Burning behaviour of interior materials）",
+    "version": "Rev.3",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-1c39fc485cb3",
+    "standardNo": "UN R173",
+    "title": "前向座椅安全带及儿童约束系统安装",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-7586b58f95ea",
+    "standardNo": "UN R174",
+    "title": "安全带提醒系统（Safety-belt reminder）",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-70313a07103a",
+    "standardNo": "GB 8410-2006",
+    "title": "汽车内饰材料的燃烧特性",
+    "version": "2006",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-9a65d0abadd3",
+    "standardNo": "GB 11551-2014",
+    "title": "汽车正面碰撞的乘员保护",
+    "version": "2014",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-03358c83e0fa",
+    "standardNo": "GB 11552-2009",
+    "title": "乘用车内部凸出物",
+    "version": "2009",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-929982a95852",
+    "standardNo": "GB 20071-2006",
+    "title": "汽车侧面碰撞的乘员保护",
+    "version": "2006",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-5c8e8b268813",
+    "standardNo": "GB 27887-2011",
+    "title": "机动车儿童乘员用约束系统",
+    "version": "2011",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-e1f3657a11de",
+    "standardNo": "GB 27887-2024",
+    "title": "机动车儿童乘员用约束系统",
+    "version": "2024",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-1720efe3f359",
+    "standardNo": "GB/T 19515-2023",
+    "title": "道路车辆 可再利用率和可回收利用率",
+    "version": "2023",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-23144b020ed6",
+    "standardNo": "GB/T 30512-2014",
+    "title": "汽车禁用物质要求",
+    "version": "2014",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-a8fa8acd9c87",
+    "standardNo": "ADR 5/06",
+    "title": "Anchorages for Seatbelts",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-60ea5b868199",
+    "standardNo": "ADR 34/03",
+    "title": "Child Restraint Anchorages and Child Restraint Anchor Fittings",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-f4eab57f5e85",
+    "standardNo": "GSO 42:2015",
+    "title": "机动车 一般要求（Motor Vehicles - General Requirements）",
+    "version": "2015",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-c70c5c8895bb",
+    "standardNo": "GSO 98:1988",
+    "title": "机动车 内饰材料燃烧特性及其试验方法（Flammability of Interior Materials）",
+    "version": "1988",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-dbfb7f6b605f",
+    "standardNo": "GSO 1598:2002",
+    "title": "机动车 头枕及其试验方法（Head Restraints and Their Methods of Test）",
+    "version": "2002",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-f516ab8d7784",
+    "standardNo": "ISO 27955",
+    "title": "道路车辆 轿车、旅行车和多用途车货物固定 要求和试验方法",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-6f15dd1f956f",
+    "standardNo": "UN GTR No.7",
+    "title": "头枕（Head restraints）",
+    "version": "Amd.1",
+    "reason": "同一标准版本重复记录，保留 UN GTR No.7 Amd.1 的首条记录。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-4b73fdcb7aa9",
+    "standardNo": "UN GTR No.7",
+    "title": "头枕（Head restraints）",
+    "version": "Amd.1（附录1 工作文件）",
+    "reason": "同一标准版本重复记录，保留 UN GTR No.7 Amd.1（附录1 工作文件） 的首条记录。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-293eeabab0ec",
+    "standardNo": "UN GTR No.7",
+    "title": "头枕（Head restraints）",
+    "version": "Amd.2（附录1 工作文件）",
+    "reason": "同一标准版本重复记录，保留 UN GTR No.7 Amd.2（附录1 工作文件） 的首条记录。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-186f26c569df",
+    "standardNo": "—",
+    "title": "2023_en VEHICLE SAFETY PERFORMANCE EVALUATION PROCEDURES 0000",
+    "version": "2023",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-854c9d23954c",
+    "standardNo": "—",
+    "title": "APPLICATION OF STAR RATING",
+    "version": "2.1",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-3d0a4f44275c",
+    "standardNo": "—",
+    "title": "ASEAN-NCAP-Assessment-Protocol-Adult-Occupant-Protection-Version-3.0",
+    "version": "3.0",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-db8d983512c7",
+    "standardNo": "—",
+    "title": "ASEAN-NCAP-Assessment-Protocol-Child-Occupant-Protection-Version-3.0",
+    "version": "3.0",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-8419a3af16f1",
+    "standardNo": "—",
+    "title": "ASEAN-NCAP-Assessment-Protocol-Child-Occupant-Protection-Version-3.1",
+    "version": "3.1",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-61e915564a21",
+    "standardNo": "—",
+    "title": "ASEAN-NCAP-Overall-Assessment-Protocol-Version-3.0",
+    "version": "3.0",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-8f9dc6444970",
+    "standardNo": "—",
+    "title": "ASEAN-NCAP-Overall-Assessment-Protocol-Version-3.1",
+    "version": "3.1",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-3ed7fd531150",
+    "standardNo": "—",
+    "title": "ASEAN-NCAP-Star-Rating-Validity-Version-1.0",
+    "version": "1.0",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-2947c7b41fc6",
+    "standardNo": "—",
+    "title": "ASEAN-NCAP-Test-Protocol-Offset-Frontal-Impact-Version-4.0",
+    "version": "4.0",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-3a6be76a8a46",
+    "standardNo": "—",
+    "title": "ASEAN-NCAP-Test-Protocol-Side-Impact-Version-3.0",
+    "version": "3.0",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-ef353b952e3b",
+    "standardNo": "—",
+    "title": "ASEAN-NCAP-Vehicle-Selection-Specification-Testing-and-Retesting-Version-1.0",
+    "version": "1.0",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-1db1f12ff4da",
+    "standardNo": "C-NCAP 2027 附录A",
+    "title": "附录A 正面100%重叠刚性壁障碰撞测试评价规程",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-780a85c22e8b",
+    "standardNo": "C-NCAP 2027 附录B",
+    "title": "附录B 正面50%重叠移动渐进变形壁障碰撞试验规程",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-96e5c2f1e5b3",
+    "standardNo": "C-NCAP 2027 附录C",
+    "title": "附录C 正面碰撞乘员多样性保护测试评价规程",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-3fe16308c831",
+    "standardNo": "C-NCAP 2027 附录D",
+    "title": "附录D 大角度坐姿正面碰撞测试评价规程",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-51cd5f0ea193",
+    "standardNo": "C-NCAP 2027 附录M",
+    "title": "附录M 乘员约束系统性能测试评价规程",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-2f3d0d0d957d",
+    "standardNo": "—",
+    "title": "C-NCAP管理规则（2027年版）",
+    "version": "2027 年版",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-79b6a7616ce8",
+    "standardNo": "—",
+    "title": "Child Occupant Protection Prerequisites",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-2cb0e8be71d8",
+    "standardNo": "—",
+    "title": "Crash Avoidance - Frontal Collisions",
+    "version": "1.1",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-fc825c0e7117",
+    "standardNo": "—",
+    "title": "IIHS_LATCH_tools_drawing_set",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-f276baea6a43",
+    "standardNo": "JNCAP H30-16",
+    "title": "H30-16 en Child Seat, Safety from Frontal Collision Performance Test Procedure",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-2659ca40978e",
+    "standardNo": "JNCAP R3-17",
+    "title": "R3-17 en Child Seat Usability Test Procedure",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-74e7ba79204b",
+    "standardNo": "JNCAP R5-01",
+    "title": "R5-01 en FRONTAL COLLISION SAFETY PERFORMANCE TEST METHOD",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-d09506ec8829",
+    "standardNo": "JNCAP R5-02",
+    "title": "R5-02 en OFFSET FRONTAL COLLISION SAFETY PERFORMANCE TEST PROCEDURE",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-e54c96cc6825",
+    "standardNo": "JNCAP R5-03",
+    "title": "R5-03 en SIDE COLLISION SAFETY PERFORMANCE TEST PROCEDURE",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-a1eb290abeb9",
+    "standardNo": "JNCAP R5-08",
+    "title": "R5-08 en SEATBELT REMINDER EVALUATION TEST PROCEDURE",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-f642599872af",
+    "standardNo": "—",
+    "title": "LATCH evaluation - rating guidelines (May 2024)",
+    "version": "2024",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-49a43ae7da5a",
+    "standardNo": "—",
+    "title": "LATCH_protocol",
+    "version": "—",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-ac8e50ebb5e3",
+    "standardNo": "—",
+    "title": "Latin NCAP 2025 - AOP Protocol",
+    "version": "2025",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-50a2ed48c3d6",
+    "standardNo": "—",
+    "title": "Latin NCAP 2025 - COP Protocol V2.0.1",
+    "version": "2.0.1",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-b32268d28afc",
+    "standardNo": "—",
+    "title": "Latin NCAP Overall Rating 2025 V2.0.1",
+    "version": "2.0.1",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-985f3d47a8b2",
+    "standardNo": "—",
+    "title": "Latin NCAP Testing Protocol 2026 v 2.0.1",
+    "version": "2.0.1",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-31e785d70d37",
+    "standardNo": "—",
+    "title": "Overall Assessment",
+    "version": "10.0",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  },
+  {
+    "id": "std-e714641fe40e",
+    "standardNo": "—",
+    "title": "VEHICLE SELECTION,SPECIFICATION,TESTING & RETESTING",
+    "version": "8.1",
+    "reason": "PRD 范围过滤：与 M1 座椅、座椅固定点、头枕、调节机构或头枕/鞭打试验无直接关系。",
+    "removedAt": "2026-11-09T12:00:00.000Z",
+    "removedBy": "SeatScope 标准维护"
+  }
+]

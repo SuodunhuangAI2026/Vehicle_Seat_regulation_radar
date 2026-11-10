@@ -27,6 +27,17 @@ export function normalizeStandardKey(value: string): string {
     .replace(/[\s\-_/（）()]+/g, "");
 }
 
+export function standardFamilyKey(value: string): string {
+  const normalized = value
+    .normalize("NFKC")
+    .trim()
+    .replace(/[（(]\s*征求意见稿\s*[）)]\s*$/i, "")
+    .replace(/[-—–]\s*(?:19|20)\d{2}\s*$/i, "")
+    .replace(/[-—–]\s*20[0-9]X\s*$/i, "")
+    .trim();
+  return normalizeStandardKey(normalized);
+}
+
 export function filterChanges(
   changes: RegulationChange[],
   filters: ChangeFilters,
@@ -122,14 +133,19 @@ export function groupStandards(
     { key: string; label: string; records: StandardRecord[] }
   >();
   for (const standard of standards) {
-    const key = normalizeStandardKey(standard.standardNo);
+    const standardNo = standard.standardNo.trim();
+    const isPlaceholder =
+      !standardNo || standardNo === "—" || standardNo === "-";
+    const key = isPlaceholder
+      ? `title:${normalizeStandardKey(standard.title)}`
+      : `no:${standardFamilyKey(standardNo)}`;
     const existing = groups.get(key);
     if (existing) {
       existing.records.push(standard);
     } else {
       groups.set(key, {
         key,
-        label: standard.standardNo,
+        label: isPlaceholder ? standard.title : standardNo,
         records: [standard],
       });
     }

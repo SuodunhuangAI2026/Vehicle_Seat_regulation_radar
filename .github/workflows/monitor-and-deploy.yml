@@ -2,7 +2,8 @@ name: Monitor and deploy SeatScope
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    # 每周三 06:30 北京时间 = UTC 周二 22:30
+    - cron: "30 22 * * 2"
   workflow_dispatch:
   push:
     branches: [main]

@@ -10,9 +10,13 @@ export interface StandardRecord {
   documentKind: string;
   sourceFileName: string;
   sourceUrl?: string;
+  relatedOld?: Array<{ version: string; label?: string; url?: string }>;
   status: StandardStatus;
   monitored: boolean;
   importedAt: string;
+  updatedAt?: string;
+  updatedBy?: string;
+  note?: string;
 }
 
 export interface SourceRecord {
@@ -82,8 +86,40 @@ export interface RegulationChange {
   confidence: "high" | "medium" | "low";
   reviewStatus: ReviewStatus;
   reportPath?: string;
+  comparison?: RegulationComparison;
   model: string;
   promptVersion: string;
+}
+
+export type ComparisonChangeType =
+  | "added"
+  | "removed"
+  | "modified"
+  | "translation-only";
+
+export interface ComparisonSection {
+  section: string;
+  clause?: string;
+  changeType: ComparisonChangeType;
+  oldText: string;
+  newText: string;
+  impactZh: string;
+  confidence: "high" | "medium" | "low";
+}
+
+export interface ComparisonDocument {
+  title: string;
+  url: string;
+  documentKind: "html" | "pdf" | "text";
+  textLength: number;
+}
+
+export interface RegulationComparison {
+  status: "complete" | "partial" | "failed";
+  oldDocument?: ComparisonDocument;
+  newDocument?: ComparisonDocument;
+  sections: ComparisonSection[];
+  limitations: string[];
 }
 
 export interface SourceHealth {
@@ -119,4 +155,21 @@ export interface ReportRecord {
   reviewedAt?: string;
   htmlPath: string;
   summary: string;
+}
+
+export interface KnowledgeItem {
+  id: string;
+  title: string;
+  body: string;
+  source?: string;
+  updatedAt: string;
+  updatedBy?: string;
+}
+
+export interface NewsFeedItem {
+  id: string;
+  title: string;
+  href: string;
+  severity: Severity;
+  updatedAt: string;
 }

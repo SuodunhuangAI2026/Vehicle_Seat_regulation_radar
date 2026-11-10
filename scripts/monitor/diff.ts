@@ -5,6 +5,7 @@ export interface SnapshotDiff {
   added: SourceItem[];
   removed: SourceItem[];
   changedItems: SourceItem[];
+  changedPairs?: Array<{ previous: SourceItem; next: SourceItem }>;
 }
 
 function itemEquivalent(a: SourceItem, b: SourceItem): boolean {
@@ -33,6 +34,10 @@ export function diffSnapshot(
     const oldItem = previousItems.get(item.key);
     return oldItem ? !itemEquivalent(oldItem, item) : false;
   });
+  const changedPairs = changedItems.flatMap((item) => {
+    const oldItem = previousItems.get(item.key);
+    return oldItem ? [{ previous: oldItem, next: item }] : [];
+  });
 
   return {
     changed:
@@ -43,6 +48,7 @@ export function diffSnapshot(
     added,
     removed,
     changedItems,
+    changedPairs,
   };
 }
 

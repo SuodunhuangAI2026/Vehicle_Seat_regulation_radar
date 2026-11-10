@@ -1,18 +1,12 @@
 import { Link, useParams } from "react-router-dom";
 import { EmptyState } from "../components/EmptyState";
 import { StatusBadge } from "../components/StatusBadge";
-import { formatDate } from "../lib/format";
-import { normalizeStandardKey } from "../lib/filters";
+import { formatDate, standardStatusLabels } from "../lib/format";
+import { standardFamilyKey } from "../lib/filters";
 import type {
   RegulationChange,
   StandardRecord,
 } from "../types";
-
-function familyKey(standardNo: string): string {
-  return normalizeStandardKey(
-    standardNo.replace(/[-—–]?\s*(19|20)\d{2}.*$/, "").trim(),
-  );
-}
 
 export function StandardDetailPage({
   standards,
@@ -39,7 +33,8 @@ export function StandardDetailPage({
 
   const family = standards.filter(
     (item) =>
-      familyKey(item.standardNo) === familyKey(standard.standardNo) &&
+      standardFamilyKey(item.standardNo) ===
+        standardFamilyKey(standard.standardNo) &&
       item.id !== standard.id,
   );
   const relatedChanges = changes.filter(
@@ -60,7 +55,7 @@ export function StandardDetailPage({
             <StatusBadge value={standard.system} />
             <StatusBadge
               value={standard.status}
-              label={standard.status === "active" ? "现行库记录" : "征求意见"}
+              label={standardStatusLabels[standard.status]}
             />
           </div>
           <h1>{standard.title}</h1>

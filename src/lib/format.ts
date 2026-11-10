@@ -2,6 +2,7 @@ import type {
   ChangeType,
   ReviewStatus,
   Severity,
+  StandardStatus,
 } from "../types";
 
 export const severityLabels: Record<Severity, string> = {
@@ -17,6 +18,13 @@ export const reviewLabels: Record<ReviewStatus, string> = {
   approved: "已批准",
   rejected: "已驳回",
   superseded: "已被替代",
+};
+
+export const standardStatusLabels: Record<StandardStatus, string> = {
+  active: "现行库记录",
+  draft: "征求意见",
+  superseded: "已替代",
+  unknown: "未确认",
 };
 
 export const changeTypeLabels: Record<ChangeType, string> = {

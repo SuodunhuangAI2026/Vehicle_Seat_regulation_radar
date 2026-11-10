@@ -1,4 +1,5 @@
 import type {
+  ComparisonSection,
   RegulationChange,
   ReviewStatus,
   Severity,
@@ -39,6 +40,113 @@ function dateOrUnknown(value: string | undefined): string {
 function listHtml(items: string[], emptyText: string): string {
   if (items.length === 0) return `<p class="muted">${escapeHtml(emptyText)}</p>`;
   return `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+}
+
+function commonPrefixLength(a: string[], b: string[]): number {
+  const max = Math.min(a.length, b.length);
+  let index = 0;
+  while (index < max && a[index] === b[index]) index += 1;
+  return index;
+}
+
+function inlineDiff(
+  oldText: string,
+  newText: string,
+  side: "old" | "new",
+): string {
+  if (!oldText && !newText) {
+    return '<span class="diff-empty">未提供对应原文</span>';
+  }
+  if (oldText === newText) return escapeHtml(oldText);
+  const oldChars = [...oldText];
+  const newChars = [...newText];
+  const prefix = commonPrefixLength(oldChars, newChars);
+  const oldSuffix = oldChars.slice(prefix);
+  const newSuffix = newChars.slice(prefix);
+  const suffix = commonPrefixLength(
+    [...oldSuffix].reverse(),
+    [...newSuffix].reverse(),
+  );
+  const oldMiddle = oldChars.slice(prefix, oldChars.length - suffix).join("");
+  const newMiddle = newChars.slice(prefix, newChars.length - suffix).join("");
+  const before = oldChars.slice(0, prefix).join("");
+  const after = suffix > 0 ? oldChars.slice(oldChars.length - suffix).join("") : "";
+  const middle = side === "old" ? oldMiddle : newMiddle;
+  if (!middle) {
+    return `${escapeHtml(before)}${escapeHtml(after)}`;
+  }
+  return `${escapeHtml(before)}<${
+    side === "old" ? "del" : "ins"
+  }>${escapeHtml(middle)}</${side === "old" ? "del" : "ins"}>${escapeHtml(
+    after,
+  )}`;
+}
+
+function comparisonHtml(change: RegulationChange): string {
+  const comparison = change.comparison;
+  if (!comparison) {
+    return `<section>
+      <h2>新旧原文左右对比</h2>
+      <p class="muted">该草稿尚未附带可解析的新旧原文。请在官方来源人工核对后补充，不生成虚构条款。</p>
+    </section>`;
+  }
+  const statusText =
+    comparison.status === "complete"
+      ? "新旧原文已提取"
+      : comparison.status === "partial"
+        ? "仅提取到一侧原文"
+        : "原文提取失败";
+  const sourceLinks = [
+    comparison.oldDocument
+      ? `<span>旧版：<a href="${escapeHtml(comparison.oldDocument.url)}" target="_blank" rel="noreferrer noopener">${escapeHtml(comparison.oldDocument.title)}</a></span>`
+      : "<span>旧版：未取得</span>",
+    comparison.newDocument
+      ? `<span>新版：<a href="${escapeHtml(comparison.newDocument.url)}" target="_blank" rel="noreferrer noopener">${escapeHtml(comparison.newDocument.title)}</a></span>`
+      : "<span>新版：未取得</span>",
+  ].join("");
+  const sections =
+    comparison.sections.length > 0
+      ? comparison.sections
+          .map(
+            (section: ComparisonSection) => `
+              <article class="diff-section">
+                <header>
+                  <div>
+                    <span class="diff-index">${escapeHtml(section.section)}</span>
+                    ${section.clause ? `<b>${escapeHtml(section.clause)}</b>` : ""}
+                  </div>
+                  <span class="diff-kind">${escapeHtml(section.changeType)}</span>
+                </header>
+                <div class="diff-columns">
+                  <div class="diff-pane old">
+                    <small>旧版原文</small>
+                    <div class="diff-text">${inlineDiff(section.oldText, section.newText, "old")}</div>
+                  </div>
+                  <div class="diff-pane new">
+                    <small>新版原文</small>
+                    <div class="diff-text">${inlineDiff(section.oldText, section.newText, "new")}</div>
+                  </div>
+                </div>
+                <p class="diff-impact"><b>M1 座椅影响：</b>${escapeHtml(section.impactZh)}</p>
+              </article>`,
+          )
+          .join("")
+      : `<p class="muted">未生成可核验的条款级差异。${comparison.status === "failed" ? "本轮只能确认信源发生变化，不能据此推断具体条款。" : ""}</p>`;
+  return `<section>
+    <div class="section-title-row">
+      <h2>新旧原文左右对比</h2>
+      <span class="extraction-status">${escapeHtml(statusText)}</span>
+    </div>
+    <div class="comparison-sources">${sourceLinks}</div>
+    ${sections}
+    ${
+      comparison.limitations.length > 0
+        ? `<ul class="comparison-limitations">${comparison.limitations
+            .map((item) => `<li>${escapeHtml(item)}</li>`)
+            .join("")}</ul>`
+        : ""
+    }
+  </section>`;
 }
 
 function timelineHtml(change: RegulationChange): string {
@@ -265,6 +373,102 @@ export function renderReportHtml(change: RegulationChange): string {
       background: var(--sheet);
     }
     .timeline-row.known .timeline-dot { border-color: var(--orange); background: var(--orange); }
+    .section-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .extraction-status {
+      color: var(--steel);
+      font-size: .66rem;
+    }
+    .comparison-sources {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      margin: -4px 0 18px;
+      color: var(--steel);
+      font-size: .7rem;
+    }
+    .diff-section {
+      margin-bottom: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .diff-section > header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 13px;
+      background: rgba(23,61,84,.045);
+    }
+    .diff-section > header div {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .diff-index { font-size: .76rem; font-weight: 700; }
+    .diff-section > header b {
+      color: var(--steel);
+      font-family: "IBM Plex Mono", "Cascadia Mono", monospace;
+      font-size: .64rem;
+      font-weight: 500;
+    }
+    .diff-kind {
+      padding: 2px 7px;
+      color: var(--orange);
+      border: 1px solid currentColor;
+      border-radius: 99px;
+      font-size: .59rem;
+    }
+    .diff-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .diff-pane { min-width: 0; padding: 14px; }
+    .diff-pane.old { border-right: 1px solid var(--line); }
+    .diff-pane small {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--steel);
+      font-size: .59rem;
+      letter-spacing: .08em;
+    }
+    .diff-text {
+      min-height: 54px;
+      font-family: "IBM Plex Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: .74rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .diff-text del {
+      padding: 1px 2px;
+      color: #8e2d24;
+      background: rgba(179,58,43,.12);
+      text-decoration-color: rgba(179,58,43,.55);
+    }
+    .diff-text ins {
+      padding: 1px 2px;
+      color: #205d4b;
+      background: rgba(47,114,95,.14);
+      text-decoration: none;
+    }
+    .diff-empty { color: var(--steel); font-style: italic; }
+    .diff-impact {
+      margin: 0;
+      padding: 10px 14px;
+      color: var(--steel);
+      border-top: 1px solid var(--line);
+      background: rgba(230,90,46,.035);
+      font-size: .68rem;
+    }
+    .comparison-limitations {
+      color: var(--steel);
+      font-size: .68rem;
+    }
     .evidence {
       margin-bottom: 10px;
       padding: 14px;
@@ -296,6 +500,11 @@ export function renderReportHtml(change: RegulationChange): string {
       .identity div:nth-child(2) { border-right: 0; }
       .identity div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
       .grid-2, .checklist { grid-template-columns: 1fr; }
+      .diff-columns { grid-template-columns: 1fr; }
+      .diff-pane.old {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
       .report-meta { grid-template-columns: 1fr; }
       .report-id { text-align: left; }
       .timeline-row { grid-template-columns: 14px 1fr; }
@@ -357,6 +566,8 @@ export function renderReportHtml(change: RegulationChange): string {
         <div class="timeline">${timelineHtml(change)}</div>
       </section>
     </div>
+
+    ${comparisonHtml(change)}
 
     <section>
       <h2>M1 座椅设计影响</h2>

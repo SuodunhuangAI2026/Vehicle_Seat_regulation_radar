@@ -4,7 +4,21 @@ import { DataQualityNote } from "../components/DataQualityNote";
 import { EmptyState } from "../components/EmptyState";
 import { StatusBadge } from "../components/StatusBadge";
 import { filterStandards, groupStandards } from "../lib/filters";
+import { standardStatusLabels } from "../lib/format";
 import type { ImportReport, StandardRecord } from "../types";
+
+function statusRank(record: StandardRecord): number {
+  if (record.status === "active") return 4;
+  if (record.status === "unknown") return 3;
+  if (record.status === "superseded") return 2;
+  return 1;
+}
+
+function versionLabel(record: StandardRecord): string {
+  if (record.status === "draft") return "征求意见稿";
+  if (record.status === "superseded") return "旧版";
+  return "其他版本";
+}
 
 export function StandardsPage({
   standards,
@@ -43,8 +57,8 @@ export function StandardsPage({
           <span className="eyebrow">Standards library / document ledger</span>
           <h1>标准库</h1>
           <p>
-            按原始文档记录保留重复版本。一个标准号可能对应多个版本或多个文件，
-            页面不会为了整齐而合并或删除。
+            每个标准号一行，当前版本、征求意见稿和关联旧版分开展示。
+            官方获取地址只使用已登记链接，缺失时明确标记，不自动拼接搜索地址。
           </p>
         </div>
         <div className="heading-stat">
@@ -137,44 +151,84 @@ export function StandardsPage({
           <span>标准号与名称</span>
           <span>体系 / 机构</span>
           <span>版本记录</span>
+          <span>获取地址</span>
           <span>状态</span>
         </div>
-        {groups.map((group) => (
-          <article className="standard-row" key={group.key}>
-            <div className="standard-main">
-              <span className="standard-code">{group.records[0].standardNo}</span>
-              <h2>{group.records[0].title}</h2>
-              <p>{group.records.map((item) => item.version).join(" · ")}</p>
-            </div>
-            <div>
-              <StatusBadge value={group.records[0].system} />
-              <span className="cell-sub">{group.records[0].issuer}</span>
-            </div>
-            <div className="version-links">
-              {group.records.map((record) => (
-                <Link key={record.id} to={`/standards/${record.id}`}>
-                  {record.version}
-                  <small>{record.documentKind}</small>
+        {groups.map((group) => {
+          const sorted = [...group.records].sort((a, b) => {
+            const rankDelta = statusRank(b) - statusRank(a);
+            if (rankDelta !== 0) return rankDelta;
+            return b.version.localeCompare(a.version, "zh-CN", {
+              numeric: true,
+            });
+          });
+          const current = sorted[0];
+          const older = sorted.slice(1);
+          const hasDraft = sorted.some((record) => record.status === "draft");
+
+          return (
+            <article className="standard-row" key={group.key}>
+              <div className="standard-main">
+                <span className="standard-code">{current.standardNo}</span>
+                <h2>{current.title}</h2>
+                {hasDraft && (
+                  <p className="draft-disclosure">
+                    含征求意见稿，未批准、未生效；正式状态以官方发布为准。
+                  </p>
+                )}
+              </div>
+              <div>
+                <StatusBadge value={current.system} />
+                <span className="cell-sub">{current.issuer}</span>
+              </div>
+              <div className="version-links">
+                <Link
+                  to={`/standards/${current.id}`}
+                  className="version-latest"
+                >
+                  {current.version}
+                  <small>{current.documentKind}</small>
                 </Link>
-              ))}
-            </div>
-            <div>
-              <StatusBadge
-                value={group.records[0].status}
-                label={
-                  group.records[0].status === "active"
-                    ? "现行库记录"
-                    : group.records[0].status === "draft"
-                      ? "征求意见"
-                      : group.records[0].status
-                }
-              />
-              <span className="cell-sub">
-                {group.records[0].monitored ? "自动体系覆盖" : "目录记录"}
-              </span>
-            </div>
-          </article>
-        ))}
+                {older.map((record) => (
+                  <div key={record.id} className="version-old">
+                    <span className="version-old-label">
+                      {versionLabel(record)}：
+                    </span>
+                    <Link to={`/standards/${record.id}`}>
+                      {record.version}
+                      {record.documentKind && (
+                        <small>{record.documentKind}</small>
+                      )}
+                    </Link>
+                  </div>
+                ))}
+              </div>
+              <div className="source-url-cell">
+                {current.sourceUrl ? (
+                  <a
+                    href={current.sourceUrl}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="source-link"
+                  >
+                    官方来源 →
+                  </a>
+                ) : (
+                  <span className="source-missing">官方链接待补充</span>
+                )}
+              </div>
+              <div>
+                <StatusBadge
+                  value={current.status}
+                  label={standardStatusLabels[current.status]}
+                />
+                <span className="cell-sub">
+                  {current.monitored ? "自动体系覆盖" : "目录记录"}
+                </span>
+              </div>
+            </article>
+          );
+        })}
         {groups.length === 0 && (
           <EmptyState
             title="没有匹配的标准"

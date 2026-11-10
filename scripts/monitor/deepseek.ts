@@ -2,7 +2,9 @@ import { createHash } from "node:crypto";
 import { z } from "zod";
 import type {
   ChangeType,
+  ComparisonSection,
   RegulationChange,
+  RegulationComparison,
   SourceRecord,
 } from "../../src/types/index.js";
 import type {
@@ -11,8 +13,13 @@ import type {
 } from "./adapters.js";
 import type { SnapshotDiff } from "./diff.js";
 import { summarizeDiff } from "./diff.js";
+import {
+  buildComparisonBundle,
+  comparisonToMarkdown,
+  type ComparisonBundle,
+} from "./documents.js";
 
-export const PROMPT_VERSION = "seats-v1";
+export const PROMPT_VERSION = "seats-v2";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const DEFAULT_MODEL = "deepseek-chat";
 
@@ -27,6 +34,31 @@ const nullableDate = z
   .string()
   .regex(/^\d{4}-\d{2}-\d{2}$/)
   .nullable();
+
+const comparisonSectionSchema = z
+  .object({
+    section: z.string().min(1).max(240),
+    clause: z.string().max(120).optional(),
+    changeType: z.enum([
+      "added",
+      "removed",
+      "modified",
+      "translation-only",
+    ]),
+    oldText: z.string().max(1800),
+    newText: z.string().max(1800),
+    impactZh: z.string().min(1).max(800),
+    confidence: z.enum(["high", "medium", "low"]),
+  })
+  .strict();
+
+export const DeepSeekComparisonSchema = z
+  .object({
+    status: z.enum(["complete", "partial", "failed"]),
+    sections: z.array(comparisonSectionSchema).max(30),
+    limitations: z.array(z.string().min(1).max(500)).max(12),
+  })
+  .strict();
 
 export const DeepSeekChangeSchema = z
   .object({
@@ -72,6 +104,7 @@ export const DeepSeekChangeSchema = z
       .max(12),
     confidence: z.enum(["high", "medium", "low"]),
     needsHumanReview: z.boolean(),
+    comparison: DeepSeekComparisonSchema,
   })
   .strict();
 
@@ -114,7 +147,42 @@ function assertOfficialEvidence(
   }
 }
 
-const systemPrompt = `你是汽车座椅法规情报分析助手。你只分析用户提供的官方信源证据，不得猜测或补全证据中没有的法规条款、试验方法、生效日期、过渡期或法律结论。
+function normalizeQuote(value: string): string {
+  return value
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .replace(/[“”‘’"'`]/g, "");
+}
+
+function assertComparisonQuotes(
+  result: DeepSeekChange,
+  oldText: string,
+  newText: string,
+): void {
+  const normalizedOld = normalizeQuote(oldText);
+  const normalizedNew = normalizeQuote(newText);
+  for (const section of result.comparison.sections) {
+    if (
+      section.oldText &&
+      (!normalizedOld || !normalizedOld.includes(normalizeQuote(section.oldText)))
+    ) {
+      throw new DeepSeekValidationError(
+        `Comparison oldText is not an exact excerpt: ${section.section}`,
+      );
+    }
+    if (
+      section.newText &&
+      (!normalizedNew || !normalizedNew.includes(normalizeQuote(section.newText)))
+    ) {
+      throw new DeepSeekValidationError(
+        `Comparison newText is not an exact excerpt: ${section.section}`,
+      );
+    }
+  }
+}
+
+const systemPrompt = `你是汽车座椅法规情报分析助手。你只分析用户提供的官方信源证据和新旧公开原文，不得猜测或补全证据中没有的法规条款、试验方法、生效日期、过渡期或法律结论。
 
 输出必须是单个 JSON 对象，且严格符合以下字段：
 {
@@ -136,7 +204,20 @@ const systemPrompt = `你是汽车座椅法规情报分析助手。你只分析�
   "recommendedActions": string[],
   "evidence": [{"label": string, "url": string, "quote": string}],
   "confidence": "high" | "medium" | "low",
-  "needsHumanReview": true
+  "needsHumanReview": true,
+  "comparison": {
+    "status": "complete" | "partial" | "failed",
+    "sections": [{
+      "section": string,
+      "clause": string,
+      "changeType": "added" | "removed" | "modified" | "translation-only",
+      "oldText": string,
+      "newText": string,
+      "impactZh": string,
+      "confidence": "high" | "medium" | "low"
+    }],
+    "limitations": string[]
+  }
 }
 
 规则：
@@ -145,11 +226,18 @@ const systemPrompt = `你是汽车座椅法规情报分析助手。你只分析�
 3. 无法确认的条款、试验方法或影响必须明确写“待官方原文核验”，不要伪造。
 4. M1 座椅关注点包括座椅总成、骨架、滑轨、固定点、ISOFIX、头枕、安全带约束与相关试验。
 5. 所有结论都必须标记需要人工复核。
-6. 只返回 JSON，不要 Markdown、代码围栏或解释。`;
+6. comparison.oldText 和 comparison.newText 必须逐字摘自对应原文；没有原文的一侧用空字符串。
+7. 新增条款只填 newText，删除条款只填 oldText，修改条款两侧都填；不得改写、补全或拼接不存在的原文。
+8. 按章节或条款对齐，优先输出对 M1 座椅设计、试验和认证有实质影响的差异；最多 30 项。
+9. 没有成功提取原文时 comparison.status 为 failed 且 sections 为空，不得根据标题猜测条款。
+10. 只返回 JSON，不要 Markdown、代码围栏或解释。`;
 
 export async function analyzeChange(input: {
   sourceTitle: string;
   evidenceText: string;
+  comparisonText?: string;
+  oldText?: string;
+  newText?: string;
   officialUrl: string;
   apiKey?: string;
   baseUrl?: string;
@@ -181,7 +269,10 @@ export async function analyzeChange(input: {
             `官方信源：${input.sourceTitle}`,
             `官方 URL：${input.officialUrl}`,
             "以下仅为官方信源抓取到的差异证据，请据此判断：",
-            input.evidenceText.slice(0, 12_000),
+            input.evidenceText.slice(0, 8_000),
+            input.comparisonText
+              ? `以下为尝试提取的新旧公开原文：\n${input.comparisonText.slice(0, 48_000)}`
+              : "本轮未取得可解析的新旧原文，comparison.sections 必须为空。",
           ].join("\n"),
         },
       ],
@@ -217,6 +308,7 @@ export async function analyzeChange(input: {
     });
   }
   assertOfficialEvidence(result, input.officialUrl);
+  assertComparisonQuotes(result, input.oldText ?? "", input.newText ?? "");
   return result;
 }
 
@@ -306,12 +398,48 @@ function dateOrUndefined(value: string | null): string | undefined {
   return value ?? undefined;
 }
 
+function comparisonFromResult(
+  result: DeepSeekChange,
+  bundle: ComparisonBundle,
+): RegulationComparison {
+  const sections: ComparisonSection[] = result.comparison.sections.map(
+    (section) => ({
+      section: section.section,
+      clause: section.clause,
+      changeType: section.changeType,
+      oldText: section.oldText,
+      newText: section.newText,
+      impactZh: section.impactZh,
+      confidence: section.confidence,
+    }),
+  );
+  return {
+    status:
+      bundle.comparison.status === "failed"
+        ? "failed"
+        : result.comparison.status === "complete" &&
+            bundle.comparison.status === "partial"
+          ? "partial"
+          : result.comparison.status,
+    oldDocument: bundle.comparison.oldDocument,
+    newDocument: bundle.comparison.newDocument,
+    sections,
+    limitations: [
+      ...new Set([
+        ...bundle.comparison.limitations,
+        ...result.comparison.limitations,
+      ]),
+    ],
+  };
+}
+
 export function buildFallbackChange(input: {
   source: SourceRecord;
   snapshot: SourceSnapshot;
   diff: SnapshotDiff;
   now: string;
   reason: string;
+  comparison?: RegulationComparison;
 }): RegulationChange {
   const items = changedItems(input.diff);
   const preview = items
@@ -344,6 +472,7 @@ export function buildFallbackChange(input: {
     ],
     confidence: "low",
     reviewStatus: "draft",
+    comparison: input.comparison,
     model: process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL,
     promptVersion: PROMPT_VERSION,
   };
@@ -355,6 +484,7 @@ export function buildRegulationChange(input: {
   diff: SnapshotDiff;
   now: string;
   result: DeepSeekChange;
+  comparisonBundle: ComparisonBundle;
 }): RegulationChange {
   const items = changedItems(input.diff);
   return {
@@ -383,6 +513,7 @@ export function buildRegulationChange(input: {
     evidence: input.result.evidence,
     confidence: input.result.confidence,
     reviewStatus: "draft",
+    comparison: comparisonFromResult(input.result, input.comparisonBundle),
     model: process.env.DEEPSEEK_MODEL ?? DEFAULT_MODEL,
     promptVersion: PROMPT_VERSION,
   };
@@ -391,6 +522,7 @@ export function buildRegulationChange(input: {
 export function createDeepSeekAnalyzer(options?: {
   apiKey?: string;
   fetchImpl?: typeof fetch;
+  documentFetchImpl?: typeof fetch;
 }) {
   const apiKey = options?.apiKey ?? process.env.DEEPSEEK_API_KEY;
   return async (
@@ -398,23 +530,49 @@ export function createDeepSeekAnalyzer(options?: {
     snapshot: SourceSnapshot,
     diff: SnapshotDiff,
     now: string,
-    previous?: RegulationChange,
+    previous?: SourceSnapshot,
   ): Promise<RegulationChange | null> => {
     if (!apiKey) {
       console.log("DEEPSEEK_SKIPPED: no report will be generated");
       return null;
     }
-    if (previous) return null;
+    let bundle: ComparisonBundle | undefined;
     try {
+      bundle = await buildComparisonBundle({
+        previous,
+        next: snapshot,
+        diff,
+        fetchImpl: options?.documentFetchImpl,
+      });
+      if (bundle.comparison.status === "failed") {
+        return buildFallbackChange({
+          source,
+          snapshot,
+          diff,
+          now,
+          reason: "已检测到信源变化，但新旧原文下载或解析失败。",
+          comparison: bundle.comparison,
+        });
+      }
       const result = await analyzeChange({
         sourceTitle: source.name,
         evidenceText: evidenceTextForDiff(snapshot, diff),
+        comparisonText: comparisonToMarkdown(bundle),
+        oldText: bundle.oldText,
+        newText: bundle.newText,
         officialUrl: source.url,
         apiKey,
         fetchImpl: options?.fetchImpl,
       });
       if (!result || !result.isMaterialChange) return null;
-      return buildRegulationChange({ source, snapshot, diff, now, result });
+      return buildRegulationChange({
+        source,
+        snapshot,
+        diff,
+        now,
+        result,
+        comparisonBundle: bundle,
+      });
     } catch (error) {
       console.error("DEEPSEEK_ANALYSIS_FAILED", error);
       return buildFallbackChange({
@@ -423,6 +581,7 @@ export function createDeepSeekAnalyzer(options?: {
         diff,
         now,
         reason: `AI 分析未通过校验：${error instanceof Error ? error.message : String(error)}。`,
+        comparison: bundle?.comparison,
       });
     }
   };

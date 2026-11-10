@@ -2,11 +2,11 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { AppShell } from "./components/AppShell";
 import { AboutPage } from "./pages/AboutPage";
+import { AdminPage } from "./pages/AdminPage";
 import { ChangeDetailPage } from "./pages/ChangeDetailPage";
 import { ChangesPage } from "./pages/ChangesPage";
 import { OverviewPage } from "./pages/OverviewPage";
 import { ReportsPage } from "./pages/ReportsPage";
-import { SourcesPage } from "./pages/SourcesPage";
 import { StandardDetailPage } from "./pages/StandardDetailPage";
 import { StandardsPage } from "./pages/StandardsPage";
 import changesJson from "./data/changes.json";
@@ -15,6 +15,8 @@ import metaJson from "./data/meta.json";
 import reportsJson from "./data/reports.json";
 import sourcesJson from "./data/sources.json";
 import standardsJson from "./data/standards.json";
+import knowledgeJson from "./data/knowledge.json";
+import newsfeedJson from "./data/newsfeed.json";
 import type {
   ImportReport,
   MonitorMeta,
@@ -22,6 +24,8 @@ import type {
   ReportRecord,
   SourceRecord,
   StandardRecord,
+  KnowledgeItem,
+  NewsFeedItem,
 } from "./types";
 
 const standards = standardsJson as StandardRecord[];
@@ -30,6 +34,8 @@ const changes = changesJson as RegulationChange[];
 const reports = reportsJson as ReportRecord[];
 const importReport = importReportJson as ImportReport;
 const meta = metaJson as MonitorMeta;
+const knowledge = knowledgeJson as KnowledgeItem[];
+const newsfeed = newsfeedJson as NewsFeedItem[];
 
 function ScrollToTop() {
   const location = useLocation();
@@ -54,6 +60,8 @@ export function App() {
               reports={reports}
               importReport={importReport}
               meta={meta}
+              knowledge={knowledge}
+              newsfeed={newsfeed}
             />
           }
         />
@@ -81,16 +89,6 @@ export function App() {
           }
         />
         <Route
-          path="/sources"
-          element={
-            <SourcesPage
-              sources={sources}
-              health={meta.sourceHealth}
-              importReport={importReport}
-            />
-          }
-        />
-        <Route
           path="/reports"
           element={<ReportsPage reports={reports} changes={changes} />}
         />
@@ -101,6 +99,17 @@ export function App() {
               importReport={importReport}
               meta={meta}
               sources={sources}
+            />
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <AdminPage
+              standards={standards}
+              sources={sources}
+              knowledge={knowledge}
+              newsfeed={newsfeed}
             />
           }
         />

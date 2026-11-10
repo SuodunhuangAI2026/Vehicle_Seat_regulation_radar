@@ -69,6 +69,8 @@ it("accepts the strict fixture and rejects evidence from another domain", async 
     analyzeChange({
       sourceTitle: "UNECE",
       evidenceText: "Revision 8",
+      oldText: "旧版原文：头枕高度应保持在合适位置。",
+      newText: "新版原文：头枕高度和前后位置应保持在合适位置。",
       officialUrl: "https://unece.org/un-regulations-addenda-1958-agreement",
       apiKey: "test-key",
       fetchImpl,
@@ -96,11 +98,36 @@ it("accepts the strict fixture and rejects evidence from another domain", async 
     analyzeChange({
       sourceTitle: "UNECE",
       evidenceText: "Revision 8",
+      oldText: "旧版原文：头枕高度应保持在合适位置。",
+      newText: "新版原文：头枕高度和前后位置应保持在合适位置。",
       officialUrl: "https://unece.org/un-regulations-addenda-1958-agreement",
       apiKey: "test-key",
       fetchImpl: hostileFetch,
     }),
   ).rejects.toBeInstanceOf(DeepSeekValidationError);
+});
+
+it("rejects comparison text that is not an exact source excerpt", async () => {
+  const valid = await fixture("deepseek-valid.json");
+  const fetchImpl = vi.fn(async () =>
+    new Response(
+      JSON.stringify({
+        choices: [{ message: { content: JSON.stringify(valid) } }],
+      }),
+      { status: 200, headers: { "Content-Type": "application/json" } },
+    ),
+  );
+  await expect(
+    analyzeChange({
+      sourceTitle: "UNECE",
+      evidenceText: "Revision 8",
+      oldText: "旧版原文没有这句话。",
+      newText: "新版原文也没有这句话。",
+      officialUrl: "https://unece.org/un-regulations-addenda-1958-agreement",
+      apiKey: "test-key",
+      fetchImpl,
+    }),
+  ).rejects.toThrow("not an exact excerpt");
 });
 
 it("does not call DeepSeek or create a report when no API key is configured", async () => {
@@ -126,6 +153,44 @@ it("escapes model and source text in standalone report HTML", () => {
   expect(escapeHtml(`<a href="'">`)).toBe(
     "&lt;a href=&quot;&#39;&quot;&gt;",
   );
+});
+
+it("renders aligned old/new source text with inline change highlights", () => {
+  const html = renderReportHtml({
+    ...validChange,
+    comparison: {
+      status: "complete",
+      oldDocument: {
+        title: "R017r7e.pdf",
+        url: "https://unece.org/r17-old.pdf",
+        documentKind: "pdf",
+        textLength: 1200,
+      },
+      newDocument: {
+        title: "R017r8e.pdf",
+        url: "https://unece.org/r17-new.pdf",
+        documentKind: "pdf",
+        textLength: 1300,
+      },
+      sections: [
+        {
+          section: "头枕位置要求",
+          clause: "7.2",
+          changeType: "modified",
+          oldText: "头枕高度应保持在较高位置。",
+          newText: "头枕高度和前后位置应保持在合适位置。",
+          impactZh: "复核头枕调节范围与测量方法。",
+          confidence: "medium",
+        },
+      ],
+      limitations: [],
+    },
+  });
+
+  expect(html).toContain("新旧原文左右对比");
+  expect(html).toContain("<del>");
+  expect(html).toContain("<ins>");
+  expect(html).toContain("https://unece.org/r17-old.pdf");
 });
 
 it("updates the report badge only after a review decision", () => {

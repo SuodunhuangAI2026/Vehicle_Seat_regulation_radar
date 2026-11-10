@@ -36,17 +36,17 @@
       "lastSuccessAt": "2026-11-10T00:49:23.401Z"
     }
   ],
-  "promptVersion": "seats-v1",
+  "promptVersion": "seats-v2",
   "model": "deepseek-chat",
   "repositoryUrl": "https://github.com/SuodunhuangAI2026/Vehicle_Seat_regulation_radar",
   "deploymentUrl": "https://SuodunhuangAI2026.github.io/Vehicle_Seat_regulation_radar/",
-  "standardsVisibleRows": 141,
+  "standardsVisibleRows": 42,
   "standardsReportedDocuments": 155,
   "sourceExtractedUrls": 92,
   "sourceDocumentReportedItems": 117,
   "knownGaps": [
     "首版仅自动监控 eCFR、UNECE WP.29、NHTSA FMVSS 与 Transport Canada，其余信源为人工浏览。",
-    "部分官方站点可能对自动访问、PDF 下载或登录设置限制。",
-    "AI 分析只用于辅助定位影响，不能替代法规原文、试验验证或认证结论。"
+    "部分官方站点可能对自动访问、PDF 下载、扫描件文本提取或登录设置限制；失败时只标记待人工提取。",
+    "AI 左右对比只基于成功提取的公开原文，不能替代法规原文、试验验证或认证结论。"
   ]
 }

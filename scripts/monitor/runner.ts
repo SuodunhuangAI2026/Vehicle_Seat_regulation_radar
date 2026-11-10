@@ -19,6 +19,7 @@ export interface MonitorOptions {
     snapshot: SourceSnapshot,
     diff: SnapshotDiff,
     now: string,
+    previous?: SourceSnapshot,
   ) => Promise<RegulationChange | null>;
   now?: () => Date;
   rateLimitMs?: number;
@@ -79,6 +80,7 @@ export async function runMonitor(options: MonitorOptions): Promise<MonitorRun> {
             next,
             diff,
             checkedAt,
+            previous,
           );
           if (change) changes.push(change);
         } catch (error) {

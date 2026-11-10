@@ -17,6 +17,8 @@ import type {
   SourceHealth,
   SourceRecord,
   StandardRecord,
+  KnowledgeItem,
+  NewsFeedItem,
 } from "../types";
 
 const dateFields = [
@@ -38,6 +40,12 @@ function sourceStatusCounts(health: SourceHealth[]) {
   );
 }
 
+function tickerSequence(items: NewsFeedItem[]): NewsFeedItem[] {
+  if (items.length === 0) return [];
+  const repeat = Math.max(2, Math.ceil(8 / items.length));
+  return Array.from({ length: repeat }, () => items).flat();
+}
+
 export function OverviewPage({
   standards,
   sources,
@@ -45,6 +53,8 @@ export function OverviewPage({
   reports,
   importReport,
   meta,
+  knowledge,
+  newsfeed,
 }: {
   standards: StandardRecord[];
   sources: SourceRecord[];
@@ -52,6 +62,8 @@ export function OverviewPage({
   reports: ReportRecord[];
   importReport: ImportReport;
   meta: Partial<MonitorMeta>;
+  knowledge: KnowledgeItem[];
+  newsfeed: NewsFeedItem[];
 }) {
   const pending = changes.filter((change) => change.reviewStatus === "draft");
   const highImpact = changes.filter((change) =>
@@ -82,6 +94,29 @@ export function OverviewPage({
     .sort((a, b) => a.value.localeCompare(b.value))
     .slice(0, 5);
 
+  const changeNews: NewsFeedItem[] = [...changes]
+    .filter((change) => change.reviewStatus !== "rejected")
+    .sort((a, b) => b.detectedAt.localeCompare(a.detectedAt))
+    .slice(0, 5)
+    .map((change) => ({
+      id: change.id,
+      title: change.title,
+      href: `/changes/${change.id}`,
+      severity: change.severity,
+      updatedAt: change.detectedAt,
+    }));
+  const topNews =
+    changeNews.length > 0
+      ? changeNews
+      : [...newsfeed]
+          .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
+          .slice(0, 5);
+  const topNewsSequence = tickerSequence(topNews);
+
+  const topKnowledge = [...knowledge]
+    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
+    .slice(0, 6);
+
   return (
     <div className="overview-page">
       <section className="hero">
@@ -101,8 +136,8 @@ export function OverviewPage({
             <Link className="button button-primary" to="/changes">
               查看变更雷达
             </Link>
-            <Link className="button button-quiet" to="/sources">
-              浏览 92 个信源
+            <Link className="button button-quiet" to="/standards">
+              浏览 {standards.length} 条标准
             </Link>
           </div>
         </div>
@@ -134,6 +169,38 @@ export function OverviewPage({
           </div>
         </div>
       </section>
+
+      {topNews.length > 0 && (
+        <section className="news-ticker" aria-label="变化报告">
+          <div className="news-ticker-track">
+            {[false, true].map((clone) => (
+              <div
+                className="news-ticker-copy"
+                data-clone={clone ? "true" : "false"}
+                aria-hidden={clone ? true : undefined}
+                key={clone ? "clone" : "primary"}
+              >
+                {topNewsSequence.map((item, index) => (
+                  <Link
+                    key={`${clone ? "clone" : "primary"}-${item.id}-${index}`}
+                    to={item.href}
+                    className="news-ticker-item"
+                    aria-hidden={
+                      clone || index >= topNews.length ? true : undefined
+                    }
+                    tabIndex={
+                      clone || index >= topNews.length ? -1 : undefined
+                    }
+                  >
+                    <StatusBadge value={item.severity} />
+                    <span className="news-ticker-title">{item.title}</span>
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="metric-grid" aria-label="核心指标">
         <MetricCard
@@ -209,7 +276,7 @@ export function OverviewPage({
               </ol>
             ) : (
               <p className="quiet-note">
-                当前没有已确认的发布、生效或过渡期日期。未知节点统一显示为“未确认”。
+                当前没有已确认的发布、生效或过渡期日期。未知节点统一显示为"未确认"。
               </p>
             )}
           </section>
@@ -220,9 +287,6 @@ export function OverviewPage({
                 <span className="eyebrow">Source health</span>
                 <h2>信源健康</h2>
               </div>
-              <Link className="text-link" to="/sources">
-                信源中心
-              </Link>
             </div>
             {health.length > 0 ? (
               <div className="health-grid">
@@ -292,6 +356,31 @@ export function OverviewPage({
           )}
         </section>
       </div>
+
+      {topKnowledge.length > 0 && (
+        <section className="knowledge-panel" aria-label="法规小知识">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">Regulatory knowledge</span>
+              <h2>法规小知识</h2>
+            </div>
+          </div>
+          <div className="knowledge-grid">
+            {topKnowledge.map((item) => (
+              <article key={item.id} className="knowledge-card">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+                {item.source && (
+                  <footer>
+                    <span>来源：{item.source}</span>
+                    <time>{formatDate(item.updatedAt)}</time>
+                  </footer>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

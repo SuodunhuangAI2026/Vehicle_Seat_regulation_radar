@@ -18,7 +18,9 @@ it("shows the approved product identity and primary routes", () => {
     "/changes",
   );
   expect(screen.getByRole("link", { name: "标准库" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "审核稿" })).toBeInTheDocument();
   expect(
-    screen.getAllByRole("link", { name: "信源中心" }).length,
-  ).toBeGreaterThan(0);
+    screen.getByRole("link", { name: "方法与说明" }),
+  ).toBeInTheDocument();
+  expect(screen.queryByRole("link", { name: "信源中心" })).toBeNull();
 });
