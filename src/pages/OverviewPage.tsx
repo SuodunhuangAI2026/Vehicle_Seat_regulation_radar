@@ -125,102 +125,139 @@ export function OverviewPage({
 
   return (
     <div className="overview-page">
-      <section className="hero">
-        <div className="hero-copy">
-          <span className="eyebrow">
-            Regulatory intelligence / M1 seat systems
-          </span>
-          <h1>
-            <span>SeatScope</span>
-            <small>座椅法规雷达</small>
-          </h1>
-          <p className="hero-lead">
-            为 M1 座椅、固定点与头枕建立一条可追溯的法规变更链路：官方信源采集、
-            AI 辅助对比、人工审核，再交由锁老师决定是否发送飞书。
-          </p>
-          <div className="hero-actions">
-            <Link className="button button-primary" to="/changes">
-              查看变更雷达
+      {topNews.length === 0 ? (
+        <section className="hero">
+          <div className="hero-copy">
+            <span className="eyebrow">
+              Regulatory intelligence / M1 seat systems
+            </span>
+            <h1>
+              <span>SeatScope</span>
+              <small>座椅法规雷达</small>
+            </h1>
+            <p className="hero-lead">
+              为 M1 座椅、固定点与头枕建立一条可追溯的法规变更链路：官方信源采集、
+              AI 辅助对比、人工审核，再交由锁老师决定是否发送飞书。
+            </p>
+            <div className="hero-actions">
+              <Link className="button button-primary" to="/changes">
+                查看变更雷达
+              </Link>
+              <Link className="button button-quiet" to="/standards">
+                浏览 {standards.length} 条标准
+              </Link>
+            </div>
+          </div>
+          <div className="hero-radar" aria-hidden="true">
+            <span className="radar-ring ring-one" />
+            <span className="radar-ring ring-two" />
+            <span className="radar-ring ring-three" />
+            <span className="radar-axis axis-x" />
+            <span className="radar-axis axis-y" />
+            <span className="radar-sweep" />
+            <span className="radar-blip blip-one" />
+            <span className="radar-blip blip-two" />
+            <span className="radar-blip blip-three" />
+            <div className="radar-caption">
+              <b>M1</b>
+              <span>SEAT / RESTRAINT / HEADREST</span>
+            </div>
+          </div>
+          <div className="hero-status">
+            <span className="live-dot" />
+            <div>
+              <strong>
+                {meta.lastSuccessfulRun ? "监控数据已载入" : "等待首次监控运行"}
+              </strong>
+              <small>
+                最近成功 {relativeRunLabel(meta.lastSuccessfulRun)} ·{" "}
+                {formatDateTime(meta.lastSuccessfulRun)}
+              </small>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section
+          className="hero-carousel"
+          aria-roledescription="carousel"
+          aria-label="变化报告头条轮播"
+        >
+          <div className="hero-carousel-radar" aria-hidden="true">
+            <span className="radar-ring ring-one" />
+            <span className="radar-ring ring-two" />
+            <span className="radar-ring ring-three" />
+            <span className="radar-axis axis-x" />
+            <span className="radar-axis axis-y" />
+            <span className="radar-sweep" />
+            <span className="radar-blip blip-one" />
+            <span className="radar-blip blip-two" />
+            <span className="radar-blip blip-three" />
+            <div className="radar-caption">
+              <b>M1</b>
+              <span>SEAT / RESTRAINT / HEADREST</span>
+            </div>
+          </div>
+          <div className="hero-carousel-main" aria-live="polite">
+            <span className="hero-carousel-kicker">
+              SeatScope · M1 座椅法规雷达 · 锁老师
+            </span>
+            <div className="hero-carousel-topline">
+              <span className="eyebrow">Change headlines</span>
+              <StatusBadge value={currentNews.severity} />
+            </div>
+            <Link className="hero-carousel-title" to={currentNews.href}>
+              <h1>{currentNews.title}</h1>
             </Link>
-            <Link className="button button-quiet" to="/standards">
-              浏览 {standards.length} 条标准
-            </Link>
+            <p className="hero-carousel-date">
+              {formatDateTime(currentNews.updatedAt)} · 官方信源监测
+            </p>
+            <div className="hero-carousel-actions">
+              <Link className="button button-primary" to="/changes">
+                查看变更雷达
+              </Link>
+              <Link className="button button-quiet" to={currentNews.href}>
+                阅读本条
+              </Link>
+            </div>
+            <div className="hero-carousel-dots" aria-label="轮播指示器">
+              {topNews.map((item, index) => (
+                <button
+                  key={`${item.id}-${item.title}`}
+                  type="button"
+                  className={index === activeNews ? "is-active" : ""}
+                  aria-label={`显示第 ${index + 1} 条变化报告`}
+                  aria-current={index === activeNews ? "true" : undefined}
+                  onClick={() => setActiveNews(index)}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="hero-radar" aria-hidden="true">
-          <span className="radar-ring ring-one" />
-          <span className="radar-ring ring-two" />
-          <span className="radar-ring ring-three" />
-          <span className="radar-axis axis-x" />
-          <span className="radar-axis axis-y" />
-          <span className="radar-sweep" />
-          <span className="radar-blip blip-one" />
-          <span className="radar-blip blip-two" />
-          <span className="radar-blip blip-three" />
-          <div className="radar-caption">
-            <b>M1</b>
-            <span>SEAT / RESTRAINT / HEADREST</span>
-          </div>
-        </div>
-        <div className="hero-status">
-          <span className="live-dot" />
-          <div>
-            <strong>
-              {meta.lastSuccessfulRun ? "监控数据已载入" : "等待首次监控运行"}
-            </strong>
-            <small>
-              最近成功 {relativeRunLabel(meta.lastSuccessfulRun)} ·{" "}
-              {formatDateTime(meta.lastSuccessfulRun)}
-            </small>
-          </div>
-        </div>
-      </section>
-
-      {topNews.length > 0 && (
-        <section className="news-carousel" aria-label="变化报告头条">
-          {topNews.length > 0 && (
-            <>
-              <div className="news-carousel-current">
-                <div className="news-carousel-head">
-                  <span className="eyebrow">Change headlines</span>
-                  <StatusBadge value={currentNews.severity} />
-                </div>
-                <Link to={currentNews.href}>
-                  <h2>{currentNews.title}</h2>
+          <aside className="hero-carousel-side" aria-label="其他变化报告">
+            <span className="hero-carousel-side-label">更多变化</span>
+            {topNews.map((item, index) =>
+              index === activeNews ? null : (
+                <Link
+                  key={`${item.id}-${item.title}`}
+                  to={item.href}
+                  onClick={() => setActiveNews(index)}
+                >
+                  <StatusBadge value={item.severity} />
+                  <b>{item.title}</b>
                 </Link>
-                <p>{formatDateTime(currentNews.updatedAt)}</p>
-                <div className="news-dots" aria-label="轮播指示器">
-                  {topNews.map((item, index) => (
-                    <button
-                      key={`${item.id}-${item.title}`}
-                      type="button"
-                      className={index === activeNews ? "is-active" : ""}
-                      aria-label={`显示第 ${index + 1} 条变化报告`}
-                      aria-current={index === activeNews ? "true" : undefined}
-                      onClick={() => setActiveNews(index)}
-                    />
-                  ))}
-                </div>
-              </div>
-              <div className="news-carousel-side" aria-label="其他变化报告">
-                {topNews.slice(1).map((item, index) => (
-                  <Link
-                    key={`${item.id}-${item.title}`}
-                    to={item.href}
-                    className={
-                      index + 1 === activeNews ? "is-active" : undefined
-                    }
-                    onClick={() => setActiveNews(index + 1)}
-                  >
-                    <span>
-                      <StatusBadge value={item.severity} />
-                    </span>
-                    <b>{item.title}</b>
-                  </Link>
-                ))}
-              </div>
-            </>
-          )}
+              ),
+            )}
+            <Link className="hero-carousel-all" to="/changes">
+              查看全部变化 <span aria-hidden="true">→</span>
+            </Link>
+          </aside>
+          <div className="hero-carousel-status">
+            <span className="live-dot" />
+            <span>
+              {meta.lastSuccessfulRun ? "监控数据已载入" : "等待首次监控运行"}
+              {" · "}
+              {relativeRunLabel(meta.lastSuccessfulRun)}
+            </span>
+          </div>
         </section>
       )}
 

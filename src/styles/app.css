@@ -2585,140 +2585,295 @@ h2 {
   }
 }
 
-/* Change report carousel - China Daily style lead headline,
-   replacing the old horizontal ticker. */
-.news-carousel {
+/* Homepage lead carousel - the first visual module adopts China Daily's
+   lead-story layout: one rotating headline plus a compact side list. */
+.hero-carousel {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  gap: 22px;
-  margin: 20px 0;
-  padding: clamp(18px, 3vw, 26px);
-  border: 1px solid var(--line);
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.55fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  min-height: 520px;
+  padding: clamp(34px, 5vw, 70px);
+  overflow: hidden;
+  color: var(--paper-raised);
   border-radius: var(--radius-lg);
   background:
-    radial-gradient(circle at 88% 12%, rgba(230, 90, 46, 0.1), transparent 34%),
-    var(--paper-raised);
-  box-shadow: 0 18px 50px rgba(23, 61, 84, 0.08);
+    linear-gradient(115deg, rgba(255, 255, 255, 0.045), transparent 44%),
+    var(--navy);
+  box-shadow: var(--shadow);
 }
 
-.news-carousel-current {
-  display: grid;
-  gap: 12px;
-  min-height: 168px;
+.hero-carousel::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: linear-gradient(90deg, #000, transparent 76%);
+  pointer-events: none;
 }
 
-.news-carousel-head {
+.hero-carousel::after {
+  position: absolute;
+  content: "M1";
+  right: 0.04em;
+  bottom: -0.24em;
+  color: rgba(255, 255, 255, 0.035);
+  font-family: var(--serif);
+  font-size: clamp(12rem, 27vw, 28rem);
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.hero-carousel-radar {
+  position: absolute;
+  z-index: 1;
+  right: -54px;
+  top: 50%;
+  width: min(47vw, 560px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, rgba(230, 90, 46, 0.14), transparent 56%),
+    rgba(8, 25, 35, 0.22);
+  box-shadow: inset 0 0 75px rgba(3, 14, 20, 0.32);
+  opacity: 0.72;
+  transform: translateY(-50%);
+}
+
+.hero-carousel-main {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 360px;
+}
+
+.hero-carousel-kicker {
+  color: rgba(251, 249, 243, 0.6);
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-carousel-topline {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
+  margin-top: 24px;
 }
 
-.news-carousel-current a {
-  display: block;
-  color: var(--ink);
+.hero-carousel-topline .eyebrow {
+  margin: 0;
+  color: #f6aa8f;
+}
+
+.hero-carousel-title {
+  color: inherit;
   text-decoration: none;
 }
 
-.news-carousel-current h2 {
-  max-width: 840px;
-  margin: 0;
-  font-family: var(--serif);
-  font-size: clamp(1.7rem, 3.4vw, 3.2rem);
-  line-height: 1.06;
-  letter-spacing: -0.02em;
-  color: var(--ink);
+.hero-carousel-title h1 {
+  max-width: 880px;
+  margin: 14px 0 16px;
+  color: var(--paper-raised);
+  font-size: clamp(2.5rem, 4.6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
 }
 
-.news-carousel-current a:hover h2 {
-  color: var(--orange);
+.hero-carousel-title:hover h1 {
+  color: #ffd4c4;
 }
 
-.news-carousel-current p {
+.hero-carousel-date {
   margin: 0;
-  color: var(--steel);
+  color: rgba(251, 249, 243, 0.64);
   font-size: 0.78rem;
 }
 
-.news-carousel-side {
-  display: grid;
+.hero-carousel-actions {
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
-  align-content: center;
-  padding-left: clamp(18px, 3vw, 26px);
-  border-left: 1px solid var(--line);
+  margin-top: 26px;
 }
 
-.news-carousel-side a {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: start;
-  gap: 10px;
-  padding: 10px 12px;
+.hero-carousel .button-primary {
   color: var(--ink);
-  border-radius: 12px;
-  text-decoration: none;
-  transition:
-    background 180ms ease,
-    border-color 180ms ease;
+  background: var(--paper-raised);
 }
 
-.news-carousel-side a:hover,
-.news-carousel-side a.is-active {
-  background: rgba(230, 90, 46, 0.08);
+.hero-carousel .button-quiet {
+  color: var(--paper-raised);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: transparent;
 }
 
-.news-carousel-side b {
-  font-family: var(--serif);
-  font-size: 0.9rem;
-  font-weight: 650;
-  line-height: 1.28;
-}
-
-.news-dots {
+.hero-carousel-dots {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  margin-top: 4px;
+  margin-top: 24px;
 }
 
-.news-dots button {
+.hero-carousel-dots button {
   width: 9px;
   height: 9px;
   padding: 0;
   border: 0;
   border-radius: 999px;
-  background: var(--line-strong);
+  background: rgba(255, 255, 255, 0.34);
   cursor: pointer;
   transition: width 180ms ease, background 180ms ease;
 }
 
-.news-dots button.is-active,
-.news-dots button:focus-visible {
-  width: 26px;
+.hero-carousel-dots button.is-active,
+.hero-carousel-dots button:focus-visible {
+  width: 28px;
   background: var(--orange);
 }
 
+.hero-carousel-side {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  gap: 2px;
+  align-content: center;
+  padding-left: clamp(18px, 3vw, 30px);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-carousel-side-label {
+  margin-bottom: 10px;
+  color: #f6aa8f;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-carousel-side a:not(.hero-carousel-all) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  padding: 12px 0;
+  color: var(--paper-raised);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  text-decoration: none;
+}
+
+.hero-carousel-side a:not(.hero-carousel-all):hover b {
+  color: #ffd4c4;
+}
+
+.hero-carousel-side .status-badge {
+  color: #f4d6c9;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-carousel-side b {
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  font-weight: 620;
+  line-height: 1.34;
+}
+
+.hero-carousel-all {
+  margin-top: 14px;
+  color: #f6aa8f;
+  font-size: 0.78rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.hero-carousel-status {
+  position: absolute;
+  z-index: 4;
+  right: clamp(20px, 4vw, 46px);
+  bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 12px;
+  color: rgba(251, 249, 243, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(7, 25, 35, 0.35);
+  backdrop-filter: blur(12px);
+  font-size: 0.64rem;
+}
+
+@media (max-width: 1100px) {
+  .hero-carousel {
+    grid-template-columns: minmax(0, 1.3fr) minmax(250px, 0.7fr);
+    min-height: 480px;
+  }
+}
+
 @media (max-width: 900px) {
-  .news-carousel {
+  .hero-carousel {
     grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 34px 26px;
   }
 
-  .news-carousel-side {
+  .hero-carousel-main {
+    min-height: 0;
+  }
+
+  .hero-carousel-radar {
+    right: -130px;
+    bottom: -90px;
+    top: auto;
+    width: 360px;
+    opacity: 0.3;
+    transform: none;
+  }
+
+  .hero-carousel-side {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    padding: 14px 0 0;
-    border-top: 1px solid var(--line);
+    gap: 8px 18px;
+    padding: 18px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
     border-left: 0;
+  }
+
+  .hero-carousel-side-label,
+  .hero-carousel-all {
+    grid-column: 1 / -1;
+  }
+
+  .hero-carousel-status {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: fit-content;
+    margin-top: 14px;
   }
 }
 
 @media (max-width: 480px) {
-  .news-carousel-current h2 {
-    font-size: 1.5rem;
+  .hero-carousel {
+    padding: 28px 19px;
   }
 
-  .news-carousel-side {
+  .hero-carousel-title h1 {
+    font-size: 2rem;
+  }
+
+  .hero-carousel-side {
     grid-template-columns: 1fr;
   }
 }

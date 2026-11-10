@@ -11,8 +11,8 @@ it("shows the approved product identity and primary routes", () => {
   );
 
   expect(
-    screen.getByText("SeatScope · M1 座椅法规雷达 · 锁老师"),
-  ).toBeInTheDocument();
+    screen.getAllByText("SeatScope · M1 座椅法规雷达 · 锁老师").length,
+  ).toBeGreaterThan(0);
   expect(screen.getByRole("link", { name: "变更雷达" })).toHaveAttribute(
     "href",
     "/changes",

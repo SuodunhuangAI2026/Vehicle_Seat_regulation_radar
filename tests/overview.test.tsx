@@ -32,7 +32,7 @@ it("renders metrics, source health, and the latest change", () => {
   expect(
     screen.getAllByText("UN R17 头枕要求更新观察").length,
   ).toBeGreaterThan(0);
-  expect(screen.getByText("监控数据已载入")).toBeInTheDocument();
+  expect(screen.getByText(/监控数据已载入/)).toBeInTheDocument();
 });
 
 it("shows one active change headline and clickable dots for up to five items", () => {
@@ -57,8 +57,11 @@ it("shows one active change headline and clickable dots for up to five items", (
     </MemoryRouter>,
   );
 
-  expect(container.querySelectorAll(".news-carousel")).toHaveLength(1);
-  expect(container.querySelectorAll(".news-dots button")).toHaveLength(5);
-  const heading = container.querySelector(".news-carousel h2")?.textContent ?? "";
+  expect(container.querySelectorAll(".hero-carousel")).toHaveLength(1);
+  expect(container.querySelectorAll(".hero-carousel-dots button")).toHaveLength(
+    5,
+  );
+  const heading =
+    container.querySelector(".hero-carousel-title h1")?.textContent ?? "";
   expect(/^变化报告 [1-5]$/.test(heading)).toBe(true);
 });
