@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { clearAdminSession } from "../lib/admin-access";
 import type {
   KnowledgeItem,
   NewsFeedItem,
@@ -115,6 +116,11 @@ export function AdminPage({
     }
   }
 
+  function signOut() {
+    clearAdminSession();
+    window.location.reload();
+  }
+
   return (
     <div className="page admin-page">
       <header className="page-heading">
@@ -122,13 +128,22 @@ export function AdminPage({
           <span className="eyebrow">Lightweight JSON administration</span>
           <h1>轻量 JSON 管理台</h1>
           <p>
-            这是给会操作仓库的管理员使用的编辑辅助，不是登录后台。修改后导出 JSON，
-            替换对应文件并提交 Git，GitHub Actions 会重新构建和部署。
+            此页仅向拥有本仓库写入权限的管理员开放。修改后导出 JSON，替换对应文件并提交
+            Git，GitHub Actions 会重新构建和部署。
           </p>
         </div>
-        <div className="heading-stat">
-          <b>{drafts[active].split("\n").length}</b>
-          <span>编辑行数</span>
+        <div className="admin-heading-side">
+          <div className="heading-stat">
+            <b>{drafts[active].split("\n").length}</b>
+            <span>编辑行数</span>
+          </div>
+          <button
+            type="button"
+            className="button button-quiet"
+            onClick={signOut}
+          >
+            退出管理
+          </button>
         </div>
       </header>
 
@@ -203,8 +218,8 @@ export function AdminPage({
           <div className="admin-warning">
             <strong>安全边界</strong>
             <p>
-              此页面不会直接写仓库、不会保存密钥，也没有登录鉴权。请勿放入内部标准全文、
-              DeepSeek Key 或飞书 Webhook。
+              管理入口通过 GitHub 仓库写入权限验证，令牌仅保存在当前标签页。此页不会直接
+              写仓库，也不会保存 DeepSeek Key 或飞书 Webhook。
             </p>
           </div>
         </section>

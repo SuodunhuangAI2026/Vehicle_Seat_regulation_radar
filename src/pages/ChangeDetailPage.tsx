@@ -164,10 +164,6 @@ export function ChangeDetailPage({
           <span>分析来源</span>
           <b>{change.model}</b>
         </div>
-        <div>
-          <span>提示词版本</span>
-          <b>{change.promptVersion}</b>
-        </div>
         <p>
           仅已批准审核稿可生成飞书摘要。本页是分析记录，不直接触发任何飞书发送。
         </p>

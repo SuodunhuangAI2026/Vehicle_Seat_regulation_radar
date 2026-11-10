@@ -1,12 +1,6 @@
-import { Link } from "react-router-dom";
-import { DataQualityNote } from "../components/DataQualityNote";
 import { StatusBadge } from "../components/StatusBadge";
 import { formatDateTime } from "../lib/format";
-import type {
-  ImportReport,
-  MonitorMeta,
-  SourceRecord,
-} from "../types";
+import type { MonitorMeta, SourceRecord } from "../types";
 
 const pipeline = [
   {
@@ -42,11 +36,9 @@ const pipeline = [
 ];
 
 export function AboutPage({
-  importReport,
   meta,
   sources,
 }: {
-  importReport: ImportReport;
   meta: Partial<MonitorMeta>;
   sources: SourceRecord[];
 }) {
@@ -65,27 +57,7 @@ export function AboutPage({
             试验验证或企业放行评审。
           </p>
         </div>
-        <div className="method-stamp">
-          <span>PROMPT</span>
-          <b>{meta.promptVersion ?? "seats-v2"}</b>
-          <small>{meta.model ?? "deepseek-chat"}</small>
-        </div>
       </header>
-
-      <section className="admin-entry">
-        <div>
-          <span className="eyebrow">Lightweight JSON management</span>
-          <h2>轻量管理台：编辑数据并导出 JSON</h2>
-          <p>
-            标准、信源、法规小知识和首页变化报告均通过 JSON 维护。
-            该页面供任何访客查看和编辑草稿，但没有直接写库权限；
-            只有克隆仓库并拥有 GitHub 写权限的人，才能真正提交并触发部署。
-          </p>
-        </div>
-        <Link className="button button-primary" to="/admin">
-          打开轻量管理台
-        </Link>
-      </section>
 
       <section className="method-flow">
         {pipeline.map((step) => (
@@ -138,15 +110,9 @@ export function AboutPage({
               <dt>分析模型</dt>
               <dd>{meta.model ?? "deepseek-chat"}</dd>
             </div>
-            <div>
-              <dt>提示词版本</dt>
-              <dd>{meta.promptVersion ?? "seats-v2"}</dd>
-            </div>
           </dl>
         </section>
       </div>
-
-      <DataQualityNote report={importReport} />
 
       <section className="panel known-gaps">
         <span className="eyebrow">Known gaps</span>

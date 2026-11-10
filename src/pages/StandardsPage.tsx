@@ -1,11 +1,10 @@
 import { useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { DataQualityNote } from "../components/DataQualityNote";
 import { EmptyState } from "../components/EmptyState";
 import { StatusBadge } from "../components/StatusBadge";
 import { filterStandards, groupStandards } from "../lib/filters";
 import { standardStatusLabels } from "../lib/format";
-import type { ImportReport, StandardRecord } from "../types";
+import type { StandardRecord } from "../types";
 
 function statusRank(record: StandardRecord): number {
   if (record.status === "active") return 4;
@@ -22,10 +21,8 @@ function versionLabel(record: StandardRecord): string {
 
 export function StandardsPage({
   standards,
-  importReport,
 }: {
   standards: StandardRecord[];
-  importReport: ImportReport;
 }) {
   const [params, setParams] = useSearchParams();
   const filters = {
@@ -56,18 +53,12 @@ export function StandardsPage({
         <div>
           <span className="eyebrow">Standards library / document ledger</span>
           <h1>标准库</h1>
-          <p>
-            每个标准号一行，当前版本、征求意见稿和关联旧版分开展示。
-            官方获取地址只使用已登记链接，缺失时明确标记，不自动拼接搜索地址。
-          </p>
         </div>
         <div className="heading-stat">
           <b>{filtered.length}</b>
           <span>条文档记录</span>
         </div>
       </header>
-
-      <DataQualityNote report={importReport} compact />
 
       <section className="filter-console" aria-label="标准筛选">
         <label className="search-field">

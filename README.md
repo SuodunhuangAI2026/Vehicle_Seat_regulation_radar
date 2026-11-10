@@ -1,6 +1,6 @@
 # SeatScope · M1 座椅法规雷达 · 锁老师
 
-SeatScope 是面向 M1 车辆座椅、座椅固定点与头枕的法规变更雷达。它把标准清单、官方获取地址、变更观察、AI 新旧原文对比和人工审核稿集中到一个静态网站中，并保留证据链接与数据质量说明。
+SeatScope 是面向 M1 车辆座椅、座椅固定点与头枕的法规变更雷达。它把标准清单、官方获取地址、变更观察、AI 新旧原文对比和人工审核稿集中到一个静态网站中，并保留证据链接与审核状态。
 
 - 线上站点：[https://SuodunhuangAI2026.github.io/Vehicle_Seat_regulation_radar/](https://SuodunhuangAI2026.github.io/Vehicle_Seat_regulation_radar/)
 - 代码仓库：[https://github.com/SuodunhuangAI2026/Vehicle_Seat_regulation_radar](https://github.com/SuodunhuangAI2026/Vehicle_Seat_regulation_radar)
@@ -14,7 +14,7 @@ SeatScope 是面向 M1 车辆座椅、座椅固定点与头枕的法规变更雷
 - 使用内容哈希和章节级差异识别变化，不把首次抓取误报成法规变更。
 - 检测到版本变化后下载可访问的新旧公开原文，提取 HTML/PDF 文本并生成左右双栏、高亮变更点的 HTML 审核稿。
 - 首页提供最多 5 条变化报告滚动条和法规小知识模块。
-- `/admin` 提供轻量 JSON 编辑、校验和导出工具，修改后提交 Git 即可部署。
+- `/admin` 是不在公开导航中展示的管理员入口，只允许拥有本仓库写入权限的 GitHub 账号进入；修改后导出 JSON，提交 Git 即可部署。
 - 只有审核为 `approved` 的稿件才提供飞书摘要复制；系统不会自动向飞书发送消息。
 
 ## 数据口径
@@ -112,6 +112,8 @@ npm.cmd run review -- report-xxxx --supersede
 ## 数据与安全边界
 
 - 不提交原始 XLSX、DOCX、内部 PDF 或企业机密资料。
+- 管理台通过 GitHub API 重新校验访问令牌；令牌只保存在当前标签页会话中，30 分钟后失效，关闭标签页即清除。
+- 管理台不会把令牌写入仓库、页面 URL 或日志。建议创建仅限本仓库、仅授予 `Contents: Read and write` 的 Fine-grained token。
 - 不实现飞书 Webhook 或自动群消息。
 - 未确认的日期、版本和生效结论保持“未确认”，不进行推测。
 - DeepSeek 输出必须通过 Zod 校验，证据链接必须属于对应官方来源域名。

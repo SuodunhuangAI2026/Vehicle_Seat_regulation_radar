@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { ChangeCard } from "../components/ChangeCard";
-import { DataQualityNote } from "../components/DataQualityNote";
 import { MetricCard } from "../components/MetricCard";
 import { ReportCard } from "../components/ReportCard";
 import { StatusBadge } from "../components/StatusBadge";
@@ -21,15 +20,6 @@ import type {
   KnowledgeItem,
   NewsFeedItem,
 } from "../types";
-
-const dateFields = [
-  ["publicationDate", "发布"],
-  ["commentEnd", "意见截止"],
-  ["approvalDate", "批准"],
-  ["effectiveDate", "生效"],
-  ["transitionEnd", "过渡期结束"],
-  ["repealDate", "废止"],
-] as const;
 
 function sourceStatusCounts(health: SourceHealth[]) {
   return health.reduce(
@@ -75,18 +65,6 @@ export function OverviewPage({
   }, {});
   const dominantSystems = Object.entries(systemCounts)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 5);
-
-  const upcoming = changes
-    .flatMap((change) =>
-      dateFields.flatMap(([field, label]) => {
-        const value = change[field];
-        return value
-          ? [{ value, label, title: change.title, id: change.id }]
-          : [];
-      }),
-    )
-    .sort((a, b) => a.value.localeCompare(b.value))
     .slice(0, 5);
 
   const changeNews: NewsFeedItem[] = [...changes]
@@ -292,8 +270,6 @@ export function OverviewPage({
         />
       </section>
 
-      <DataQualityNote report={importReport} compact />
-
       <div className="overview-main-grid">
         <section className="panel panel-large">
           <div className="section-heading">
@@ -316,30 +292,6 @@ export function OverviewPage({
         </section>
 
         <aside className="overview-side">
-          <section className="panel">
-            <div className="section-heading">
-              <div>
-                <span className="eyebrow">Deadlines</span>
-                <h2>关键节点</h2>
-              </div>
-            </div>
-            {upcoming.length > 0 ? (
-              <ol className="deadline-list">
-                {upcoming.map((item) => (
-                  <li key={`${item.id}-${item.label}-${item.value}`}>
-                    <time>{formatDate(item.value)}</time>
-                    <span>{item.label}</span>
-                    <Link to={`/changes/${item.id}`}>{item.title}</Link>
-                  </li>
-                ))}
-              </ol>
-            ) : (
-              <p className="quiet-note">
-                当前没有已确认的发布、生效或过渡期日期。未知节点统一显示为"未确认"。
-              </p>
-            )}
-          </section>
-
           <section className="panel">
             <div className="section-heading">
               <div>

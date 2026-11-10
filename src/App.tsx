@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { AdminGate } from "./components/AdminGate";
 import { AppShell } from "./components/AppShell";
 import { AboutPage } from "./pages/AboutPage";
 import { AdminPage } from "./pages/AdminPage";
@@ -78,7 +79,6 @@ export function App() {
           element={
             <StandardsPage
               standards={standards}
-              importReport={importReport}
             />
           }
         />
@@ -96,7 +96,6 @@ export function App() {
           path="/about"
           element={
             <AboutPage
-              importReport={importReport}
               meta={meta}
               sources={sources}
             />
@@ -105,12 +104,14 @@ export function App() {
         <Route
           path="/admin"
           element={
-            <AdminPage
-              standards={standards}
-              sources={sources}
-              knowledge={knowledge}
-              newsfeed={newsfeed}
-            />
+            <AdminGate>
+              <AdminPage
+                standards={standards}
+                sources={sources}
+                knowledge={knowledge}
+                newsfeed={newsfeed}
+              />
+            </AdminGate>
           }
         />
         <Route path="*" element={<Navigate to="/" replace />} />

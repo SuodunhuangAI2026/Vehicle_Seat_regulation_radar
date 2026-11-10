@@ -23,4 +23,5 @@ it("shows the approved product identity and primary routes", () => {
     screen.getByRole("link", { name: "方法与说明" }),
   ).toBeInTheDocument();
   expect(screen.queryByRole("link", { name: "信源中心" })).toBeNull();
+  expect(screen.queryByRole("link", { name: /管理台/ })).toBeNull();
 });

@@ -8,24 +8,19 @@ import {
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, expect, it } from "vitest";
 import { StandardsPage } from "../src/pages/StandardsPage";
-import {
-  sampleImportReport,
-  sampleStandards,
-} from "./fixtures/empty-data";
+import { sampleStandards } from "./fixtures/empty-data";
 
 afterEach(cleanup);
 
-it("filters standards by system and preserves the count disclosure", () => {
+it("filters standards by system without public data-quality notices", () => {
   render(
     <MemoryRouter>
-      <StandardsPage
-        standards={sampleStandards}
-        importReport={sampleImportReport}
-      />
+      <StandardsPage standards={sampleStandards} />
     </MemoryRouter>,
   );
 
-  expect(screen.getByText(/155/)).toBeInTheDocument();
+  expect(screen.getByText("标准库")).toBeInTheDocument();
+  expect(screen.queryByText(/数据口径/)).toBeNull();
   fireEvent.change(screen.getByLabelText("体系"), {
     target: { value: "ECE" },
   });
@@ -46,7 +41,6 @@ it("uses the correct status label for superseded records", () => {
             status: "superseded",
           },
         ]}
-        importReport={sampleImportReport}
       />
     </MemoryRouter>,
   );

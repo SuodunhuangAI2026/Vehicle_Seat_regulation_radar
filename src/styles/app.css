@@ -851,91 +851,6 @@ h2 {
   text-align: right;
 }
 
-.data-quality {
-  display: flex;
-  gap: 16px;
-  margin: 20px 0;
-  padding: 20px 24px;
-  border: 1px solid rgba(198, 138, 43, 0.23);
-  border-radius: var(--radius-md);
-  background:
-    linear-gradient(90deg, rgba(198, 138, 43, 0.1), transparent 50%),
-    rgba(251, 249, 243, 0.62);
-}
-
-.data-quality.is-compact {
-  align-items: flex-start;
-  margin-block: 18px;
-  padding: 14px 18px;
-}
-
-.data-quality-icon {
-  display: grid;
-  width: 28px;
-  height: 28px;
-  flex: 0 0 28px;
-  place-items: center;
-  color: var(--paper-raised);
-  border-radius: 50%;
-  background: var(--amber);
-  font-family: var(--serif);
-  font-weight: 700;
-}
-
-.data-quality strong {
-  font-family: var(--serif);
-  font-size: 1rem;
-}
-
-.data-quality p {
-  margin: 3px 0 0;
-  color: var(--steel);
-  font-size: 0.8rem;
-}
-
-.data-quality ul {
-  margin: 10px 0 0;
-  padding-left: 18px;
-  color: var(--steel);
-  font-size: 0.76rem;
-}
-
-.deadline-list {
-  display: grid;
-  gap: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.deadline-list li {
-  display: grid;
-  grid-template-columns: 84px 64px 1fr;
-  gap: 10px;
-  align-items: baseline;
-  padding: 11px 0;
-  border-top: 1px solid var(--line);
-}
-
-.deadline-list time {
-  color: var(--orange);
-  font-size: 0.71rem;
-  font-weight: 650;
-}
-
-.deadline-list span {
-  color: var(--steel);
-  font-size: 0.68rem;
-}
-
-.deadline-list a {
-  overflow: hidden;
-  font-family: var(--serif);
-  font-size: 0.82rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .health-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2369,10 +2284,6 @@ h2 {
     grid-column: 1 / -1;
   }
 
-  .deadline-list li {
-    grid-template-columns: 78px 58px 1fr;
-  }
-
   .detail-summary-strip {
     grid-template-columns: 1fr;
   }
@@ -2521,15 +2432,6 @@ h2 {
 
   .filter-console .search-field {
     grid-column: auto;
-  }
-
-  .deadline-list li {
-    grid-template-columns: 74px 1fr;
-  }
-
-  .deadline-list a {
-    grid-column: 1 / -1;
-    white-space: normal;
   }
 
   .change-card-topline {
@@ -3017,30 +2919,96 @@ body {
 }
 
 /* Lightweight JSON administration */
-.admin-entry {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 18px;
-  padding: 20px 22px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  background:
-    linear-gradient(110deg, rgba(230, 90, 46, 0.07), transparent 55%),
-    rgba(251, 249, 243, 0.72);
+.admin-heading-side {
+  display: grid;
+  justify-items: end;
+  gap: 12px;
 }
 
-.admin-entry h2 {
-  margin: 3px 0 5px;
-  font-size: 1.2rem;
+.admin-gate {
+  display: grid;
+  min-height: 62vh;
+  place-items: center;
 }
 
-.admin-entry p {
-  max-width: 760px;
-  margin: 0;
+.admin-gate-card {
+  width: min(560px, 100%);
+  padding: clamp(24px, 5vw, 42px);
+}
+
+.admin-gate-card h1 {
+  margin: 5px 0 12px;
+  font-size: clamp(2.2rem, 6vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.admin-gate-card > p {
   color: var(--steel);
-  font-size: 0.75rem;
+}
+
+.admin-gate-card form {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.admin-gate-card label {
+  display: grid;
+  gap: 7px;
+  font-size: 0.74rem;
+  font-weight: 650;
+}
+
+.admin-gate-card input {
+  width: 100%;
+  padding: 12px 13px;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-raised);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+
+.admin-gate-card input:focus {
+  outline: 2px solid rgba(230, 90, 46, 0.55);
+  outline-offset: 2px;
+}
+
+.admin-gate-card .button {
+  justify-self: start;
+}
+
+.admin-gate-card .button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.admin-gate-error {
+  margin: 13px 0 0;
+  padding: 9px 11px;
+  color: #8b2f1d;
+  border-radius: 7px;
+  background: rgba(230, 90, 46, 0.09);
+  font-size: 0.73rem;
+}
+
+.admin-gate-card footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 15px;
+  color: var(--steel);
+  border-top: 1px solid var(--line);
+  font-size: 0.68rem;
+}
+
+.admin-gate-card footer a {
+  color: var(--navy);
+  text-decoration: underline;
 }
 
 .admin-workflow {
@@ -3213,9 +3181,8 @@ body {
 }
 
 @media (max-width: 760px) {
-  .admin-entry {
-    align-items: flex-start;
-    flex-direction: column;
+  .admin-heading-side {
+    justify-items: start;
   }
 
   .admin-workflow {

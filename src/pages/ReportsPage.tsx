@@ -58,10 +58,6 @@ export function ReportsPage({
         <div>
           <span className="eyebrow">Review desk / manual release gate</span>
           <h1>审核稿</h1>
-          <p>
-            AI 只生成草稿。锁老师核对证据、日期和影响后，可将状态改为已批准；
-            只有已批准报告才出现“复制飞书摘要”。系统不会自动发送飞书。
-          </p>
         </div>
         <div className="heading-stat">
           <b>{counts.draft}</b>

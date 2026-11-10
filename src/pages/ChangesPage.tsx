@@ -60,10 +60,6 @@ export function ChangesPage({ changes }: { changes: RegulationChange[] }) {
         <div>
           <span className="eyebrow">Change radar / review queue</span>
           <h1>变更雷达</h1>
-          <p>
-            从标准号、摘要、设计影响和试验方法中检索。未知日期与未评估影响会明确保留，
-            不会用推测值填满版面。
-          </p>
         </div>
         <div className="heading-stat">
           <b>{result.length}</b>
