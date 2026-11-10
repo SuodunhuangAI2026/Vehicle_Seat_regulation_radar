@@ -12,10 +12,8 @@
   --line: rgba(19, 35, 45, 0.14);
   --line-strong: rgba(19, 35, 45, 0.28);
   --shadow: 0 24px 60px rgba(23, 61, 84, 0.12);
-  --serif: "Iowan Old Style", Baskerville, Georgia, "Noto Serif SC",
-    "Source Han Serif SC", "Songti SC", STSong, SimSun, serif;
-  --sans: Aptos, "IBM Plex Sans", "PingFang SC", "Microsoft YaHei",
-    "Noto Sans CJK SC", sans-serif;
+  --serif: "宋体", SimSun, STSong, "Songti SC", serif;
+  --sans: "宋体", SimSun, STSong, "Songti SC", sans-serif;
   --mono: "IBM Plex Mono", "Cascadia Mono", SFMono-Regular, Consolas,
     monospace;
   --radius-sm: 10px;
