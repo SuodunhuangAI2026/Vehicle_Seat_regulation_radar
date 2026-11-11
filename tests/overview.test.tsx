@@ -132,3 +132,51 @@ it("links approved overview headlines to the completed report", () => {
     within(container).getByRole("link", { name: "阅读本条" }),
   ).toHaveAttribute("href", "/reports/approved-report.html");
 });
+
+it("prioritizes the latest completed report in overview headlines", () => {
+  const completedChange = {
+    ...sampleChanges[0],
+    id: "change-completed-report",
+    title: "Completed report headline",
+    detectedAt: "2026-11-01T00:00:00.000Z",
+    reviewStatus: "approved" as const,
+    reportPath: "reports/completed-report.html",
+  };
+  const newerDraft = {
+    ...sampleChanges[1],
+    id: "change-newer-draft",
+    title: "Newer draft headline",
+    detectedAt: "2026-11-10T00:00:00.000Z",
+    reviewStatus: "draft" as const,
+    reportPath: undefined,
+  };
+  const completedReport = {
+    ...sampleReport,
+    id: "report-completed",
+    changeIds: [completedChange.id],
+    generatedAt: "2026-11-11T00:00:00.000Z",
+    reviewStatus: "approved" as const,
+  };
+
+  const { container } = render(
+    <MemoryRouter>
+      <OverviewPage
+        standards={sampleStandards}
+        sources={sampleSources}
+        changes={[newerDraft, completedChange]}
+        reports={[completedReport]}
+        importReport={sampleImportReport}
+        meta={sampleMeta}
+        knowledge={[]}
+        newsfeed={[]}
+      />
+    </MemoryRouter>,
+  );
+
+  expect(
+    container.querySelector(".hero-carousel-title h1")?.textContent,
+  ).toBe("Completed report headline");
+  expect(
+    container.querySelector(".hero-carousel-title"),
+  ).toHaveAttribute("href", "/reports/completed-report.html");
+});

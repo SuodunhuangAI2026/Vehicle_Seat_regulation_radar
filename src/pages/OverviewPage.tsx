@@ -24,6 +24,7 @@ import type {
 
 type HeadlineItem = NewsFeedItem & {
   opensReport?: boolean;
+  reportPriority?: number;
 };
 
 function HeadlineLink({
@@ -96,6 +97,15 @@ export function OverviewPage({
   const latestReport = [...reports].sort((a, b) =>
     b.generatedAt.localeCompare(a.generatedAt),
   )[0];
+  const reportByChangeId = new Map<string, ReportRecord>();
+  for (const report of reports) {
+    for (const changeId of report.changeIds) {
+      const current = reportByChangeId.get(changeId);
+      if (!current || report.generatedAt > current.generatedAt) {
+        reportByChangeId.set(changeId, report);
+      }
+    }
+  }
   const systemCounts = standards.reduce<Record<string, number>>((acc, item) => {
     acc[item.system] = (acc[item.system] ?? 0) + 1;
     return acc;
@@ -106,9 +116,8 @@ export function OverviewPage({
 
   const changeNews: HeadlineItem[] = [...changes]
     .filter((change) => change.reviewStatus !== "rejected")
-    .sort((a, b) => b.detectedAt.localeCompare(a.detectedAt))
-    .slice(0, 5)
     .map((change) => {
+      const report = reportByChangeId.get(change.id);
       const completedReportHref =
         change.reviewStatus === "approved" && change.reportPath
           ? publicAssetPath(change.reportPath)
@@ -119,10 +128,18 @@ export function OverviewPage({
         href: completedReportHref ?? `/changes/${change.id}`,
         opensReport: Boolean(completedReportHref),
         severity: change.severity,
-        updatedAt: change.detectedAt,
+        updatedAt:
+          completedReportHref && report ? report.generatedAt : change.detectedAt,
+        reportPriority: completedReportHref ? 1 : 0,
       };
-    });
-  const topNews =
+    })
+    .sort(
+      (a, b) =>
+        (b.reportPriority ?? 0) - (a.reportPriority ?? 0) ||
+        b.updatedAt.localeCompare(a.updatedAt),
+    )
+    .slice(0, 5);
+  const topNews: HeadlineItem[] =
     changeNews.length > 0
       ? changeNews
       : [...newsfeed]
@@ -234,7 +251,8 @@ export function OverviewPage({
               <h1>{currentNews.title}</h1>
             </HeadlineLink>
             <p className="hero-carousel-date">
-              {formatDateTime(currentNews.updatedAt)} · 官方信源监测
+              {formatDateTime(currentNews.updatedAt)} ·{" "}
+              {currentNews.opensReport ? "已完成审核稿" : "官方信源监测"}
             </p>
             <div className="hero-carousel-actions">
               <Link className="button button-primary" to="/changes">
