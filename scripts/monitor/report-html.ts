@@ -1,4 +1,4 @@
-import type {
+﻿import type {
   ComparisonSection,
   RegulationChange,
   ReviewStatus,
@@ -230,6 +230,27 @@ export function renderReportHtml(change: RegulationChange): string {
       --amber: #c68a2b;
       --line: rgba(19,35,45,.16);
     }
+    @font-face {
+      font-family: 'SiteSerif';
+      src: local('Times New Roman'), local('TimesNewRomanPSMT');
+      unicode-range: U+0041-005A, U+0061-007A;
+    }
+    @font-face {
+      font-family: 'SiteSerif';
+      src: local('宋体'), local('SimSun'), local('STSong'), local('Songti SC');
+      unicode-range: U+0030-0039, U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
+    }
+    @font-face {
+      font-family: 'SiteSans';
+      src: local('Times New Roman'), local('TimesNewRomanPSMT');
+      unicode-range: U+0041-005A, U+0061-007A;
+    }
+    @font-face {
+      font-family: 'SiteSans';
+      src: local('宋体'), local('SimSun'), local('STSong'), local('Songti SC');
+      unicode-range: U+0030-0039, U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
+    }
+
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -239,7 +260,7 @@ export function renderReportHtml(change: RegulationChange): string {
         linear-gradient(90deg, rgba(23,61,84,.04) 1px, transparent 1px),
         var(--paper);
       background-size: 34px 34px;
-      font-family: "IBM Plex Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-family: 'SiteSans', sans-serif;
       line-height: 1.65;
       font-variant-numeric: tabular-nums;
     }
@@ -264,7 +285,7 @@ export function renderReportHtml(change: RegulationChange): string {
       top: 160px;
       right: -90px;
       color: rgba(230,90,46,.075);
-      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-family: 'SiteSerif', serif;
       font-size: clamp(5rem, 15vw, 11rem);
       font-weight: 700;
       letter-spacing: .12em;
@@ -280,14 +301,14 @@ export function renderReportHtml(change: RegulationChange): string {
       border-bottom: 2px solid var(--navy);
     }
     .brand {
-      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-family: 'SiteSerif', serif;
       font-size: 1.5rem;
       font-weight: 700;
     }
     .brand small {
       display: block;
       color: var(--steel);
-      font-family: "IBM Plex Sans", "PingFang SC", sans-serif;
+      font-family: 'SiteSans', sans-serif;
       font-size: .62rem;
       font-weight: 500;
       letter-spacing: .08em;
@@ -319,7 +340,7 @@ export function renderReportHtml(change: RegulationChange): string {
     h1 {
       max-width: 760px;
       margin: 8px 0 14px;
-      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-family: 'SiteSerif', serif;
       font-size: clamp(2.15rem, 6vw, 4.4rem);
       line-height: 1.06;
       letter-spacing: -.055em;
@@ -339,7 +360,7 @@ export function renderReportHtml(change: RegulationChange): string {
     h2 {
       margin: 0 0 14px;
       padding-bottom: 7px;
-      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-family: 'SiteSerif', serif;
       font-size: 1.5rem;
       border-bottom: 1px solid var(--line);
     }
@@ -351,7 +372,7 @@ export function renderReportHtml(change: RegulationChange): string {
       border-left: 4px solid var(--orange);
       background: rgba(230,90,46,.055);
     }
-    .callout strong { display: block; margin-bottom: 5px; font-family: "Noto Serif SC", "Songti SC", serif; }
+    .callout strong { display: block; margin-bottom: 5px; font-family: 'SiteSerif', serif; }
     ul, ol { margin: 8px 0 0; padding-left: 20px; }
     li { margin-bottom: 5px; }
     .timeline { border-left: 1px solid rgba(19,35,45,.25); margin-left: 6px; }
@@ -413,7 +434,7 @@ export function renderReportHtml(change: RegulationChange): string {
     .diff-index { font-size: .76rem; font-weight: 700; }
     .diff-section > header b {
       color: var(--steel);
-      font-family: "IBM Plex Mono", "Cascadia Mono", monospace;
+      font-family: 'SiteSans', sans-serif;
       font-size: .64rem;
       font-weight: 500;
     }
@@ -439,7 +460,7 @@ export function renderReportHtml(change: RegulationChange): string {
     }
     .diff-text {
       min-height: 54px;
-      font-family: "IBM Plex Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-family: 'SiteSans', sans-serif;
       font-size: .74rem;
       line-height: 1.6;
       white-space: pre-wrap;
@@ -633,3 +654,4 @@ export function updateReportReviewState(
       `<div class="watermark">${status === "approved" ? "已人工批准" : escapeHtml(reviewStatusLabel(status))}</div>`,
     );
 }
+

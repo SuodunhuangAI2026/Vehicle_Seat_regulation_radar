@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "vehicle-seat-regulation-radar",
   "private": true,
   "version": "0.1.0",
@@ -14,7 +14,8 @@
     "typecheck": "tsc -b --pretty false",
     "monitor": "tsx scripts/monitor/index.ts",
     "review": "tsx scripts/review.ts",
-    "import:inputs": "tsx scripts/import/import-inputs.ts"
+    "import:inputs": "tsx scripts/import/import-inputs.ts",
+    "regenerate-report": "tsx scripts/regenerate-report.ts"
   },
   "dependencies": {
     "cheerio": "^1.2.0",
@@ -41,3 +42,5 @@
     "vitest": "^2.1.0"
   }
 }
+
+

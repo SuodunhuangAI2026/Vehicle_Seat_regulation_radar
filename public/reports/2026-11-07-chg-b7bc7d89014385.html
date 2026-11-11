@@ -18,6 +18,27 @@
       --amber: #c68a2b;
       --line: rgba(19,35,45,.16);
     }
+    @font-face {
+      font-family: 'SiteSerif';
+      src: local('Times New Roman'), local('TimesNewRomanPSMT');
+      unicode-range: U+0041-005A, U+0061-007A;
+    }
+    @font-face {
+      font-family: 'SiteSerif';
+      src: local('宋体'), local('SimSun'), local('STSong'), local('Songti SC');
+      unicode-range: U+0030-0039, U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
+    }
+    @font-face {
+      font-family: 'SiteSans';
+      src: local('Times New Roman'), local('TimesNewRomanPSMT');
+      unicode-range: U+0041-005A, U+0061-007A;
+    }
+    @font-face {
+      font-family: 'SiteSans';
+      src: local('宋体'), local('SimSun'), local('STSong'), local('Songti SC');
+      unicode-range: U+0030-0039, U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
+    }
+
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -27,7 +48,7 @@
         linear-gradient(90deg, rgba(23,61,84,.04) 1px, transparent 1px),
         var(--paper);
       background-size: 34px 34px;
-      font-family: "IBM Plex Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-family: 'SiteSans', sans-serif;
       line-height: 1.65;
       font-variant-numeric: tabular-nums;
     }
@@ -52,7 +73,7 @@
       top: 160px;
       right: -90px;
       color: rgba(230,90,46,.075);
-      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-family: 'SiteSerif', serif;
       font-size: clamp(5rem, 15vw, 11rem);
       font-weight: 700;
       letter-spacing: .12em;
@@ -68,14 +89,14 @@
       border-bottom: 2px solid var(--navy);
     }
     .brand {
-      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-family: 'SiteSerif', serif;
       font-size: 1.5rem;
       font-weight: 700;
     }
     .brand small {
       display: block;
       color: var(--steel);
-      font-family: "IBM Plex Sans", "PingFang SC", sans-serif;
+      font-family: 'SiteSans', sans-serif;
       font-size: .62rem;
       font-weight: 500;
       letter-spacing: .08em;
@@ -107,7 +128,7 @@
     h1 {
       max-width: 760px;
       margin: 8px 0 14px;
-      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-family: 'SiteSerif', serif;
       font-size: clamp(2.15rem, 6vw, 4.4rem);
       line-height: 1.06;
       letter-spacing: -.055em;
@@ -127,7 +148,7 @@
     h2 {
       margin: 0 0 14px;
       padding-bottom: 7px;
-      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-family: 'SiteSerif', serif;
       font-size: 1.5rem;
       border-bottom: 1px solid var(--line);
     }
@@ -139,7 +160,7 @@
       border-left: 4px solid var(--orange);
       background: rgba(230,90,46,.055);
     }
-    .callout strong { display: block; margin-bottom: 5px; font-family: "Noto Serif SC", "Songti SC", serif; }
+    .callout strong { display: block; margin-bottom: 5px; font-family: 'SiteSerif', serif; }
     ul, ol { margin: 8px 0 0; padding-left: 20px; }
     li { margin-bottom: 5px; }
     .timeline { border-left: 1px solid rgba(19,35,45,.25); margin-left: 6px; }
@@ -162,6 +183,102 @@
       background: var(--sheet);
     }
     .timeline-row.known .timeline-dot { border-color: var(--orange); background: var(--orange); }
+    .section-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .extraction-status {
+      color: var(--steel);
+      font-size: .66rem;
+    }
+    .comparison-sources {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      margin: -4px 0 18px;
+      color: var(--steel);
+      font-size: .7rem;
+    }
+    .diff-section {
+      margin-bottom: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .diff-section > header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 13px;
+      background: rgba(23,61,84,.045);
+    }
+    .diff-section > header div {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .diff-index { font-size: .76rem; font-weight: 700; }
+    .diff-section > header b {
+      color: var(--steel);
+      font-family: 'SiteSans', sans-serif;
+      font-size: .64rem;
+      font-weight: 500;
+    }
+    .diff-kind {
+      padding: 2px 7px;
+      color: var(--orange);
+      border: 1px solid currentColor;
+      border-radius: 99px;
+      font-size: .59rem;
+    }
+    .diff-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .diff-pane { min-width: 0; padding: 14px; }
+    .diff-pane.old { border-right: 1px solid var(--line); }
+    .diff-pane small {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--steel);
+      font-size: .59rem;
+      letter-spacing: .08em;
+    }
+    .diff-text {
+      min-height: 54px;
+      font-family: 'SiteSans', sans-serif;
+      font-size: .74rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .diff-text del {
+      padding: 1px 2px;
+      color: #8e2d24;
+      background: rgba(179,58,43,.12);
+      text-decoration-color: rgba(179,58,43,.55);
+    }
+    .diff-text ins {
+      padding: 1px 2px;
+      color: #205d4b;
+      background: rgba(47,114,95,.14);
+      text-decoration: none;
+    }
+    .diff-empty { color: var(--steel); font-style: italic; }
+    .diff-impact {
+      margin: 0;
+      padding: 10px 14px;
+      color: var(--steel);
+      border-top: 1px solid var(--line);
+      background: rgba(230,90,46,.035);
+      font-size: .68rem;
+    }
+    .comparison-limitations {
+      color: var(--steel);
+      font-size: .68rem;
+    }
     .evidence {
       margin-bottom: 10px;
       padding: 14px;
@@ -193,6 +310,11 @@
       .identity div:nth-child(2) { border-right: 0; }
       .identity div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
       .grid-2, .checklist { grid-template-columns: 1fr; }
+      .diff-columns { grid-template-columns: 1fr; }
+      .diff-pane.old {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
       .report-meta { grid-template-columns: 1fr; }
       .report-id { text-align: left; }
       .timeline-row { grid-template-columns: 14px 1fr; }
@@ -289,6 +411,11 @@
         </div></div>
       </section>
     </div>
+
+    <section>
+      <h2>新旧原文左右对比</h2>
+      <p class="muted">该草稿尚未附带可解析的新旧原文。请在官方来源人工核对后补充，不生成虚构条款。</p>
+    </section>
 
     <section>
       <h2>M1 座椅设计影响</h2>
