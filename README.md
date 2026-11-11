@@ -109,6 +109,9 @@ npm.cmd run review -- report-xxxx --supersede
 
 完整上线步骤见 [docs/deploy.md](docs/deploy.md)。
 
+后续 Agent 接手、内容维护、报告审核和发布排障见
+[docs/agent-handover.md](docs/agent-handover.md)。
+
 ## 数据与安全边界
 
 - 不提交原始 XLSX、DOCX、内部 PDF 或企业机密资料。
