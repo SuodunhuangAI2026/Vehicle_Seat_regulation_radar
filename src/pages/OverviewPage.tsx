@@ -118,19 +118,18 @@ export function OverviewPage({
     .filter((change) => change.reviewStatus !== "rejected")
     .map((change) => {
       const report = reportByChangeId.get(change.id);
-      const completedReportHref =
-        change.reviewStatus === "approved" && change.reportPath
-          ? publicAssetPath(change.reportPath)
-          : undefined;
+      const reportHref = change.reportPath
+        ? publicAssetPath(change.reportPath)
+        : undefined;
       return {
         id: change.id,
         title: change.title,
-        href: completedReportHref ?? `/changes/${change.id}`,
-        opensReport: Boolean(completedReportHref),
+        href: reportHref ?? `/changes/${change.id}`,
+        opensReport: Boolean(reportHref),
         severity: change.severity,
         updatedAt:
-          completedReportHref && report ? report.generatedAt : change.detectedAt,
-        reportPriority: completedReportHref ? 1 : 0,
+          reportHref && report ? report.generatedAt : change.detectedAt,
+        reportPriority: reportHref ? 1 : 0,
       };
     })
     .sort(

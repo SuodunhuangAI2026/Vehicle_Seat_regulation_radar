@@ -15,10 +15,9 @@ export function ChangeCard({
   change: RegulationChange;
   compact?: boolean;
 }) {
-  const completedReportPath =
-    change.reviewStatus === "approved" && change.reportPath
-      ? publicAssetPath(change.reportPath)
-      : undefined;
+  const reportPath = change.reportPath
+    ? publicAssetPath(change.reportPath)
+    : undefined;
 
   return (
     <article className={`change-card ${compact ? "is-compact" : ""}`}>
@@ -27,9 +26,9 @@ export function ChangeCard({
         <span className="change-date">{formatDate(change.detectedAt)}</span>
       </div>
       <h3>
-        {completedReportPath ? (
+        {reportPath ? (
           <a
-            href={completedReportPath}
+            href={reportPath}
             target="_blank"
             rel="noreferrer noopener"
           >
@@ -57,14 +56,15 @@ export function ChangeCard({
         <i aria-hidden="true" />
         <strong>{change.newVersion ?? "新版未确认"}</strong>
       </div>
-      {completedReportPath && (
+      {reportPath && (
         <a
           className="text-link change-card-report-link"
-          href={completedReportPath}
+          href={reportPath}
           target="_blank"
           rel="noreferrer noopener"
         >
-          查看已完成审核稿 <span aria-hidden="true">→</span>
+          {change.reviewStatus === "approved" ? "查看已完成审核稿" : "查看审核稿"}{" "}
+          <span aria-hidden="true">→</span>
         </a>
       )}
     </article>

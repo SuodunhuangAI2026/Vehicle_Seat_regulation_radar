@@ -5,6 +5,7 @@ import {
   changeTypeLabels,
   formatDate,
   formatDateTime,
+  publicAssetPath,
   reviewLabels,
   severityLabels,
 } from "../lib/format";
@@ -38,6 +39,16 @@ export function ChangeDetailPage({
           返回变更雷达
         </Link>
       </div>
+    );
+  }
+
+  if (change.reportPath) {
+    return (
+      <iframe
+        className="report-document-frame"
+        src={publicAssetPath(change.reportPath)}
+        title="Regulatory change report"
+      />
     );
   }
 
