@@ -20,3 +20,23 @@ it("filters the radar by system and keeps review status visible", () => {
   ).not.toBeInTheDocument();
   expect(screen.getAllByText("待审核").length).toBeGreaterThan(0);
 });
+
+it("links approved change cards to the completed report", () => {
+  const approvedChange = {
+    ...sampleChanges[0],
+    id: "change-approved-report",
+    title: "Approved change report",
+    reviewStatus: "approved" as const,
+    reportPath: "reports/approved-report.html",
+  };
+
+  render(
+    <MemoryRouter>
+      <ChangesPage changes={[approvedChange]} />
+    </MemoryRouter>,
+  );
+
+  expect(
+    screen.getByRole("link", { name: "Approved change report" }),
+  ).toHaveAttribute("href", "/reports/approved-report.html");
+});

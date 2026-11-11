@@ -789,6 +789,11 @@ h2 {
   color: var(--orange);
 }
 
+.change-card-report-link {
+  display: inline-block;
+  margin-top: 12px;
+}
+
 .change-card > p {
   display: -webkit-box;
   margin-bottom: 14px;

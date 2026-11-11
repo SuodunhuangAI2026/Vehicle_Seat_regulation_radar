@@ -56,7 +56,7 @@ export function ReportCard({
         </div>
         <div className="report-actions">
           <a className="button button-primary" href={htmlPath} target="_blank" rel="noreferrer noopener">
-            打开审核稿
+            {report.reviewStatus === "approved" ? "打开已完成审核稿" : "打开审核稿"}
           </a>
           <a className="button button-quiet" href={htmlPath} download>
             下载 HTML

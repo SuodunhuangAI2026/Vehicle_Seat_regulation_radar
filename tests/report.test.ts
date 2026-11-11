@@ -242,6 +242,10 @@ it("updates the report badge only after a review decision", () => {
   expect(approved).toContain('data-review-status="approved"');
   expect(approved).toContain("已人工批准");
   expect(approved).toContain('data-review-date="2026-11-06T00:00:00.000Z"');
+  expect(approved).toContain("Regulatory impact review / approved");
+  expect(approved).toContain("人工复核已完成");
+  expect(approved).toContain("审核人：锁老师（已审核）");
+  expect(approved).toContain("【SeatScope 法规影响提示 · 已审核】");
 });
 
 it("creates a deterministic unassessed fallback when validation fails", () => {

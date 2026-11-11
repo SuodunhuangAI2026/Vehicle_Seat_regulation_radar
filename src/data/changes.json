@@ -50,7 +50,7 @@
       }
     ],
     "confidence": "medium",
-    "reviewStatus": "draft",
+    "reviewStatus": "approved",
     "model": "official-pdf-comparison",
     "promptVersion": "seed-v1",
     "reportPath": "reports/2026-11-11-gb-15083-2019-draft.html"

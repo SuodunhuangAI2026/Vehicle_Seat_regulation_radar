@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { expect, it } from "vitest";
 import { OverviewPage } from "../src/pages/OverviewPage";
@@ -97,4 +97,38 @@ it("shows the report with the newest generatedAt in the review desk", () => {
 
   expect(screen.getByText("GB 15083 最新审核稿")).toBeInTheDocument();
   expect(screen.queryByText("旧审核稿")).not.toBeInTheDocument();
+});
+
+it("links approved overview headlines to the completed report", () => {
+  const approvedChange = {
+    ...sampleChanges[0],
+    id: "change-approved-report",
+    title: "Approved report headline",
+    reviewStatus: "approved" as const,
+    reportPath: "reports/approved-report.html",
+  };
+
+  const { container } = render(
+    <MemoryRouter>
+      <OverviewPage
+        standards={sampleStandards}
+        sources={sampleSources}
+        changes={[approvedChange]}
+        reports={[sampleReport]}
+        importReport={sampleImportReport}
+        meta={sampleMeta}
+        knowledge={[]}
+        newsfeed={[]}
+      />
+    </MemoryRouter>,
+  );
+
+  for (const link of within(container).getAllByRole("link", {
+    name: "Approved report headline",
+  })) {
+    expect(link).toHaveAttribute("href", "/reports/approved-report.html");
+  }
+  expect(
+    within(container).getByRole("link", { name: "阅读本条" }),
+  ).toHaveAttribute("href", "/reports/approved-report.html");
 });

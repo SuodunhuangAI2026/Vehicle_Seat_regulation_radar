@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ChangeCard } from "../components/ChangeCard";
 import { MetricCard } from "../components/MetricCard";
 import { ReportCard } from "../components/ReportCard";
@@ -7,6 +7,7 @@ import { StatusBadge } from "../components/StatusBadge";
 import {
   formatDate,
   formatDateTime,
+  publicAssetPath,
   relativeRunLabel,
 } from "../lib/format";
 import type {
@@ -20,6 +21,42 @@ import type {
   KnowledgeItem,
   NewsFeedItem,
 } from "../types";
+
+type HeadlineItem = NewsFeedItem & {
+  opensReport?: boolean;
+};
+
+function HeadlineLink({
+  item,
+  className,
+  children,
+  onClick,
+}: {
+  item: HeadlineItem;
+  className?: string;
+  children: ReactNode;
+  onClick?: () => void;
+}) {
+  if (item.opensReport) {
+    return (
+      <a
+        className={className}
+        href={item.href}
+        target="_blank"
+        rel="noreferrer noopener"
+        onClick={onClick}
+      >
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link className={className} to={item.href} onClick={onClick}>
+      {children}
+    </Link>
+  );
+}
 
 function sourceStatusCounts(health: SourceHealth[]) {
   return health.reduce(
@@ -67,17 +104,24 @@ export function OverviewPage({
     .sort((a, b) => b[1] - a[1])
     .slice(0, 5);
 
-  const changeNews: NewsFeedItem[] = [...changes]
+  const changeNews: HeadlineItem[] = [...changes]
     .filter((change) => change.reviewStatus !== "rejected")
     .sort((a, b) => b.detectedAt.localeCompare(a.detectedAt))
     .slice(0, 5)
-    .map((change) => ({
-      id: change.id,
-      title: change.title,
-      href: `/changes/${change.id}`,
-      severity: change.severity,
-      updatedAt: change.detectedAt,
-    }));
+    .map((change) => {
+      const completedReportHref =
+        change.reviewStatus === "approved" && change.reportPath
+          ? publicAssetPath(change.reportPath)
+          : undefined;
+      return {
+        id: change.id,
+        title: change.title,
+        href: completedReportHref ?? `/changes/${change.id}`,
+        opensReport: Boolean(completedReportHref),
+        severity: change.severity,
+        updatedAt: change.detectedAt,
+      };
+    });
   const topNews =
     changeNews.length > 0
       ? changeNews
@@ -183,9 +227,12 @@ export function OverviewPage({
               <span className="eyebrow">Change headlines</span>
               <StatusBadge value={currentNews.severity} />
             </div>
-            <Link className="hero-carousel-title" to={currentNews.href}>
+            <HeadlineLink
+              className="hero-carousel-title"
+              item={currentNews}
+            >
               <h1>{currentNews.title}</h1>
-            </Link>
+            </HeadlineLink>
             <p className="hero-carousel-date">
               {formatDateTime(currentNews.updatedAt)} · 官方信源监测
             </p>
@@ -193,9 +240,12 @@ export function OverviewPage({
               <Link className="button button-primary" to="/changes">
                 查看变更雷达
               </Link>
-              <Link className="button button-quiet" to={currentNews.href}>
+              <HeadlineLink
+                className="button button-quiet"
+                item={currentNews}
+              >
                 阅读本条
-              </Link>
+              </HeadlineLink>
             </div>
             <div className="hero-carousel-dots" aria-label="轮播指示器">
               {topNews.map((item, index) => (
@@ -214,14 +264,14 @@ export function OverviewPage({
             <span className="hero-carousel-side-label">更多变化</span>
             {topNews.map((item, index) =>
               index === activeNews ? null : (
-                <Link
+                <HeadlineLink
                   key={`${item.id}-${item.title}`}
-                  to={item.href}
+                  item={item}
                   onClick={() => setActiveNews(index)}
                 >
                   <StatusBadge value={item.severity} />
                   <b>{item.title}</b>
-                </Link>
+                </HeadlineLink>
               ),
             )}
             <Link className="hero-carousel-all" to="/changes">

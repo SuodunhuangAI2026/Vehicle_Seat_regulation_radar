@@ -777,7 +777,48 @@ export function updateReportReviewState(
 ): string {
   const className =
     status === "approved" ? "approved" : status === "draft" ? "draft" : "closed";
+  const reviewPhase =
+    status === "approved" ? "approved" : status === "draft" ? "draft" : status;
+  const calloutTitle =
+    status === "approved"
+      ? "人工复核已完成"
+      : status === "draft"
+        ? "人工复核是发布前置条件"
+        : "人工复核已处理";
+  const calloutBody =
+    status === "approved"
+      ? "本报告已由锁老师完成人工复核。AI 辅助整理内容仍应以官方原文为准；未确认日期不得据此推断生效或废止。"
+      : status === "draft"
+        ? "本报告由 AI 辅助整理，日期、条款、试验方法与影响面均须对照官方原文核验。未确认日期统一显示“未确认”，不得据此推断生效或废止。"
+        : `本报告已完成人工复核，当前状态为“${reviewStatusLabel(status)}”。AI 辅助整理内容仍应以官方原文为准。`;
+  const reviewerState =
+    status === "approved" ? "已审核" : status === "draft" ? "待确认" : "已处理";
+  const noticeState =
+    status === "approved"
+      ? "已审核"
+      : status === "draft"
+        ? "待人工审核"
+        : reviewStatusLabel(status);
   return html
+    .replace(
+      /<span class="eyebrow">Regulatory impact review \/ [^<]*<\/span>/,
+      `<span class="eyebrow">Regulatory impact review / ${reviewPhase}</span>`,
+    )
+    .replace(
+      /<div class="callout">\s*<strong>[^<]*<\/strong>\s*[^<]*\s*<\/div>/,
+      `<div class="callout">
+      <strong>${calloutTitle}</strong>
+      ${calloutBody}
+    </div>`,
+    )
+    .replace(
+      /<p>【SeatScope 法规影响提示 · [^】]*】<\/p>/,
+      `<p>【SeatScope 法规影响提示 · ${noticeState}】</p>`,
+    )
+    .replace(
+      /审核人：锁老师（[^）]*）/,
+      `审核人：锁老师（${reviewerState}）`,
+    )
     .replace(/<body data-review-status="[^"]*"/, `<body data-review-status="${status}"`)
     .replace(/<body([^>]*)data-review-date="[^"]*"/, `<body$1data-review-date="${escapeHtml(reviewedAt)}"`)
     .replace(
