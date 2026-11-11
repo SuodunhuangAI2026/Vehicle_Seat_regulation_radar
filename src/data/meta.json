@@ -1,39 +1,39 @@
 {
-  "lastSuccessfulRun": "2026-11-11T03:16:00.719Z",
-  "lastAttemptedRun": "2026-11-11T03:16:00.719Z",
+  "lastSuccessfulRun": "2026-11-11T03:33:39.458Z",
+  "lastAttemptedRun": "2026-11-11T03:33:39.458Z",
   "sourceHealth": [
     {
       "sourceId": "src-d74762a20471",
       "status": "failed",
-      "checkedAt": "2026-11-11T03:16:00.728Z",
+      "checkedAt": "2026-11-11T03:33:39.467Z",
       "error": "HTTP 403 Forbidden for https://unece.org/un-regulations-addenda-1958-agreement"
     },
     {
       "sourceId": "src-04c50911ee83",
       "status": "unchanged",
-      "checkedAt": "2026-11-11T03:16:01.369Z",
-      "lastSuccessAt": "2026-11-11T03:16:01.369Z",
+      "checkedAt": "2026-11-11T03:33:40.050Z",
+      "lastSuccessAt": "2026-11-11T03:33:40.050Z",
       "error": "eCFR 当前可用发布日期为 2026-10-28，未使用未来日期。"
     },
     {
       "sourceId": "src-92f69b114c87",
       "status": "unchanged",
-      "checkedAt": "2026-11-11T03:16:03.538Z",
-      "lastSuccessAt": "2026-11-11T03:16:03.538Z",
+      "checkedAt": "2026-11-11T03:33:41.694Z",
+      "lastSuccessAt": "2026-11-11T03:33:41.694Z",
       "error": "eCFR 当前可用发布日期为 2026-10-28，未使用未来日期。"
     },
     {
       "sourceId": "src-998c7255b8ff",
       "status": "unchanged",
-      "checkedAt": "2026-11-11T03:16:08.566Z",
-      "lastSuccessAt": "2026-11-11T03:16:08.566Z",
+      "checkedAt": "2026-11-11T03:33:43.472Z",
+      "lastSuccessAt": "2026-11-11T03:33:43.472Z",
       "error": "NHTSA 页面无法自动读取（HTTP 403 Forbidden for https://www.nhtsa.gov/laws-regulations/fmvss），本轮使用美国 GPO 2025 版 49 CFR Part 571 XML 作官方备份。"
     },
     {
       "sourceId": "src-555fab194e45",
       "status": "unchanged",
-      "checkedAt": "2026-11-11T03:16:09.338Z",
-      "lastSuccessAt": "2026-11-11T03:16:09.338Z"
+      "checkedAt": "2026-11-11T03:33:44.125Z",
+      "lastSuccessAt": "2026-11-11T03:33:44.125Z"
     }
   ],
   "promptVersion": "seats-v2",
