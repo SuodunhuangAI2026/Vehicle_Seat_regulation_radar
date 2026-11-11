@@ -1,0 +1,1099 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23173d54'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23f8f5ed' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23e65a2e'/%3E%3C/svg%3E">
+  <title>GB 15083 座椅与头枕强度：2019 版与 202X 征求意见稿对比 · SeatScope 审核稿</title>
+  <style>
+    :root {
+      --paper: #f3f0e8;
+      --sheet: #fffdf7;
+      --ink: #13232d;
+      --navy: #173d54;
+      --steel: #56717c;
+      --orange: #e65a2e;
+      --green: #2f725f;
+      --red: #b33a2b;
+      --amber: #c68a2b;
+      --line: rgba(19,35,45,.16);
+    }
+    @font-face {
+      font-family: 'SiteSerif';
+      src: local('Times New Roman'), local('TimesNewRomanPSMT');
+      unicode-range: U+0041-005A, U+0061-007A;
+    }
+    @font-face {
+      font-family: 'SiteSerif';
+      src: local('宋体'), local('SimSun'), local('STSong'), local('Songti SC');
+      unicode-range: U+0030-0039, U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
+    }
+    @font-face {
+      font-family: 'SiteSans';
+      src: local('Times New Roman'), local('TimesNewRomanPSMT');
+      unicode-range: U+0041-005A, U+0061-007A;
+    }
+    @font-face {
+      font-family: 'SiteSans';
+      src: local('宋体'), local('SimSun'), local('STSong'), local('Songti SC');
+      unicode-range: U+0030-0039, U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(23,61,84,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23,61,84,.04) 1px, transparent 1px),
+        var(--paper);
+      background-size: 34px 34px;
+      font-family: 'SiteSans', sans-serif;
+      line-height: 1.65;
+      font-variant-numeric: tabular-nums;
+    }
+    .report {
+      position: relative;
+      width: min(1000px, calc(100% - 32px));
+      margin: 34px auto;
+      padding: clamp(30px, 6vw, 74px);
+      overflow: hidden;
+      background: var(--sheet);
+      box-shadow: 0 24px 70px rgba(23,61,84,.14);
+    }
+    .report::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(23,61,84,.12);
+      pointer-events: none;
+    }
+    .watermark {
+      position: absolute;
+      top: 160px;
+      right: -90px;
+      color: rgba(230,90,46,.075);
+      font-family: 'SiteSerif', serif;
+      font-size: clamp(5rem, 15vw, 11rem);
+      font-weight: 700;
+      letter-spacing: .12em;
+      transform: rotate(-26deg);
+      pointer-events: none;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-start;
+      padding-bottom: 22px;
+      border-bottom: 2px solid var(--navy);
+    }
+    .brand {
+      font-family: 'SiteSerif', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .brand small {
+      display: block;
+      color: var(--steel);
+      font-family: 'SiteSans', sans-serif;
+      font-size: .62rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+    }
+    .status {
+      display: inline-block;
+      padding: 5px 11px;
+      color: var(--amber);
+      border: 1px solid currentColor;
+      border-radius: 99px;
+      font-size: .68rem;
+      font-weight: 700;
+    }
+    .status.approved { color: var(--green); }
+    .status.closed { color: var(--red); }
+    .report-meta {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      margin: 32px 0 24px;
+    }
+    .eyebrow {
+      color: var(--orange);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 760px;
+      margin: 8px 0 14px;
+      font-family: 'SiteSerif', serif;
+      font-size: clamp(2.15rem, 6vw, 4.4rem);
+      line-height: 1.06;
+      letter-spacing: -.055em;
+    }
+    .lead { max-width: 790px; color: var(--steel); }
+    .identity {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 25px 0;
+      border: 1px solid var(--line);
+    }
+    .identity div { padding: 13px 15px; border-right: 1px solid var(--line); }
+    .identity div:last-child { border-right: 0; }
+    .identity span, .timeline-row span, .checklist span { color: var(--steel); font-size: .64rem; }
+    .identity strong { display: block; margin-top: 3px; font-size: .78rem; }
+    section { margin-top: 34px; }
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 7px;
+      font-family: 'SiteSerif', serif;
+      font-size: 1.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    h3 { margin: 0 0 5px; font-size: .83rem; }
+    p { margin-top: 0; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .callout {
+      padding: 18px 20px;
+      border-left: 4px solid var(--orange);
+      background: rgba(230,90,46,.055);
+    }
+    .callout strong { display: block; margin-bottom: 5px; font-family: 'SiteSerif', serif; }
+    ul, ol { margin: 8px 0 0; padding-left: 20px; }
+    li { margin-bottom: 5px; }
+    .timeline { border-left: 1px solid rgba(19,35,45,.25); margin-left: 6px; }
+    .timeline-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: 145px 1fr;
+      gap: 10px;
+      align-items: center;
+      min-height: 38px;
+      padding-left: 11px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -7px;
+      width: 11px;
+      height: 11px;
+      border: 1px solid rgba(19,35,45,.35);
+      border-radius: 50%;
+      background: var(--sheet);
+    }
+    .timeline-row.known .timeline-dot { border-color: var(--orange); background: var(--orange); }
+    .section-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .extraction-status {
+      color: var(--steel);
+      font-size: .66rem;
+    }
+    .comparison-sources {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      margin: -4px 0 18px;
+      color: var(--steel);
+      font-size: .7rem;
+    }
+    .diff-section {
+      margin-bottom: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .diff-section > header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 13px;
+      background: rgba(23,61,84,.045);
+    }
+    .diff-section > header div {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .diff-index { font-size: .76rem; font-weight: 700; }
+    .diff-section > header b {
+      color: var(--steel);
+      font-family: 'SiteSans', sans-serif;
+      font-size: .64rem;
+      font-weight: 500;
+    }
+    .diff-kind {
+      padding: 2px 7px;
+      color: var(--orange);
+      border: 1px solid currentColor;
+      border-radius: 99px;
+      font-size: .59rem;
+    }
+    .diff-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .diff-pane { min-width: 0; padding: 14px; }
+    .diff-pane.old { border-right: 1px solid var(--line); }
+    .diff-pane small {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--steel);
+      font-size: .59rem;
+      letter-spacing: .08em;
+    }
+    .diff-text {
+      min-height: 54px;
+      font-family: 'SiteSans', sans-serif;
+      font-size: .74rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .diff-text del {
+      padding: 1px 2px;
+      color: #8e2d24;
+      background: rgba(179,58,43,.12);
+      text-decoration-color: rgba(179,58,43,.55);
+    }
+    .diff-text ins {
+      padding: 1px 2px;
+      color: #205d4b;
+      background: rgba(47,114,95,.14);
+      text-decoration: none;
+    }
+    .comparison-section { margin-top: 34px; }
+    .comparison-summary {
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(23,61,84,.03);
+    }
+    .summary-stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .summary-stats .stat {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+    .summary-stats .stat.added {
+      color: #205d4b;
+      background: rgba(47,114,95,.12);
+    }
+    .summary-stats .stat.removed {
+      color: #8e2d24;
+      background: rgba(179,58,43,.12);
+    }
+    .summary-stats .stat.modified {
+      color: #7a5c1f;
+      background: rgba(198,138,43,.12);
+    }
+    .summary-text {
+      color: var(--steel);
+      font-size: .72rem;
+    }
+    .no-changes {
+      color: var(--steel);
+      font-style: italic;
+    }
+    .diff-article {
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .diff-article.added { border-left: 4px solid var(--green); }
+    .diff-article.removed { border-left: 4px solid var(--red); }
+    .diff-article.modified { border-left: 4px solid var(--amber); }
+    .diff-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: rgba(23,61,84,.04);
+      border-bottom: 1px solid var(--line);
+    }
+    .diff-header h3 {
+      margin: 0;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+    .diff-badge {
+      padding: 3px 9px;
+      border-radius: 99px;
+      font-size: .62rem;
+      font-weight: 700;
+    }
+    .diff-badge.added {
+      color: var(--green);
+      border: 1px solid var(--green);
+    }
+    .diff-badge.removed {
+      color: var(--red);
+      border: 1px solid var(--red);
+    }
+    .diff-badge.modified {
+      color: var(--amber);
+      border: 1px solid var(--amber);
+    }
+    .diff-content { padding: 16px; }
+    .diff-text {
+      font-size: .78rem;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .diff-text del {
+      padding: 1px 3px;
+      color: #8e2d24;
+      background: rgba(179,58,43,.12);
+      text-decoration: line-through;
+    }
+    .diff-text ins {
+      padding: 1px 3px;
+      color: #205d4b;
+      background: rgba(47,114,95,.14);
+      text-decoration: none;
+    }
+    .added-text {
+      color: var(--green);
+      background: rgba(47,114,95,.05);
+      padding: 12px;
+      border-radius: 6px;
+    }
+    .removed-text {
+      color: var(--red);
+      background: rgba(179,58,43,.05);
+      padding: 12px;
+      border-radius: 6px;
+    }
+    .diff-empty { color: var(--steel); font-style: italic; }
+    .diff-impact {
+      margin: 0;
+      padding: 10px 14px;
+      color: var(--steel);
+      border-top: 1px solid var(--line);
+      background: rgba(230,90,46,.035);
+      font-size: .68rem;
+    }
+    .comparison-limitations {
+      color: var(--steel);
+      font-size: .68rem;
+    }
+    .evidence {
+      margin-bottom: 10px;
+      padding: 14px;
+      border: 1px solid var(--line);
+    }
+    blockquote { margin: 8px 0; color: var(--steel); font-size: .8rem; }
+    a { color: var(--navy); overflow-wrap: anywhere; }
+    .feishu {
+      padding: 18px;
+      color: #f8f5ed;
+      background: var(--navy);
+    }
+    .feishu p { margin-bottom: 6px; color: rgba(255,255,255,.7); font-size: .78rem; }
+    .feishu strong { color: #fff; }
+    .checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .checklist div { padding: 10px; border: 1px solid var(--line); }
+    .muted { color: var(--steel); font-size: .78rem; }
+    footer {
+      margin-top: 44px;
+      padding-top: 18px;
+      color: var(--steel);
+      border-top: 1px solid var(--line);
+      font-size: .67rem;
+    }
+    .report-id { text-align: right; color: var(--steel); font-size: .65rem; }
+    @media (max-width: 700px) {
+      .report { width: 100%; margin: 0; padding: 28px 20px; box-shadow: none; }
+      .identity { grid-template-columns: 1fr 1fr; }
+      .identity div:nth-child(2) { border-right: 0; }
+      .identity div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .grid-2, .checklist { grid-template-columns: 1fr; }
+      .diff-columns { grid-template-columns: 1fr; }
+      .diff-pane.old {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .report-meta { grid-template-columns: 1fr; }
+      .report-id { text-align: left; }
+      .timeline-row { grid-template-columns: 1fr; }
+      .timeline-row strong { grid-column: 1; }
+    }
+    @media print {
+      @page { size: A4; margin: 14mm; }
+      body { background: #fff; }
+      .report { width: 100%; margin: 0; padding: 0; box-shadow: none; }
+      .report::before { display: none; }
+      .watermark { position: fixed; }
+      a { color: inherit; text-decoration: none; }
+      section { break-inside: avoid; }
+      .feishu { color: #000; background: #eee; }
+    }
+  </style>
+</head>
+<body data-review-status="draft" data-review-date="2026-11-11T02:45:51.052Z" data-report-generated-at="2026-11-11T02:45:51.052Z">
+  <main class="report">
+    <div class="watermark">待人工复核</div>
+    <header>
+      <div class="brand">SeatScope<small>M1 座椅法规雷达 · 锁老师</small></div>
+      <span class="status draft" data-review-badge>待审核</span>
+    </header>
+
+    <div class="report-meta">
+      <div>
+        <span class="eyebrow">Regulatory impact review / draft</span>
+        <h1>GB 15083 座椅与头枕强度：2019 版与 202X 征求意见稿对比</h1>
+        <p class="lead">依据 GB 15083-202X 征求意见稿前言所列主要技术变化，与 GB 15083-2019 公开文本逐项对比：新增 10 个主题、修改 7 个主题、删除 1 个主题。重点涉及头枕安装、头枕高度、静态头后间隙、非使用位置、BioRID Ⅱ 动态性能、大角度座椅和电动座椅防挤压。征求意见稿尚未显示正式发布日期，不能据此认定已经批准或生效。</p>
+      </div>
+      <div class="report-id">
+        审核稿 ID<br><strong>library-gb-15083-2019-draft</strong><br>
+        审核稿生成时间<br><strong>2026/11/11 10:45</strong><br>
+        监测发现时间<br><strong>2026/11/05 22:33</strong>
+      </div>
+    </div>
+
+    <div class="identity">
+      <div><span>标准号</span><strong>GB 15083-2019 / GB 15083-202X（征求意见稿）</strong></div>
+      <div><span>体系 / 机构</span><strong>GB / GB（中国）</strong></div>
+      <div><span>变化类型</span><strong>征求意见</strong></div>
+      <div><span>影响判断</span><strong>未评估</strong></div>
+    </div>
+
+    <div class="callout">
+      <strong>人工复核是发布前置条件</strong>
+      本报告由 AI 辅助整理，日期、条款、试验方法与影响面均须对照官方原文核验。未确认日期统一显示“未确认”，不得据此推断生效或废止。
+    </div>
+
+    <div class="grid-2">
+      <section>
+        <h2>版本变化</h2>
+        <p><span class="eyebrow">Old</span><br>GB 15083-2019</p>
+        <p><span class="eyebrow">New</span><br>GB 15083-202X（征求意见稿）</p>
+        <p class="muted">置信度：medium</p>
+      </section>
+      <section>
+        <h2>法规时间轴</h2>
+        <div class="timeline">
+        <div class="timeline-row ">
+          <span class="timeline-dot"></span>
+          <span>发布日期</span>
+          <strong>未确认</strong>
+        </div>
+        <div class="timeline-row ">
+          <span class="timeline-dot"></span>
+          <span>征求意见开始</span>
+          <strong>未确认</strong>
+        </div>
+        <div class="timeline-row ">
+          <span class="timeline-dot"></span>
+          <span>征求意见截止</span>
+          <strong>未确认</strong>
+        </div>
+        <div class="timeline-row ">
+          <span class="timeline-dot"></span>
+          <span>批准日期</span>
+          <strong>未确认</strong>
+        </div>
+        <div class="timeline-row ">
+          <span class="timeline-dot"></span>
+          <span>生效日期</span>
+          <strong>未确认</strong>
+        </div>
+        <div class="timeline-row ">
+          <span class="timeline-dot"></span>
+          <span>过渡期结束</span>
+          <strong>未确认</strong>
+        </div>
+        <div class="timeline-row ">
+          <span class="timeline-dot"></span>
+          <span>废止日期</span>
+          <strong>未确认</strong>
+        </div></div>
+      </section>
+    </div>
+
+
+    <section class="comparison-section">
+      <div class="section-title-row">
+        <h2>新旧原文左右对比</h2>
+        <span class="extraction-status">官方原文逐段比对</span>
+      </div>
+      <div class="comparison-sources"><span>旧版来源：<a href="https://openstd.samr.gov.cn/bzgk/gb/" target="_blank" rel="noreferrer noopener">GB 15083-2019 官方来源</a></span><span>新版来源：<a href="https://openstd.samr.gov.cn/bzgk/gb/" target="_blank" rel="noreferrer noopener">GB 15083-202X（征求意见稿） 官方来源</a></span></div>
+
+    <div class="comparison-summary">
+      <div class="summary-stats">
+        <span class="stat added">+10 新增章节</span>
+        <span class="stat removed">-1 删除章节</span>
+        <span class="stat modified">~7 修改章节</span>
+      </div>
+      <p class="summary-text">
+        官方版本：GB 15083-2019 → GB 15083-202X（征求意见稿）
+      </p>
+    </div>
+
+      <div class="comparison-content">
+    <article class="diff-section modified" data-section-id="gb15083-scope">
+      <header>
+        <div>
+          <span class="diff-index">第 1 章 范围</span>
+        </div>
+        <span class="diff-kind">修改</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text">1 范围
+本<del>标准</del>规定了汽车座椅、座椅固定装置及头枕的<del>术语和定义、</del>技术要求和试验方法。
+本<del>标准</del>适用于：
+a<del>) </del>M1 和 N 类汽车的座椅、座椅固定装置及头枕；
+b<del>) </del>GB 13057 未涉及的其他 M2 类、M3 类汽车的座椅、座椅固定装置及头枕；
+c<del>) </del>M1 类汽车的座椅靠背后面部件的设计及正面碰撞中防止乘员因行李移动而导致伤害的装置设计。
+本<del>标准</del>不适用于后向座椅及其在这些座椅上安装的头枕。</div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text">1 范围
+本<ins>文件</ins>规定了汽车座椅、座椅固定装置及头枕的技术要求和试验方法。
+本<ins>文件</ins>适用于：
+a<ins>）</ins>M1 和 N 类汽车的座椅、座椅固定装置及头枕；
+b<ins>）</ins>GB 13057<ins>、GB 24406</ins> 未涉及的其他 M2 类、M3 类汽车的座椅、座椅固定装置及头枕；
+c<ins>）</ins>M1 类汽车的座椅靠背后面部件的设计及正面碰撞中防止乘员因行李移动而导致伤害的装置设计。
+本<ins>文件</ins>不适用于后向座椅及其在这些座椅上安装的头枕<ins>，M2 类（A 级和 I 级）和 M3 类（A 级和 I 级）车辆除外</ins>。</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section removed" data-section-id="gb15083-removed-definitions">
+      <header>
+        <div>
+          <span class="diff-index">第 3 章 删除“车辆类型、R 点”定义</span>
+        </div>
+        <span class="diff-kind">删除</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><del>3.1 车辆类型 vehicle type</del>
+<del>下列主要方面没有差异的车辆类别：</del>
+<del>座椅的结构、形状、尺寸、材料及质量，允许座椅蒙皮材料和颜色不同；允许与已被批准座椅型式的座椅质量有 5% 范围内的差异；</del>
+<del>座椅、座椅靠背及其组成部件的调节装置、移位装置及锁止装置的型式和尺寸；</del>
+<del>座椅固定装置的型式和尺寸；</del>
+<del>头枕的尺寸、构架、材料和衬垫，允许其蒙皮材料和颜色不同；</del>
+<del>头枕附件的型式和尺寸，若头枕为分体式头枕，还包括头枕连接部件的特性。</del>
+<del>3.13 R 点 R point</del>
+<del>由车辆制造厂为每一乘坐位置规定的设计点，相对于三维坐标系来确定。</del></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><span class="diff-empty">新版无此章节</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section added" data-section-id="gb15083-added-definitions">
+      <header>
+        <div>
+          <span class="diff-index">第 3 章 增加可调式头枕、头后间隙等定义</span>
+        </div>
+        <span class="diff-kind">新增</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><span class="diff-empty">旧版无此章节</span></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>3.11.4 可调式头枕 adjustable head restraint</ins>
+<ins>能够独立于座椅靠背，至少有两个调节位置用于乘员使用的头枕。</ins>
+<ins>3.14 后窗玻璃 backlight</ins>
+<ins>位于车顶板后部的后向窗玻璃。</ins>
+<ins>3.15 头后间隙 backset</ins>
+<ins>头枕前表面与头部最后点之间的水平距离。</ins>
+<ins>3.16 设计躯干角 design torso angle</ins>
+<ins>使用三维 H 点装置测量，过 R 点的铅垂线与车辆制造商规定的座椅靠背设计位置所对应的躯干线之间的夹角。</ins>
+<ins>3.17 头枕有效顶点 effective top of the head restraint</ins>
+<ins>根据附录 D 确定的头枕中心线最高点，定义为头枕有效顶点（IP）。</ins>
+<ins>3.18 头枕高度 head restraint height</ins>
+<ins>过躯干线的纵向平面上，从 R 点沿平行于躯干线方向测量，至头枕有效顶点（IP）的距离。</ins>
+<ins>3.19 实际躯干角 actual torso angle</ins>
+<ins>使用三维 H 点装置测量，过 H 点的铅垂线与背部量角器测量的躯干线之间的夹角。</ins>
+<ins>3.20 R50 点 R50 point</ins>
+<ins>车辆制造商为第 50 百分位男性乘客指定座椅位置定义的设计点。</ins>
+<ins>3.21 回弹 rebound</ins>
+<ins>与头枕脱离接触后头部的运动（即 T-HRC（end）之后的时间）。</ins>
+<ins>3.22 侧翼 side bolster</ins>
+<ins>位于座垫和/或座椅靠背侧面、用于侧向支撑乘客的可调座椅部件。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section modified" data-section-id="gb15083-n-class-strength">
+      <header>
+        <div>
+          <span class="diff-index">4.3.5、4.3.6 N1、N2、N3 与 M2、M3 类车座椅强度要求</span>
+        </div>
+        <span class="diff-kind">修改</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text">4.3.5 <del>适用</del>于<del> GB</del> <del>13057</del> 的座椅<del>不适用于</del> <del>4.3.1</del>、<del>4.3.4</del> 的要求。
+</div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text">4.3.5 <ins>多</ins>于<ins>一排的</ins> <ins>N1</ins> <ins>类车辆</ins>的<ins>前排</ins>座椅<ins>应满足</ins> <ins>4.2.3</ins>、<ins>4.2.4</ins> 的要求。
+<ins>4.3.6 N1、N2、N3 及 M2、M3 类车辆的座椅应满足 4.2.5、4.2.6 的要求。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section modified" data-section-id="gb15083-headrest-installation">
+      <header>
+        <div>
+          <span class="diff-index">4.4 头枕安装要求</span>
+        </div>
+        <span class="diff-kind">修改</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text">4.4.1 M1 类车的前排外侧座椅应安装头枕<del>。其他座位及其他类</del>车辆的<del>座椅</del>头枕<del>，也可以按</del>本标准<del>进行检验</del>。
+4.4.2 <del>最大总质量不超过 3500</del> <del>kg</del> 的<del> M </del>及<del> N </del>类车的前<del>排外侧</del>座椅<del>应</del>安装头枕<del>，</del>安装<del>在这些车辆上的</del>头枕应<del>满足</del>本<del>标准</del>的要求。</div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text">4.4.1 M1 类车<ins>、N 类车和最大总质量不超过 3 500 kg 的 M2 类车</ins>的前排外侧座椅应安装头枕<ins>，安装在这些</ins>车辆<ins>上</ins>的头枕<ins>应满足</ins>本标准<ins>的要求</ins>。
+4.4.2 <ins>除</ins> <ins>4.4.1</ins> <ins>规定</ins>的<ins>其他座位</ins>及<ins>其他</ins>类车<ins>辆</ins>的前<ins>向</ins>座椅<ins>，如已</ins>安装头枕<ins>或拟</ins>安装头枕<ins>，也</ins>应<ins>符合</ins>本<ins>文件</ins>的要求。</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section added" data-section-id="gb15083-headrest-general">
+      <header>
+        <div>
+          <span class="diff-index">4.6.1 新增头枕一般要求</span>
+        </div>
+        <span class="diff-kind">新增</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><span class="diff-empty">旧版无此章节</span></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>4.6.1.1 根据制造商选择，前排外侧头枕应符合下列要求之一：</ins>
+<ins>a）4.6.2.2、4.6.3 至 4.6.7、4.7、4.8 和 4.10 的规定；</ins>
+<ins>b）4.6.2.2、4.6.3 至 4.6.5、4.6.7、4.8、4.9 和 4.10 的规定。</ins>
+<ins>4.6.1.2 根据制造商选择，装备前排中间头枕的车辆，头枕应符合下列要求之一：</ins>
+<ins>a）4.6.2.3、4.6.3 至 4.6.5、4.6.7、4.7、4.8 和 4.10 的规定；</ins>
+<ins>b）4.6.2.3、4.6.3 至 4.6.5、4.6.7、4.8、4.9 和 4.10 的规定。</ins>
+<ins>4.6.1.3 根据制造商选择，装备后排外侧头枕的车辆，头枕应符合下列要求之一：</ins>
+<ins>a）4.6.2.5、4.6.3 至 4.6.5、4.6.7、4.7、4.8 和 4.10 的规定；</ins>
+<ins>b）4.6.2.5、4.6.3 至 4.6.5、4.6.7、4.8、4.9 和 4.10 的规定。</ins>
+<ins>4.6.1.4 根据制造商选择，装备后排中间头枕的车辆，头枕应符合下列要求之一：</ins>
+<ins>a）4.6.2.7、4.6.3 至 4.6.5、4.6.7、4.7、4.8 和 4.10 的规定；</ins>
+<ins>b）4.6.2.7、4.6.3 至 4.6.5、4.6.7、4.8、4.9 和 4.10 的规定。</ins>
+<ins>4.6.1.5 如果无法将试验假人安置在 4.9 指定的座椅位置，则适用头枕应符合 4.6.1.1 a）或 4.6.1.2 a）或 4.6.1.3 a）或 4.6.1.4 a）的规定。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section modified" data-section-id="gb15083-headrest-height">
+      <header>
+        <div>
+          <span class="diff-index">4.6.2、附录 D 头枕高度要求与测量方法</span>
+        </div>
+        <span class="diff-kind">修改</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><del>4.6.1</del> 头枕高度应按 <del>5.5</del> 规定进行测量。
+<del>4.6.2</del> <del>对于高度不可调</del>的<del>头枕</del>，前排座椅<del>其</del>高度<del>不应低于 800 mm；其他排座椅不</del>应<del>低于 750 mm。</del>
+<del>4.6.3 对于高度可调的</del>头枕<del>：前排座椅最高</del>位置高度<del>不</del>应<del>低于 800 mm，其他座椅最高位置</del>不<del>应低</del>于 <del>750</del> mm；<del>在高度 750 mm 以下应无“使用位置”。</del>
+<del>4.6.4 为保证</del>头枕<del>与车顶内饰表面、车窗和车辆结构部件之间留有足够的间隙，4.6.2 和 4.6.3 a）规定</del>的<del>尺寸对于前排座椅可以小于 800 mm</del>，<del>其他座椅可以</del>小于<del> 750 mm，但该间隙不应超过</del> <del>25</del> mm。
+<del>5.5.1</del> <del>包括基准线投影在内的所有的线，均应画在该</del>座椅<del>或乘坐</del>位置的<del>垂直中心平面上</del>。
+<del>5.5.2 将</del> <del>GB</del> <del>11551—2014</del> <del>中附录</del> <del>A</del> <del>所示</del>的<del>三维</del> <del>H</del> <del>点装置放</del>置于座椅<del>正常乘坐</del>位置。
+<del>5.5.3 将 GB 11551—2014 中附录 A 所示的三维 H</del> <del>点装</del>置<del>基准线</del>的<del>投影画</del>在 <del>5.4.3.1</del> 规定<del>的平面上。作垂直于基准线并且相切头枕顶端</del>的<del>切线 S</del>。
+<del>5.5.4 从 R</del> <del>点到切线</del>的<del>距离“h”即为</del> <del>4.6</del> <del>规定</del>的头枕高<del>度</del>。
+
+
+
+
+</div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>4.6.2.1</ins> 头枕高度应按<ins>附录</ins> <ins>D</ins> 规定进行测量。
+<ins>4.6.2.2</ins> <ins>除 4.6.2.4 规定</ins>的<ins>情况外</ins>，<ins>位于</ins>前排<ins>外侧</ins>座椅<ins>位置的头枕</ins>高度应<ins>为：</ins>
+<ins>a）在</ins>头枕<ins>调节的至少一个</ins>位置<ins>，</ins>高度应不<ins>小</ins>于 <ins>830</ins> mm；
+<ins>b）在</ins>头枕<ins>调节</ins>的<ins>任何位置</ins>，<ins>高度应不</ins>小于 <ins>720</ins> mm。
+<ins>4.6.2.3</ins> <ins>位于前排中间</ins>座椅位置的<ins>头枕高度在任何调节位置应不小于 720 mm，但 4.6.2.4 规定的情况除外</ins>。
+<ins>4.6.2.4</ins> <ins>如果车顶内饰表面的物理结构阻止前排座椅位置的头枕达到</ins> <ins>4.6.2.2</ins> <ins>或</ins> <ins>4.6.2.3</ins> <ins>要求</ins>的<ins>高度，头枕与车顶内饰表面之间的间隙在将头枕调至供乘员使用的最高位置时，应不超过</ins> <ins>50</ins> <ins>mm。但是，在任何情况下，当头枕调至供乘员使用的最低位</ins>置<ins>时，位</ins>于<ins>前排</ins>座椅位置<ins>的头枕高度不得小于 700 mm</ins>。
+<ins>4.6.2.5</ins> <ins>位于后排外侧座椅位</ins>置的<ins>头枕高度</ins>在<ins>任何调节位置均应不小于</ins> <ins>720 mm，但 4.6.2.6</ins> 规定的<ins>情况除外</ins>。
+<ins>4.6.2.6</ins> <ins>如果车顶内饰表面（包括顶棚或后窗玻璃）</ins>的<ins>物理结构阻止位于后排外侧座椅位置的头枕达到</ins> <ins>4.6.2.5</ins> <ins>要求的高度，头枕与车顶内饰表面之间</ins>的<ins>间隙在将</ins>头枕<ins>调至供乘员使用的最</ins>高<ins>位置时，应不超过 50 mm</ins>。
+<ins>4.6.2.7 根据附录 D 进行测量时，后排中间座椅或乘坐位置的头枕的高度应不小于 700 mm。</ins>
+<ins>D.1 调整座椅使其 H 点与 R 点重合；如果座椅靠背是可调节的，则座椅靠背应处于与设计躯干角度相对应的位置。</ins>
+<ins>D.3 高度测量程序应在座椅位置的中心纵向平面内进行。</ins>
+<ins>D.3.3.1 头枕高度是指距 R 点，沿平行于躯干线方向，到过 IP 点并垂直于躯干线的垂线的距离。</ins>
+<ins>D.3.3.2 IP 坐标确定后，最高头枕高度应按公式（D.1）由其与 R 点的纵向（ΔX）和垂直（ΔZ）间距计算：头枕高度=ΔX×sin（设计躯干角）+ΔZ×cos（设计躯干角）。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section added" data-section-id="gb15083-static-backset">
+      <header>
+        <div>
+          <span class="diff-index">4.6.6 新增前排外侧座椅静态最大头后间隙</span>
+        </div>
+        <span class="diff-kind">新增</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><span class="diff-empty">旧版无此章节</span></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>4.6.6.1 对于高度可调的头枕，头枕的有效高度应在 720 mm 至 830 mm（含）之间的所有调节高度位置上，应满足相关要求。如果头枕在最低调节位置时的有效高度高于 830 mm，则仅在该位置需满足本标准的要求。</ins>
+<ins>对于可在车辆纵向平面内调节的头枕，在可调节的头后间隙内的任何位置，均应满足最大头后间隙要求。</ins>
+<ins>4.6.6.2 当按照附录 G 进行测量时，头后间隙不得超过 45 mm。</ins>
+<ins>4.6.6.3 如果前排外侧头枕未与座椅靠背相连，则应不能通过调节座椅或头枕使头后间隙超过 45 mm。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section added" data-section-id="gb15083-height-retention">
+      <header>
+        <div>
+          <span class="diff-index">4.7.4 新增头枕高度保持要求</span>
+        </div>
+        <span class="diff-kind">新增</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><span class="diff-empty">旧版无此章节</span></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>4.7.4 头枕高度保持</ins>
+<ins>当按照附录 H 进行试验时，可调式头枕或任何满足 4.8.3 所述附加要求之一的头枕的机构不应失效，导致头枕向下移动超过 25 mm。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section added" data-section-id="gb15083-non-use-position">
+      <header>
+        <div>
+          <span class="diff-index">4.8 新增头枕非使用位置要求</span>
+        </div>
+        <span class="diff-kind">新增</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><span class="diff-empty">旧版无此章节</span></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>4.8.1 驾驶员头枕不允许有非使用位置。</ins>
+<ins>4.8.2 前排外侧乘员头枕可调至其高度不符合 4.6.2.2 要求的位置。但在上述任何位置，前排外侧乘员头枕均应符合 4.8.3a）的规定。</ins>
+<ins>4.8.3 后排头枕和前排中间头枕均可将其高度调至不符合 4.6.2.2、4.6.2.4 或 4.6.2.6 要求的位置。但在此类任一位置，根据制造商的选择，处于非使用位置的头枕还应满足以下要求之一：</ins>
+<ins>a）除驾驶员座椅位置外，在装备头枕的所有座椅位置，应按 I.1.2 将 Hybrid Ⅲ 第 5 百分位女性假人放置在座椅上时，头枕应自动从非使用位置返回至其最小高度不小于 4.6.2 规定的位置；</ins>
+<ins>b）在装备头枕的前排中间和后排座椅位置，当按 I.2 进行试验时，头枕应能够从任何供乘员使用的调节位置手动向前或向后旋转不少于 60°；</ins>
+<ins>c）在装备头枕的前排中间和后排座椅位置，当按 I.3 进行试验时，头枕下边缘高度（HLE）离 R 点不大于 460 mm 且不小于 250 mm，厚度（S）不小于 40 mm；</ins>
+<ins>d）当按 I.4 进行试验时，头枕的实际躯干角比头枕处于任何调节位置时的躯干角小至少 10°；</ins>
+<ins>e）头枕非使用位置应用标签标识。标签应明确指示头枕处于非使用位置，或提供使乘员能够判断头枕是否处于非使用位置的信息。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section added" data-section-id="gb15083-biorid">
+      <header>
+        <div>
+          <span class="diff-index">4.9 新增 BioRID Ⅱ 头枕动态性能要求</span>
+        </div>
+        <span class="diff-kind">新增</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><span class="diff-empty">旧版无此章节</span></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>4.9.1 BioRID Ⅱ 假人的使用仅限于设计躯干角不小于 20°且不大于 30°的座椅。但是根据制造商要求，设计躯干角在 15°和 20°之间的座椅可以在躯干角 20°或以上最近的锁止位置进行试验。</ins>
+<ins>4.9.2 使用 BioRID Ⅱ 第 50 百分位男性假人，按照附录 J 的要求进行试验，头部和颈部的伤害指标应不超过表 1 的限值。</ins>
+<ins>表 1 伤害指标：</ins>
+<ins>NIC 最大值 25 m²/s²；</ins>
+<ins>上颈部 FX 360 N，MY（Flx/Ext）30 N·m；</ins>
+<ins>下颈部 MY（Flx/Ext）30 N·m。</ins>
+<ins>注：伤害指标的计算应不包括头部的回弹运动。对于上颈部和下颈部的伤害指标，正负值均应进行评估。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section added" data-section-id="gb15083-large-angle-seat">
+      <header>
+        <div>
+          <span class="diff-index">4.12 新增大角度座椅安全要求</span>
+        </div>
+        <span class="diff-kind">新增</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><span class="diff-empty">旧版无此章节</span></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>4.12 大角度座椅的安全要求</ins>
+<ins>对于靠背角度电动可调、具有小腿或足部抬升机构、整椅抬升或坐垫角度可调的汽车座椅，应在设计上保证行驶过程中，其安全带等安全装置能够有效保护乘员安全。其中，驾驶员座椅的躯干角不应超过 35°；其他座椅在车辆行驶速度不小于 30 km/h 时应满足以下要求：</ins>
+<ins>a）不具备乘员保护功能的座椅，座椅躯干角不应超过 35°；</ins>
+<ins>b）具备乘员保护功能座椅，座椅躯干角不应超过 45°；当行驶速度超过 80 km/h 且躯干角超过 35°时，应至少提供不少于 60 s 且包括“可能造成严重伤害风险”内容的安全语音提醒。具备乘员保护功能的座椅，其安全带固定点均应位于座椅上，且至少包括以下附加功能之一：</ins>
+<ins>1）防止乘员下潜；</ins>
+<ins>2）降低乘员腰椎受力；</ins>
+<ins>3）座椅回位；</ins>
+<ins>4）座椅吸能。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section added" data-section-id="gb15083-powered-seat">
+      <header>
+        <div>
+          <span class="diff-index">4.13 新增电动座椅防挤压安全要求</span>
+        </div>
+        <span class="diff-kind">新增</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><span class="diff-empty">旧版无此章节</span></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>4.13 电动座椅防止乘员受到挤压伤害的安全要求</ins>
+<ins>电动长滑轨式座椅、电动翻移式座椅、电动可折叠式、电动大角度座椅等具有电动调节功能的汽车座椅，安装在车辆上时应具有防止乘员受到挤压伤害的功能，当执行电动调节功能时如因挤压乘员遇到阻力，应停止电动调节功能并反方向运动。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section added" data-section-id="gb15083-dummy-inertia-tests">
+      <header>
+        <div>
+          <span class="diff-index">5.3.6、5.3.7 新增使用假人的抗惯性试验方法</span>
+        </div>
+        <span class="diff-kind">新增</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><span class="diff-empty">旧版无此章节</span></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>5.3.6 若座椅的安全带固定点全部位于座椅结构上，准许根据制造商的要求，按 K.3.2 进行带假人前撞试验，带假人前撞试验可替代 5.3.1 规定的试验。</ins>
+<ins>5.3.7 若座椅的安全带固定点全部位于座椅结构上，准许根据制造商的要求，按 K.3.3 进行带假人后撞试验，带假人后撞试验可替代 5.3.2 规定的空载后撞试验。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section modified" data-section-id="gb15083-displacement-test">
+      <header>
+        <div>
+          <span class="diff-index">5.4.3、附录 C 头枕向后位移试验要求</span>
+        </div>
+        <span class="diff-kind">修改</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><del>5.4.3.1</del> <del>包括基准线投影在内</del>的<del>所有线</del>，<del>均应画在该座椅或乘坐位置</del>的垂直<del>中心</del>平面<del>上（见附录 D）。</del>
+<del>5.4.3.2</del> <del>移</del>位<del>后</del>的<del>基准线是</del>将相对<del> R 点产生向后 373 N·m 力矩的初始作用力施加</del>于<del> GB 11551—2014 中附录 A 所述模拟人体模型靠背</del>的<del>部件上来确定</del>。
+<del>5.4.3.3 距离头枕顶部向下</del> <del>65</del> <del>mm</del> <del>处，通过直径为</del> <del>165</del> <del>mm</del> 的<del>头型，施加一个垂直于移位后</del>的基准线<del>的初始作用力</del>，<del>使其产生相对</del>于<del> R 点 373 N·m 的力矩</del>。
+<del>5.4.3.4</del> 确定<del>与头型相切并与</del>移位<del>后</del>基准<del>线平行的切</del>线<del> Y</del>。
+<del>5.4.3.5</del> <del>测定用于</del> <del>4.10.1</del> <del>规</del>定的<del>最大向后</del>位<del>移量 x</del>。<del>x</del> 为<del>切线</del> <del>Y</del> <del>与</del>移位后基准线<del>之间</del>的<del>距离</del>。
+<del>5.4.3.6</del> <del>如果座椅或座椅靠背未出现断裂，则将</del> <del>5.4.3.3</del> 规定<del>的初始负荷增加到</del> <del>890</del> <del>N，以检验</del>头枕的<del>有效性</del>。
+</div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>C.1.1</ins> <ins>产生头枕力矩</ins>的<ins>载荷矢量</ins>，<ins>最初处于与车辆纵向零平面平行</ins>的垂直平面<ins>之中。</ins>
+<ins>C.1.2</ins> <ins>若座椅靠背可调节，应将其调整至车辆制造商所指定的</ins>位<ins>置。将头枕垂直调节至供乘员使用</ins>的<ins>最高位置，并</ins>将<ins>其水平调节至</ins>相对于<ins>座椅</ins>的<ins>最靠后位置</ins>。
+<ins>C.1.3</ins> <ins>在座椅上放置一个试验装置，从侧面观察时，该装置应具备</ins> <ins>GB</ins> <ins>11551—2014</ins> <ins>中附录</ins> <ins>A</ins> <ins>规定</ins>的<ins>三维 H 点装置</ins>的<ins>靠背尺寸和躯干</ins>基准线，<ins>且头型加载装置需置</ins>于<ins>最后位置</ins>。
+<ins>C.1.4 以 2.5 N·m/s 至 3.7 N·m/s 的速度通过靠背板对座椅靠背施加力，在 R 点处产生 373 N·m±7.5 N·m</ins> <ins>的后向力矩，以此</ins>确定移位基准线。
+<ins>C.1.5</ins> <ins>保持</ins> <ins>C.1.4</ins> <ins>中确</ins>定的<ins>靠背</ins>位<ins>置</ins>。<ins>距离头枕有效顶点向下 65 mm±3 mm</ins> <ins>处，通过直径</ins>为 <ins>165</ins> <ins>mm±2 mm 的头型，施加一个垂直于</ins>移位后<ins>的</ins>基准线的<ins>初始作用力，使其产生相对于 R 点 373 N·m±7.5 N·m 的力矩。保持该力矩 5 s，然后记录施加载荷后头型的向后位移 X</ins>。
+<ins>C.1.6</ins> <ins>根据</ins> <ins>4.6.4</ins> <ins>的</ins>规定<ins>，在确定间隙大于</ins> <ins>60</ins> <ins>mm 的</ins>头枕<ins>后移量时，应通过间隙最小截面</ins>的<ins>重心，沿平行于躯干线的横向平面施加上述载荷</ins>。
+<ins>C.1.7 若因存在间隙而无法按 C.1.5 在距离头枕有效顶点 65 mm±3 mm 处施加载荷，则可减小该距离，使载荷的轴线穿过最靠近间隙的框架元件的中心线。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section modified" data-section-id="gb15083-width-test">
+      <header>
+        <div>
+          <span class="diff-index">5.6、附录 E 头枕宽度要求与测量表述</span>
+        </div>
+        <span class="diff-kind">修改</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><del>5.6</del> 确定头枕宽度<del>（见附录 E 图 E.2）</del>
+<del>5.6.1</del> <del>用位于</del> <del>5.5.3</del> <del>规定</del>的<del>切线以下 65</del> <del>mm</del> <del>处且</del>垂直<del>于基准线的</del>平面<del>来确定由轮廓线所限定</del>的<del>头枕剖面。</del>
+<del>5.6.2 按照 4.9</del> <del>的相</del>应<del>规定，所要考虑的头枕宽度是垂直纵向面 P 和</del> <del>P&#39;</del> 与<del>剖面 S1</del> <del>的两条交线之间的距离</del> <del>L</del>。
+<del>5.6.3 必要时，头枕宽度也可在从 R 点沿基准线向上</del> <del>635</del> <del>mm</del> <del>处且</del>垂直于基准线的平面<del>内确定</del>。
+
+</div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>5.6.1 按附录 E</ins> <ins>的程序</ins>确定头枕宽度<ins>。</ins>
+<ins>5.6.2</ins> <ins>在执行上述</ins> <ins>4.6.3</ins> 的<ins>要求时，需考虑的头枕宽度是在</ins> <ins>S1</ins> <ins>平面内测得的</ins>垂直<ins>纵向</ins>平面<ins> P 和 P&#39; 之间</ins>的<ins>距离“L”和“L´”。</ins>
+<ins>E.1</ins> <ins>座椅</ins>应<ins>调整至其</ins> <ins>H</ins> <ins>点</ins>与 <ins>R</ins> <ins>点重合；如果座椅靠背可调，则应调整至设计座椅靠背角度</ins>。
+<ins>E.2</ins> <ins>平面</ins> <ins>S1</ins> <ins>是</ins>垂直于基准线的平面<ins>，位于头枕有效顶点下方 65 mm±3 mm 处</ins>。
+<ins>E.3 平面 P 和 P&#39; 是垂直纵向平面，与测试头枕的两侧相切。</ins>
+<ins>E.4 在平面 S1 中测量通过躯干线的垂直纵向平面与平面 P 和 P&#39; 之间的距离 L 和 L&#39;。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section modified" data-section-id="gb15083-gap-test">
+      <header>
+        <div>
+          <span class="diff-index">头枕间隙要求与 5.7、附录 F 测量方法</span>
+        </div>
+        <span class="diff-kind">修改</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><del>4.8.1 对整体式头枕，应考虑的区域是：在距 R 点 540 mm 处与基准线相垂直的平面以上，位于躯干基准线两侧各 85 mm</del> <del>的两个纵向垂直面之间所包括的区域内。在该区域内，若该</del>头枕<del>按 5.4.3.3 规定的附加试验后，仍然满足 4.10.1 的规定，则允许一个或多个间隙存在。对于该</del>间隙<del>，按 5.7 的规定测量时，其头枕骨架间距可以大于 60 mm。</del>
+<del>4.8.2 对于高度可调的头枕，若按</del> <del>5.4.3.3</del> <del>规定的附加试验后</del>，<del>仍然满足</del> <del>4.10.1</del> <del>的规定</del>，则<del>允许一个或多个间隙存</del>在<del>。对于</del>该间隙<del>，按</del> <del>5.7</del> 测<del>量</del>时，<del>其</del>头<del>枕骨架间距可以</del>大于 <del>60</del> mm。
+<del>5.7.1 用</del>直<del>径为</del> <del>165</del> mm 的<del>球体</del>，<del>在</del>头枕<del>前表面确定其每个</del>间隙<del>的距离</del>。
+<del>5.7.2</del> <del>在不施加任何作用力条件下，将球体最大限度地置于</del>间隙<del>区域内，并且与该区域点接触。</del>
+<del>5.7.3 球体与</del>间隙<del>接触的两点之间距离即为</del> <del>4.8</del> <del>规</del>定<del>的距离</del>。
+
+
+
+
+
+
+</div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>4.6.4</ins> 头枕间隙
+<ins>根据附录</ins> <ins>F</ins> <ins>进行测量时</ins>，<ins>如果头枕有任何间隙大于</ins> <ins>60</ins> <ins>mm</ins>，则<ins>头枕</ins>在该间隙<ins>处根据附录</ins> <ins>C</ins> <ins>进行</ins>测<ins>试</ins>时，头<ins>型的最</ins>大<ins>向后位移应小</ins>于 <ins>102</ins> mm。
+<ins>对于整体式头枕，应在垂</ins>直<ins>于躯干线距离</ins> <ins>R 点 540</ins> mm 的<ins>平面上方</ins>，<ins>且位于通过躯干线两侧各 85 mm 处的两个垂直纵向平面之间的区域测量</ins>头枕间隙。
+<ins>5.7</ins> <ins>头枕</ins>间隙<ins>尺寸“a”的确定</ins>
+<ins>头枕</ins>间隙<ins>尺寸“a”根据附录</ins> <ins>F</ins> <ins>确</ins>定。
+<ins>F.1 头枕内的间隙应使用 F.2 中所述的球体测量程序进行测量。头枕底部和座椅靠背顶部之间的间隙应使用 F.2.1 至 F.2.5 中所述的球体测量程序进行测量，或根据制造商的选择，使用 F.3 中所述的线性测量程序进行测量。</ins>
+<ins>F.2.1 应调整座椅使其 H 点与 R 点重合；如果座椅靠背可调，则设置在设计座椅靠背角度。</ins>
+<ins>F.2.2 将头枕调至供乘客使用的最低高度和任意头后间隙的位置。</ins>
+<ins>F.2.3 测量区域位于躯干线两侧各 85 mm、两个竖直纵向平面之间的任意位置，且位于座椅靠背上部高度超过 540 mm 的区域。</ins>
+<ins>F.2.4 对 F.2.2 中规定的测量区域施加不超过 5 N 的载荷，将直径为 165 mm 的头型放在其中至少有两个接触点的任何间隙中。</ins>
+<ins>F.2.5 通过测量两个最远接触点内边缘之间的直线间距来确定间隙尺寸。</ins>
+<ins>F.2.6 对于头枕内的间隙，如果 F.2.5 中确定的测量值超过 60 mm，则附录 C 中所述的程序应通过用直径为 165 mm 的球体、沿平行于躯干线的横向平面施加一个通过间隙最小部分重心、绕 R 点产生 373 N·m 的力矩，以便证明符合 4.6.4 要求。</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section added" data-section-id="gb15083-same-type">
+      <header>
+        <div>
+          <span class="diff-index">第 6 章 新增同一型式判定</span>
+        </div>
+        <span class="diff-kind">新增</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><span class="diff-empty">旧版无此章节</span></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>6 同一型式判定</ins>
+<ins>如符合下述规定，则视为同一型式车辆：</ins>
+<ins>a）座椅和头枕的结构型式、规格型号、生产企业相同；</ins>
+<ins>b）座椅、靠背及两者组成部件的调节装置、移位装置及锁止装置的型式和尺寸相同；</ins>
+<ins>c）座椅的结构、形状、材料相同，尺寸和质量相同或变化不超过 5%，座椅的蒙皮和颜色可以不同；</ins>
+<ins>d）座椅固定方式相同；</ins>
+<ins>e）座椅调节装置相同，行李箱地板与座椅相对高度相同（适用于行李箱冲击）；</ins>
+<ins>f）车身或驾驶室的生产企业相同，车身或驾驶室上安装座椅的固定件（含地板）型式和材料相同；</ins>
+<ins>g）座椅“R”点坐标相同；</ins>
+<ins>h）头枕在座椅上固定方式相同。</ins></div>
+        </div>
+      </div>
+    </article>
+  </div>
+      <ul class="comparison-limitations"><li>本报告以 GB 15083-202X 征求意见稿前言列出的主要技术变化为主线，不是对两份标准全文逐字穷尽的差异清单。</li><li>旧版中文原文依据公开发布 PDF 校对整理，个别字母大小写、标点或单位符号应以官方原件为准。</li><li>征求意见稿尚未显示正式发布日期，不能据此认定已经批准、生效或替代 GB 15083-2019。</li></ul>
+    </section>
+
+
+    <section>
+      <h2>M1 座椅设计影响</h2>
+      <ul><li>头枕安装范围与配置策略</li><li>头枕高度、宽度、间隙与静态头后间隙</li><li>头枕高度保持与非使用位置机构</li><li>N1、N2、N3 及 M2、M3 类车座椅强度</li><li>大角度座椅的乘员保护</li><li>电动座椅防挤压控制</li></ul>
+      <h3 style="margin-top:20px">试验与验证</h3>
+      <ul><li>附录 C：头枕向后位移与强度试验</li><li>附录 D：头枕高度测量</li><li>附录 G：前排外侧座椅静态最大头后间隙</li><li>附录 H：头枕高度保持试验</li><li>附录 I：头枕非使用位置试验</li><li>附录 J：BioRID Ⅱ 动态性能试验</li><li>K.3：带假人的抗惯性试验</li></ul>
+    </section>
+
+    <section>
+      <h2>建议动作</h2>
+      <ol><li>核对征求意见稿的正式意见截止日期、发布状态及后续批准信息</li><li>按 4.6.2、4.6.6 和附录 D、G 复核现有一排、二排头枕几何与调节范围</li><li>按 4.7.4、4.8 和附录 H、I 复核高度保持机构与非使用位置策略</li><li>评估大角度座椅、电动长滑轨及电动翻移座椅的防挤压与乘员保护方案</li><li>据正式发布文本更新 DVP、试验工装与型式判定资料，不在草案阶段作出量产放行结论</li></ol>
+    </section>
+
+    <section>
+      <h2>证据与官方链接</h2>
+
+        <article class="evidence">
+          <h3>国家标准全文公开系统：GB 15083-2019 与 GB 15083-202X 查询入口</h3>
+          <blockquote>GB 15083-202X（征求意见稿）前言明确说明其代替 GB 15083-2019，并列出了主要技术变化。</blockquote>
+          <a href="https://openstd.samr.gov.cn/bzgk/gb/" target="_blank" rel="noreferrer noopener">
+            https://openstd.samr.gov.cn/bzgk/gb/
+          </a>
+        </article>
+    </section>
+
+    <section>
+      <h2>人工复核清单</h2>
+      <div class="checklist">
+        <div><span>01</span><br>确认标准号、版本与官方来源一致</div>
+        <div><span>02</span><br>逐项核对日期、条款和试验方法</div>
+        <div><span>03</span><br>确认 M1 座椅设计、工装或认证影响</div>
+        <div><span>04</span><br>批准后才复制飞书摘要并人工发送</div>
+      </div>
+    </section>
+
+    <section class="feishu">
+      <strong>飞书摘要（仅批准后使用）</strong>
+      <p>【SeatScope 法规影响提示 · 待人工审核】</p>
+      <p>涉及标准：GB 15083-2019 / GB 15083-202X（征求意见稿）</p>
+      <p>摘要：依据 GB 15083-202X 征求意见稿前言所列主要技术变化，与 GB 15083-2019 公开文本逐项对比：新增 10 个主题、修改 7 个主题、删除 1 个主题。重点涉及头枕安装、头枕高度、静态头后间隙、非使用位置、BioRID Ⅱ 动态性能、大角度座椅和电动座椅防挤压。征求意见稿尚未显示正式发布日期，不能据此认定已经批准或生效。</p>
+      <p>审核人：锁老师（待确认）</p>
+    </section>
+
+    <footer>
+      <p>SeatScope 仅提供法规变更发现与影响初筛，不构成法律、认证、试验验证或生产放行结论。</p>
+      <p>飞书发送为人工操作；本报告不包含自动 Webhook。报告 ID：library-gb-15083-2019-draft</p>
+    </footer>
+  </main>
+</body>
+</html>

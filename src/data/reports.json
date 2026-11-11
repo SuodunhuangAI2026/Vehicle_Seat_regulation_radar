@@ -1,5 +1,17 @@
 [
   {
+    "id": "report-library-gb-15083-2019-draft",
+    "title": "GB 15083 座椅与头枕强度：2019 版与 202X 征求意见稿对比",
+    "generatedAt": "2026-11-11T02:45:51.052Z",
+    "changeIds": [
+      "library-gb-15083-2019-draft"
+    ],
+    "severity": "unassessed",
+    "reviewStatus": "draft",
+    "htmlPath": "reports/2026-11-11-gb-15083-2019-draft.html",
+    "summary": "依据 GB 15083-202X 征求意见稿前言所列主要技术变化，与 GB 15083-2019 公开文本逐项对比：新增 10 个主题、修改 7 个主题、删除 1 个主题。重点涉及头枕安装、头枕高度、静态头后间隙、非使用位置、BioRID Ⅱ 动态性能、大角度座椅和电动座椅防挤压。征求意见稿尚未显示正式发布日期，不能据此认定已经批准或生效。"
+  },
+  {
     "id": "report-b7bc7d89014385",
     "title": "《机动车安全法规》（C.R.C., c. 1038）监管变更",
     "generatedAt": "2026-11-11T02:18:35.894Z",

@@ -29,12 +29,12 @@ function sourceLinks(diff: RegulationDiff): string {
   const links: string[] = [];
   if (diff.oldSourceUrl) {
     links.push(
-      `<span>旧版来源：<a href="${escapeHtml(diff.oldSourceUrl)}" target="_blank" rel="noreferrer noopener">${escapeHtml(formatDate(diff.oldVersion))} 官方文本</a></span>`,
+      `<span>旧版来源：<a href="${escapeHtml(diff.oldSourceUrl)}" target="_blank" rel="noreferrer noopener">${escapeHtml(formatDate(diff.oldVersion))} 官方来源</a></span>`,
     );
   }
   if (diff.newSourceUrl) {
     links.push(
-      `<span>新版来源：<a href="${escapeHtml(diff.newSourceUrl)}" target="_blank" rel="noreferrer noopener">${escapeHtml(formatDate(diff.newVersion))} 官方文本</a></span>`,
+      `<span>新版来源：<a href="${escapeHtml(diff.newSourceUrl)}" target="_blank" rel="noreferrer noopener">${escapeHtml(formatDate(diff.newVersion))} 官方来源</a></span>`,
     );
   }
   return links.length > 0
@@ -114,6 +114,13 @@ export function renderComparisonHtml(diff: RegulationDiff): string {
       ${sourceLinks(diff)}
       ${summaryHtml}
       <div class="comparison-content">${sectionsHtml}</div>
+      ${
+        diff.limitations && diff.limitations.length > 0
+          ? `<ul class="comparison-limitations">${diff.limitations
+              .map((item) => `<li>${escapeHtml(item)}</li>`)
+              .join("")}</ul>`
+          : ""
+      }
     </section>
   `;
 }

@@ -15,6 +15,7 @@
     "monitor": "tsx scripts/monitor/index.ts",
     "review": "tsx scripts/review.ts",
     "import:inputs": "tsx scripts/import/import-inputs.ts",
+    "generate:gb-15083": "tsx scripts/generate-gb-15083-report.ts",
     "regenerate-report": "tsx scripts/regenerate-report.ts"
   },
   "dependencies": {

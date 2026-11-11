@@ -401,7 +401,7 @@ export function renderReportHtml(
     .timeline-row {
       position: relative;
       display: grid;
-      grid-template-columns: 14px 145px 1fr;
+      grid-template-columns: 145px 1fr;
       gap: 10px;
       align-items: center;
       min-height: 38px;
@@ -662,8 +662,8 @@ export function renderReportHtml(
       }
       .report-meta { grid-template-columns: 1fr; }
       .report-id { text-align: left; }
-      .timeline-row { grid-template-columns: 14px 1fr; }
-      .timeline-row strong { grid-column: 2; }
+      .timeline-row { grid-template-columns: 1fr; }
+      .timeline-row strong { grid-column: 1; }
     }
     @media print {
       @page { size: A4; margin: 14mm; }

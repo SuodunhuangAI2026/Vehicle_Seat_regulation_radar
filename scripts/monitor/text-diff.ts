@@ -18,6 +18,7 @@ export interface RegulationDiff {
   newSourceUrl?: string;
   comparedAt: string;
   sections: SectionDiff[];
+  limitations?: string[];
   summary: {
     added: number;
     removed: number;
