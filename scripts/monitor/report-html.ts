@@ -5,6 +5,8 @@ import type {
   Severity,
 } from "../../src/types/index.js";
 import { reviewLabels, severityLabels } from "../../src/lib/format.js";
+import { renderComparisonHtml } from "./comparison-report.js";
+import type { RegulationDiff } from "./text-diff.js";
 
 const changeTypeLabels: Record<string, string> = {
   new: "新发布",
@@ -84,12 +86,7 @@ function inlineDiff(
 
 function comparisonHtml(change: RegulationChange): string {
   const comparison = change.comparison;
-  if (!comparison) {
-    return `<section>
-      <h2>新旧原文左右对比</h2>
-      <p class="muted">该草稿尚未附带可解析的新旧原文。请在官方来源人工核对后补充，不生成虚构条款。</p>
-    </section>`;
-  }
+  if (!comparison) return "";
   const statusText =
     comparison.status === "complete"
       ? "新旧原文已提取"
@@ -196,7 +193,28 @@ function reportStatusClass(status: ReviewStatus): string {
   return "draft";
 }
 
-export function renderReportHtml(change: RegulationChange): string {
+function formatDateTime(value: string): string {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  const parts = new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(date);
+  const get = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find((part) => part.type === type)?.value ?? "";
+  return `${get("year")}/${get("month")}/${get("day")} ${get("hour")}:${get("minute")}`;
+}
+
+export function renderReportHtml(
+  change: RegulationChange,
+  regulationDiff?: RegulationDiff,
+  renderedAt = new Date().toISOString(),
+): string {
   const isDraft = change.reviewStatus === "draft";
   const watermark = isDraft
     ? "待人工复核"
@@ -210,7 +228,11 @@ export function renderReportHtml(change: RegulationChange): string {
       ? change.standardNumbers.join(" / ")
       : "标准号待人工确认";
 
-  return `<!doctype html>
+  const regulationComparisonHtml = regulationDiff
+    ? renderComparisonHtml(regulationDiff)
+    : "";
+
+  const html = `<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -478,6 +500,117 @@ export function renderReportHtml(change: RegulationChange): string {
       background: rgba(47,114,95,.14);
       text-decoration: none;
     }
+    .comparison-section { margin-top: 34px; }
+    .comparison-summary {
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(23,61,84,.03);
+    }
+    .summary-stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .summary-stats .stat {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+    .summary-stats .stat.added {
+      color: #205d4b;
+      background: rgba(47,114,95,.12);
+    }
+    .summary-stats .stat.removed {
+      color: #8e2d24;
+      background: rgba(179,58,43,.12);
+    }
+    .summary-stats .stat.modified {
+      color: #7a5c1f;
+      background: rgba(198,138,43,.12);
+    }
+    .summary-text {
+      color: var(--steel);
+      font-size: .72rem;
+    }
+    .no-changes {
+      color: var(--steel);
+      font-style: italic;
+    }
+    .diff-article {
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .diff-article.added { border-left: 4px solid var(--green); }
+    .diff-article.removed { border-left: 4px solid var(--red); }
+    .diff-article.modified { border-left: 4px solid var(--amber); }
+    .diff-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: rgba(23,61,84,.04);
+      border-bottom: 1px solid var(--line);
+    }
+    .diff-header h3 {
+      margin: 0;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+    .diff-badge {
+      padding: 3px 9px;
+      border-radius: 99px;
+      font-size: .62rem;
+      font-weight: 700;
+    }
+    .diff-badge.added {
+      color: var(--green);
+      border: 1px solid var(--green);
+    }
+    .diff-badge.removed {
+      color: var(--red);
+      border: 1px solid var(--red);
+    }
+    .diff-badge.modified {
+      color: var(--amber);
+      border: 1px solid var(--amber);
+    }
+    .diff-content { padding: 16px; }
+    .diff-text {
+      font-size: .78rem;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .diff-text del {
+      padding: 1px 3px;
+      color: #8e2d24;
+      background: rgba(179,58,43,.12);
+      text-decoration: line-through;
+    }
+    .diff-text ins {
+      padding: 1px 3px;
+      color: #205d4b;
+      background: rgba(47,114,95,.14);
+      text-decoration: none;
+    }
+    .added-text {
+      color: var(--green);
+      background: rgba(47,114,95,.05);
+      padding: 12px;
+      border-radius: 6px;
+    }
+    .removed-text {
+      color: var(--red);
+      background: rgba(179,58,43,.05);
+      padding: 12px;
+      border-radius: 6px;
+    }
     .diff-empty { color: var(--steel); font-style: italic; }
     .diff-impact {
       margin: 0;
@@ -544,7 +677,7 @@ export function renderReportHtml(change: RegulationChange): string {
     }
   </style>
 </head>
-<body data-review-status="${escapeHtml(change.reviewStatus)}" data-review-date="${escapeHtml(change.detectedAt)}">
+<body data-review-status="${escapeHtml(change.reviewStatus)}" data-review-date="${escapeHtml(renderedAt)}" data-report-generated-at="${escapeHtml(renderedAt)}">
   <main class="report">
     <div class="watermark">${escapeHtml(watermark)}</div>
     <header>
@@ -560,7 +693,8 @@ export function renderReportHtml(change: RegulationChange): string {
       </div>
       <div class="report-id">
         审核稿 ID<br><strong>${escapeHtml(change.id)}</strong><br>
-        生成时间<br><strong>${escapeHtml(change.detectedAt)}</strong>
+        审核稿生成时间<br><strong>${escapeHtml(formatDateTime(renderedAt))}</strong><br>
+        监测发现时间<br><strong>${escapeHtml(formatDateTime(change.detectedAt))}</strong>
       </div>
     </div>
 
@@ -581,7 +715,7 @@ export function renderReportHtml(change: RegulationChange): string {
         <h2>版本变化</h2>
         <p><span class="eyebrow">Old</span><br>${escapeHtml(change.oldVersion ?? "未确认")}</p>
         <p><span class="eyebrow">New</span><br>${escapeHtml(change.newVersion ?? "未确认")}</p>
-        <p class="muted">置信度：${escapeHtml(change.confidence)} · 模型：${escapeHtml(change.model)} · 提示词：${escapeHtml(change.promptVersion)}</p>
+        <p class="muted">置信度：${escapeHtml(change.confidence)}</p>
       </section>
       <section>
         <h2>法规时间轴</h2>
@@ -589,7 +723,7 @@ export function renderReportHtml(change: RegulationChange): string {
       </section>
     </div>
 
-    ${comparisonHtml(change)}
+    ${regulationDiff ? regulationComparisonHtml : comparisonHtml(change)}
 
     <section>
       <h2>M1 座椅设计影响</h2>
@@ -633,6 +767,7 @@ export function renderReportHtml(change: RegulationChange): string {
   </main>
 </body>
 </html>`;
+  return html.replace(/[ \t]+$/gm, "");
 }
 
 export function updateReportReviewState(

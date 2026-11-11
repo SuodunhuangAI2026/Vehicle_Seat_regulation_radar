@@ -14,6 +14,7 @@ import {
   renderReportHtml,
   updateReportReviewState,
 } from "../scripts/monitor/report-html";
+import type { RegulationDiff } from "../scripts/monitor/text-diff";
 
 async function fixture(name: string): Promise<unknown> {
   return JSON.parse(
@@ -192,6 +193,43 @@ it("renders aligned old/new source text with inline change highlights", () => {
   expect(html).toContain("<del>");
   expect(html).toContain("<ins>");
   expect(html).toContain("https://unece.org/r17-old.pdf");
+});
+
+it("renders a regenerated report with generated time and side-by-side regulation text", () => {
+  const regulationDiff: RegulationDiff = {
+    oldVersion: "2024-12-18",
+    newVersion: "2025-01-01",
+    comparedAt: "2026-11-11T06:30:00.000Z",
+    sections: [
+      {
+        sectionId: "h-478981",
+        sectionTitle: "Notice of Defect",
+        changeType: "modified",
+        oldContent: "A company shall provide a notice in writing.",
+        newContent: "A company shall provide a notice in writing and publish it.",
+        diffHtml: "<del>in writing</del><ins>in writing and publish it</ins>",
+      },
+    ],
+    summary: {
+      added: 0,
+      removed: 0,
+      modified: 1,
+      unchanged: 0,
+    },
+  };
+
+  const html = renderReportHtml(
+    validChange,
+    regulationDiff,
+    "2026-11-11T06:30:00.000Z",
+  );
+
+  expect(html).toContain("审核稿生成时间");
+  expect(html).toContain("2026/11/11");
+  expect(html).toContain("监测发现时间");
+  expect(html).toContain('class="diff-pane old"');
+  expect(html).toContain('class="diff-pane new"');
+  expect(html).not.toContain("该草稿尚未附带可解析的新旧原文");
 });
 
 it("updates the report badge only after a review decision", () => {

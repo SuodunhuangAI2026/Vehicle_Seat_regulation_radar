@@ -8,6 +8,8 @@ import type {
   SourceHealth,
 } from "../../src/types/index.js";
 import { renderReportHtml } from "./report-html.js";
+import type { RegulationDiff } from "./text-diff.js";
+import { compareAndStoreRegulation } from "./regulation-compare.js";
 
 export async function readJsonFile<T>(path: string): Promise<T> {
   return JSON.parse(await readFile(path, "utf8")) as T;
@@ -60,11 +62,16 @@ export async function materializeReport(input: {
   reports: ReportRecord[];
   publicDir: string;
   now: string;
+  downloadAndCompare?: boolean;
+  regulationOldSourceUrl?: string;
+  regulationSourceUrl?: string;
+  regulationId?: string;
 }): Promise<{
   change: RegulationChange;
   reports: ReportRecord[];
   written: boolean;
   htmlPath: string;
+  comparison?: RegulationDiff;
 }> {
   const existing = input.reports.find((report) =>
     report.changeIds.includes(input.change.id),
@@ -89,13 +96,32 @@ export async function materializeReport(input: {
     reviewStatus: existing?.reviewStatus ?? "draft",
     reportPath: htmlPath,
   };
+
+  // Download and compare regulation text if requested
+  let comparison: RegulationDiff | undefined;
+  if (input.downloadAndCompare && input.regulationSourceUrl && input.regulationId) {
+    try {
+      const result = await compareAndStoreRegulation({
+        regulationId: input.regulationId,
+        newSourceUrl: input.regulationSourceUrl,
+        oldSourceUrl: input.regulationOldSourceUrl,
+      });
+      comparison = result.diff;
+    } catch (error) {
+      console.error(`Failed to download/compare regulation:`, error);
+    }
+  }
+
   const outputPath = resolve(input.publicDir, htmlPath);
-  await writeTextFileAtomic(outputPath, renderReportHtml(nextChange));
+  await writeTextFileAtomic(
+    outputPath,
+    renderReportHtml(nextChange, comparison, input.now),
+  );
 
   const nextReport: ReportRecord = {
     id: existing?.id ?? reportId(nextChange),
     title: nextChange.title,
-    generatedAt: existing?.generatedAt ?? input.now,
+    generatedAt: input.now,
     changeIds: [nextChange.id],
     severity: nextChange.severity,
     reviewStatus: existing?.reviewStatus ?? "draft",
@@ -114,6 +140,7 @@ export async function materializeReport(input: {
     reports,
     written: true,
     htmlPath,
+    comparison,
   };
 }
 

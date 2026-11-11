@@ -266,6 +266,117 @@
       background: rgba(47,114,95,.14);
       text-decoration: none;
     }
+    .comparison-section { margin-top: 34px; }
+    .comparison-summary {
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(23,61,84,.03);
+    }
+    .summary-stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .summary-stats .stat {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+    .summary-stats .stat.added {
+      color: #205d4b;
+      background: rgba(47,114,95,.12);
+    }
+    .summary-stats .stat.removed {
+      color: #8e2d24;
+      background: rgba(179,58,43,.12);
+    }
+    .summary-stats .stat.modified {
+      color: #7a5c1f;
+      background: rgba(198,138,43,.12);
+    }
+    .summary-text {
+      color: var(--steel);
+      font-size: .72rem;
+    }
+    .no-changes {
+      color: var(--steel);
+      font-style: italic;
+    }
+    .diff-article {
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .diff-article.added { border-left: 4px solid var(--green); }
+    .diff-article.removed { border-left: 4px solid var(--red); }
+    .diff-article.modified { border-left: 4px solid var(--amber); }
+    .diff-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: rgba(23,61,84,.04);
+      border-bottom: 1px solid var(--line);
+    }
+    .diff-header h3 {
+      margin: 0;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+    .diff-badge {
+      padding: 3px 9px;
+      border-radius: 99px;
+      font-size: .62rem;
+      font-weight: 700;
+    }
+    .diff-badge.added {
+      color: var(--green);
+      border: 1px solid var(--green);
+    }
+    .diff-badge.removed {
+      color: var(--red);
+      border: 1px solid var(--red);
+    }
+    .diff-badge.modified {
+      color: var(--amber);
+      border: 1px solid var(--amber);
+    }
+    .diff-content { padding: 16px; }
+    .diff-text {
+      font-size: .78rem;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .diff-text del {
+      padding: 1px 3px;
+      color: #8e2d24;
+      background: rgba(179,58,43,.12);
+      text-decoration: line-through;
+    }
+    .diff-text ins {
+      padding: 1px 3px;
+      color: #205d4b;
+      background: rgba(47,114,95,.14);
+      text-decoration: none;
+    }
+    .added-text {
+      color: var(--green);
+      background: rgba(47,114,95,.05);
+      padding: 12px;
+      border-radius: 6px;
+    }
+    .removed-text {
+      color: var(--red);
+      background: rgba(179,58,43,.05);
+      padding: 12px;
+      border-radius: 6px;
+    }
     .diff-empty { color: var(--steel); font-style: italic; }
     .diff-impact {
       margin: 0;
@@ -332,7 +443,7 @@
     }
   </style>
 </head>
-<body data-review-status="draft" data-review-date="2026-11-07T00:48:51.774Z">
+<body data-review-status="draft" data-review-date="2026-11-11T02:18:35.894Z" data-report-generated-at="2026-11-11T02:18:35.894Z">
   <main class="report">
     <div class="watermark">待人工复核</div>
     <header>
@@ -344,16 +455,17 @@
       <div>
         <span class="eyebrow">Regulatory impact review / draft</span>
         <h1>《机动车安全法规》（C.R.C., c. 1038）监管变更</h1>
-        <p class="lead">官方“Regulatory change”页面显示该法规存在3项版本变化记录：2020年10月21日启动的“更新法规以现代化并加强加拿大机动车安全”条目，标注SOR/2024-274，日期为2025年1月1日；2025年7月23日“《机动车安全法》（MVSA）下的多项法规变更”；2026年1月30日“《机动车安全法》（MVSA）下的多项法规变更”。证据未提供任何具体条款、座椅相关技术要求、试验方法或过渡期内容，涉及M1座椅总成、骨架、滑轨、固定点、ISOFIX、头枕、安全带约束的影响待官方原文核验。</p>
+        <p class="lead">加拿大司法部官方合并文本显示，现行版本为 2025-01-01。与 2024-12-18 历史版本逐段比对，新增 3 个章节、修改 3 个章节、删除 0 个章节。变化章节包括：“Notice of Defect”、“Notice of Non-compliance”、“Reports”、“Publication of Information”、“Publication of Information by Designated Companies”、“RELATED PROVISIONS”。变化文本未出现座椅、头枕、ISOFIX、固定点或乘员约束等 M1 座椅技术条款，本轮不据此提出座椅设计或试验变更。</p>
       </div>
       <div class="report-id">
         审核稿 ID<br><strong>chg-b7bc7d89014385</strong><br>
-        生成时间<br><strong>2026-11-07T00:48:51.774Z</strong>
+        审核稿生成时间<br><strong>2026/11/11 10:18</strong><br>
+        监测发现时间<br><strong>2026/11/07 08:48</strong>
       </div>
     </div>
 
     <div class="identity">
-      <div><span>标准号</span><strong>标准号待人工确认</strong></div>
+      <div><span>标准号</span><strong>C.R.C., c. 1038</strong></div>
       <div><span>体系 / 机构</span><strong>CMVSS / Transport Canada</strong></div>
       <div><span>变化类型</span><strong>修正案</strong></div>
       <div><span>影响判断</span><strong>未评估</strong></div>
@@ -367,9 +479,9 @@
     <div class="grid-2">
       <section>
         <h2>版本变化</h2>
-        <p><span class="eyebrow">Old</span><br>未确认</p>
-        <p><span class="eyebrow">New</span><br>未确认</p>
-        <p class="muted">置信度：low · 模型：deepseek-chat · 提示词：seats-v1</p>
+        <p><span class="eyebrow">Old</span><br>2024-12-18</p>
+        <p><span class="eyebrow">New</span><br>2025-01-01</p>
+        <p class="muted">置信度：medium</p>
       </section>
       <section>
         <h2>法规时间轴</h2>
@@ -394,10 +506,10 @@
           <span>批准日期</span>
           <strong>未确认</strong>
         </div>
-        <div class="timeline-row ">
+        <div class="timeline-row known">
           <span class="timeline-dot"></span>
           <span>生效日期</span>
-          <strong>未确认</strong>
+          <strong>2025-01-01</strong>
         </div>
         <div class="timeline-row ">
           <span class="timeline-dot"></span>
@@ -412,50 +524,612 @@
       </section>
     </div>
 
-    <section>
-      <h2>新旧原文左右对比</h2>
-      <p class="muted">该草稿尚未附带可解析的新旧原文。请在官方来源人工核对后补充，不生成虚构条款。</p>
+
+    <section class="comparison-section">
+      <div class="section-title-row">
+        <h2>新旧原文左右对比</h2>
+        <span class="extraction-status">官方原文逐段比对</span>
+      </div>
+      <div class="comparison-sources"><span>旧版来源：<a href="https://laws-lois.justice.gc.ca/eng/regulations/C.R.C.,_c._1038/20241218/P1TT3xt3.html" target="_blank" rel="noreferrer noopener">2024/12/18 官方文本</a></span><span>新版来源：<a href="https://laws-lois.justice.gc.ca/eng/regulations/C.R.C.,_c._1038/FullText.html" target="_blank" rel="noreferrer noopener">2025/01/01 官方文本</a></span></div>
+
+    <div class="comparison-summary">
+      <div class="summary-stats">
+        <span class="stat added">+3 新增章节</span>
+        <span class="stat removed">-0 删除章节</span>
+        <span class="stat modified">~3 修改章节</span>
+      </div>
+      <p class="summary-text">
+        官方版本：2024/12/18 → 2025/01/01
+      </p>
+    </div>
+
+      <div class="comparison-content">
+    <article class="diff-section modified" data-section-id="h-478981">
+      <header>
+        <div>
+          <span class="diff-index">Notice of Defect</span>
+        </div>
+        <span class="diff-kind">修改</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text">15 (1) For the purposes of subsection 10(1) of the Act, a person, other than the first retail purchaser, who obtained a vehicle from a company is a prescribed person.
+(2) A notice of defect that is required to be given under subsection 10(1) of the Act shall be in writing, in either paper or electronic form, and
+(a) in the case of a notice given to the Minister, be in either official language; and
+(b) in the case of a notice given to the vehicle’s current owner or a prescribed person
+(i) be in the person’s official language of choice, if it is known, or
+(ii) be in both official languages.
+(3) A company shall give the notice of defect to the vehicle’s current owner and to the prescribed person as soon as feasible, but not later than 60 days after the day on which the company gives the notice of defect to the Minister.
+(4) The notice of defect that is given to the Minister shall contain the following information:
+(a) the company’s name and its contact information for the purpose of correspondence;
+(b) the number, title or other identification that is assigned by the company to the notice;
+(c) for each vehicle that may contain the defect, its prescribed class, make, model and model year and any other information that is necessary to permit its identification;
+(d) the period during which the vehicles were manufactured;
+(e) the estimated number of vehicles that could potentially contain the defect;
+(f) the estimated percentage of the vehicles referred to in paragraph (e) that contain the defect;
+(g) a description of the nature of the defect, including the causes and contributing factors, if known, and a description of the location of the defect;
+(h) the vehicle systems or components that may be affected by the defect;
+(i) a chronology of the principal events that led to the determination of the existence of the defect;
+(j) all relevant information, including a summary of warranty claims, field reports and service reports, with their dates of receipt, that the company used to determine the existence of the defect;
+(k) a description of the safety risk to persons arising from the defect;
+(l) a description of the corrective measures to be taken in respect of the defect and how they are to be implemented;
+(m) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented; and
+(n) the estimated date on which the notice of defect will be sent to the vehicle’s current owner and the estimated date on which the notice of defect will be sent to a prescribed person.
+(5) The company is not required to provide the Minister with the information referred to in paragraphs (4)(i), (j), (l) and (m) if it is not available on the day on which the notice is given but shall provide that information as soon as it is available.
+(6) A notice of defect that is given to the vehicle’s current owner shall contain the following information:
+(a) the company’s name;
+(b) the make, model, model year and the vehicle identification number;
+(c) the following statements:
+(i) “This notice is sent to you in accordance with the requirements of the Motor Vehicle Safety Act.”, and
+(ii) “This is to inform you that your vehicle may contain a defect that could affect the safety of a person.”;
+(d) the number, title or other identification that is assigned by the company to the notice;
+(e) the motor vehicle safety recall number that is issued by the Department of Transport;
+(f) a description of the nature of the defect, including the causes, and a description of the location of the defect;
+(g) the vehicle systems or components that may be affected by the defect;
+(h) operating conditions or other factors that may cause a malfunction of the vehicle system or component;
+(i) the warning signs, if any, of any malfunction that could arise as a result of the defect;
+(j) a description of the safety risk to persons arising from the defect;
+(k) a statement that the defect could cause a crash, if applicable;
+(l) if the defect is not likely to cause a crash, the type of injury that may result from the defect;
+(m) a description of the corrective measures to be taken in respect of the defect and how they are to be implemented, including
+(i) a general description of the work involved,
+(ii) the estimated time required in order to take the corrective measures,
+(iii) a statement that the company will cover the costs of the corrective measures or an estimate of the cost of the corrective measures to the vehicle’s current owner, and
+(iv) information identifying the persons who can implement the corrective measures;
+(n) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented; and
+(o) a statement indicating that if the vehicle’s current owner has leased the vehicle, the owner shall send to the lessee a copy of the notice and any subsequent notice within 10 working days after the day on which the notice is received.
+(7) The company is not required to provide to the current owner the information referred to in paragraph (6)(m) if it is not available on the day on which the notice is given but shall provide that information
+(a) as soon as it is available; or
+(b) at the same time as the company provides the information required under subsection 10.4(1) of the Act.
+(8) The words “SAFETY”, “RECALL”, “RAPPEL” and “SÉCURITÉ” are required to be clearly visible
+(a) on the envelope, or through a window of the envelope, in upper case and in a font size that is larger than the one used for the recipient’s address, if the notice of defect is given to the current owner in paper form; or
+(b) in the subject line of the communication, in upper case, if the notice of defect is given to the current owner in electronic form.
+(9) A notice of defect that is given to a prescribed person shall contain the following information:
+(a) the company’s name;
+(b) for each vehicle that may contain the defect, its make, model, model year and vehicle identification number and any other information that is necessary to permit its identification;
+(c) the number, title or other identification that is assigned by the company to the notice;
+(d) a description of the nature of the defect, including the causes, and a description of the location of the defect;
+(e) operating conditions or other factors that may cause a malfunction of the vehicle system or component;
+(f) a description of the safety risk to persons arising from the defect;
+(g) a description of the corrective measures to be taken in respect of the defect and how they are to be implemented; and
+(h) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented.
+(10) The company is not required to provide to the prescribed person the vehicle identification number <del>required </del>under paragraph <del>9</del>(b) if<del> that vehicle identification number is published on the company’s website with the number, title or other identification that is assigned by the company to the associated notice of defect.</del>
+
+
+(11) The company is not required to provide to the prescribed person the information referred to in paragraph (9)(g) if it is not available on the day on which the notice is given but shall provide that information as soon as it is available.
+SOR/95-147, s. 2
+SOR/98-524, s. 3
+SOR/2008-104, s. 3
+SOR/2009-318, s. 3
+SOR/2013-117, s. 3
+SOR/2015-111, s. 1
+SOR/2019-253, s. 2
+</div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text">15 (1) For the purposes of subsection 10(1) of the Act, a person, other than the first retail purchaser, who obtained a vehicle from a company is a prescribed person.
+(2) A notice of defect that is required to be given under subsection 10(1) of the Act shall be in writing, in either paper or electronic form, and
+(a) in the case of a notice given to the Minister, be in either official language; and
+(b) in the case of a notice given to the vehicle’s current owner or a prescribed person
+(i) be in the person’s official language of choice, if it is known, or
+(ii) be in both official languages.
+(3) A company shall give the notice of defect to the vehicle’s current owner and to the prescribed person as soon as feasible, but not later than 60 days after the day on which the company gives the notice of defect to the Minister.
+(4) The notice of defect that is given to the Minister shall contain the following information:
+(a) the company’s name and its contact information for the purpose of correspondence;
+(b) the number, title or other identification that is assigned by the company to the notice;
+(c) for each vehicle that may contain the defect, its prescribed class, make, model and model year and any other information that is necessary to permit its identification;
+(d) the period during which the vehicles were manufactured;
+(e) the estimated number of vehicles that could potentially contain the defect;
+(f) the estimated percentage of the vehicles referred to in paragraph (e) that contain the defect;
+(g) a description of the nature of the defect, including the causes and contributing factors, if known, and a description of the location of the defect;
+(h) the vehicle systems or components that may be affected by the defect;
+(i) a chronology of the principal events that led to the determination of the existence of the defect;
+(j) all relevant information, including a summary of warranty claims, field reports and service reports, with their dates of receipt, that the company used to determine the existence of the defect;
+(k) a description of the safety risk to persons arising from the defect;
+(l) a description of the corrective measures to be taken in respect of the defect and how they are to be implemented;
+(m) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented; and
+(n) the estimated date on which the notice of defect will be sent to the vehicle’s current owner and the estimated date on which the notice of defect will be sent to a prescribed person.
+(5) The company is not required to provide the Minister with the information referred to in paragraphs (4)(i), (j), (l) and (m) if it is not available on the day on which the notice is given but shall provide that information as soon as it is available.
+(6) A notice of defect that is given to the vehicle’s current owner shall contain the following information:
+(a) the company’s name;
+(b) the make, model, model year and the vehicle identification number;
+(c) the following statements:
+(i) “This notice is sent to you in accordance with the requirements of the Motor Vehicle Safety Act.”, and
+(ii) “This is to inform you that your vehicle may contain a defect that could affect the safety of a person.”;
+(d) the number, title or other identification that is assigned by the company to the notice;
+(e) the motor vehicle safety recall number that is issued by the Department of Transport;
+(f) a description of the nature of the defect, including the causes, and a description of the location of the defect;
+(g) the vehicle systems or components that may be affected by the defect;
+(h) operating conditions or other factors that may cause a malfunction of the vehicle system or component;
+(i) the warning signs, if any, of any malfunction that could arise as a result of the defect;
+(j) a description of the safety risk to persons arising from the defect;
+(k) a statement that the defect could cause a crash, if applicable;
+(l) if the defect is not likely to cause a crash, the type of injury that may result from the defect;
+(m) a description of the corrective measures to be taken in respect of the defect and how they are to be implemented, including
+(i) a general description of the work involved,
+(ii) the estimated time required in order to take the corrective measures,
+(iii) a statement that the company will cover the costs of the corrective measures or an estimate of the cost of the corrective measures to the vehicle’s current owner, and
+(iv) information identifying the persons who can implement the corrective measures;
+(n) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented; and
+(o) a statement indicating that if the vehicle’s current owner has leased the vehicle, the owner shall send to the lessee a copy of the notice and any subsequent notice within 10 working days after the day on which the notice is received.
+(7) The company is not required to provide to the current owner the information referred to in paragraph (6)(m) if it is not available on the day on which the notice is given but shall provide that information
+(a) as soon as it is available; or
+(b) at the same time as the company provides the information required under subsection 10.4(1) of the Act.
+(8) The words “SAFETY”, “RECALL”, “RAPPEL” and “SÉCURITÉ” are required to be clearly visible
+(a) on the envelope, or through a window of the envelope, in upper case and in a font size that is larger than the one used for the recipient’s address, if the notice of defect is given to the current owner in paper form; or
+(b) in the subject line of the communication, in upper case, if the notice of defect is given to the current owner in electronic form.
+(9) A notice of defect that is given to a prescribed person shall contain the following information:
+(a) the company’s name;
+(b) for each vehicle that may contain the defect, its make, model, model year and vehicle identification number and any other information that is necessary to permit its identification;
+(c) the number, title or other identification that is assigned by the company to the notice;
+(d) a description of the nature of the defect, including the causes, and a description of the location of the defect;
+(e) operating conditions or other factors that may cause a malfunction of the vehicle system or component;
+(f) a description of the safety risk to persons arising from the defect;
+(g) a description of the corrective measures to be taken in respect of the defect and how they are to be implemented; and
+(h) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented.
+(10) The company is not required to provide to the prescribed person the vehicle identification number under paragraph (<ins>9)(</ins>b) if
+<ins>(a) the vehicle identification number is published on the website that the company uses to communicate information directed at the Canadian market along with the number, title or other identification that is assigned by the company to the associated notice of defect; or</ins>
+<ins>(b) the information in the notice of defect is published in accordance with section 15.05.</ins>
+(11) The company is not required to provide to the prescribed person the information referred to in paragraph (9)(g) if it is not available on the day on which the notice is given but shall provide that information as soon as it is available.
+SOR/95-147, s. 2
+SOR/98-524, s. 3
+SOR/2008-104, s. 3
+SOR/2009-318, s. 3
+SOR/2013-117, s. 3
+SOR/2015-111, s. 1
+SOR/2019-253, s. 2
+<ins>SOR/2024-274, s. 1</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section modified" data-section-id="h-1190717">
+      <header>
+        <div>
+          <span class="diff-index">Notice of Non-compliance</span>
+        </div>
+        <span class="diff-kind">修改</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text">15.01 (1) For the purposes of subsection 10.1(1) of the Act, a person, other than the first retail purchaser, who obtained a vehicle from a company is a prescribed person.
+(2) A notice of non-compliance that is required to be given under subsection 10.1(1) of the Act shall be in writing, in either paper or electronic form, and
+(a) in the case of a notice given to the Minister, be in either official language; and
+(b) in the case of a notice given to the vehicle’s current owner or a prescribed person,
+(i) be in the person’s official language of choice, if it is known, or
+(ii) be in both official languages.
+(3) Unless the notice of non-compliance contains a statement under subparagraph (4)(j)(i), a company shall give the notice of non-compliance to the vehicle’s current owner and to the prescribed person as soon as feasible, but not later than 60 days after the day on which the company gives the notice of non-compliance to the Minister.
+(3.1) If the notice of non-compliance contains a statement under subparagraph (4)(j)(i) and the Minister advises the company that the Minister has determined that the non-compliance is not inconsequential to safety, the company shall give the notice of non-compliance to the vehicle’s current owner and to the prescribed person as soon as feasible after the day on which the company receives the Minister’s determination, but not later than 60 days after that day.
+(4) A notice of non-compliance that is given to the Minister shall contain the following information:
+(a) the company’s name and its contact information for the purpose of correspondence;
+(b) the number, title or other identification that is assigned by the company to the notice;
+(c) for each vehicle that may be non-compliant, its prescribed class, make, model and model year and any other information that is necessary to permit its identification;
+(d) the period during which the vehicles were manufactured;
+(e) the estimated number of vehicles that could potentially be non-compliant;
+(f) the estimated percentage of the vehicles referred to in paragraph (e) that are non-compliant;
+(g) a description of the non-compliance, including the applicable regulatory requirement, and the causes and contributing factors, if known;
+(h) the vehicle systems or components that may be affected by the non-compliance;
+(i) a chronology of the principal events that led to the determination of the non-compliance, including the test results, observations, inspections and any other relevant information;
+(j) as the case may be,
+(i) a statement that the non-compliance is inconsequential to safety, including detailed information in support of the statement, or
+(ii) a description of the safety risk to persons arising from the non-compliance;
+(k) a description of the corrective measures to be taken in respect of the non-compliance and how they are to be implemented;
+(l) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented; and
+(m) the estimated date on which the notice of non-compliance will be sent to the vehicle’s current owner and the estimated date on which the notice of non-compliance will be sent to a prescribed person.
+(5) The company is not required to provide the Minister with the information referred to in paragraphs (4)(i), (k) and (l) if it is not available on the day on which the notice is given but shall provide that information as soon as it is available.
+(5.1) The company is not required to provide the Minister with the information referred to in paragraph (4)(m) if the notice of non-compliance contains a statement under subparagraph (4)(j)(i), but if the Minister advises the company that the Minister has determined that the non-compliance is not inconsequential to safety, the company shall provide that information within five working days after the day on which the company receives the Minister’s determination.
+(6) A notice of non-compliance that is given to the vehicle’s current owner shall contain the following information:
+(a) the company’s name;
+(b) the make, model, model year and the vehicle identification number;
+(c) the following statements:
+(i) “This notice is sent to you in accordance with the requirements of the Motor Vehicle Safety Act.”, and
+(ii) “This is to inform you that your vehicle may be non-compliant with the requirements of the Motor Vehicle Safety Regulations and that the non-compliance could affect the safety of a person.”;
+(d) the number, title or other identification that is assigned by the company to the notice;
+(e) the motor vehicle safety recall number that is issued by the Department of Transport;
+(f) a description of the non-compliance, including the causes;
+(g) the vehicle systems or components that may be affected by the non-compliance;
+(h) operating conditions or other factors that may cause a malfunction of the vehicle system or component;
+(i) the warning signs, if any, of the malfunction that could arise as a result of the non-compliance;
+(j) a description of the safety risk to persons arising from the non-compliance, if any;
+(k) a statement that the non-compliance could cause a crash, if applicable;
+(l) if the non-compliance is not likely to cause a crash, the type of injury that may result from the non-compliance;
+(m) a description of the corrective measures to be taken in respect of the non-compliance and how they are to be implemented, including,
+(i) a general description of the work involved,
+(ii) the estimated time required in order to take the corrective measures,
+(iii) a statement that the company will cover the costs of the corrective measures or an estimate of the cost of the corrective measures to the vehicle’s current owner, and
+(iv) information identifying the persons who can implement the corrective measures;
+(n) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented; and
+(o) a statement indicating that if the vehicle’s current owner has leased the vehicle, the owner shall send to the lessee a copy of the notice and any subsequent notice within 10 working days after the day on which the notice is received.
+(7) The company is not required to provide to the current owner the information referred to in paragraph (6)(m) if it is not available on the day on which the notice is given but shall provide that information
+(a) as soon as it is available; or
+(b) at the same time as the company provides the information required under subsection 10.4(1) of the Act.
+(8) The words “SAFETY”, “RECALL”, “RAPPEL” and “SÉCURITÉ” are required to be clearly visible
+(a) on the envelope, or through a window of the envelope, in upper case and in a font size that is larger than the one used for the recipient’s address, if the notice of non-compliance is given to the current owner in paper form; or
+(b) in the subject line of the communication, in upper case, if the notice of non-compliance is given to the current owner in electronic form.
+(9) A notice of non-compliance that is given to a prescribed person shall contain the following information:
+(a) the company’s name;
+(b) for each vehicle that may be non-compliant, its make, model, model year and vehicle identification number and any other information that is necessary to permit its identification;
+(c) the number, title or other identification that is assigned by the company to the notice;
+(d) a description of the non-compliance, including the causes;
+(e) operating conditions or other factors that may cause a malfunction of the vehicle system or component;
+(f) a description of the safety risk to persons arising from the non-compliance, if any;
+(g) a description of the corrective measures to be taken in respect of the non-compliance and how they are to be implemented; and
+(h) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented.
+(10) The company is not required to provide to the prescribed person the vehicle identification number <del>required </del>under paragraph <del>9</del>(b) if<del> that vehicle identification number is published on the company’s website with the number, title or other identification that is assigned by the company to the associated notice of non-compliance.</del>
+
+
+(11) The company is not required to provide to the prescribed person the information referred to in paragraph (9)(g) if it is not available on the day on which the notice is given but shall provide that information as soon as it is available.
+SOR/2019-253, s. 2
+</div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text">15.01 (1) For the purposes of subsection 10.1(1) of the Act, a person, other than the first retail purchaser, who obtained a vehicle from a company is a prescribed person.
+(2) A notice of non-compliance that is required to be given under subsection 10.1(1) of the Act shall be in writing, in either paper or electronic form, and
+(a) in the case of a notice given to the Minister, be in either official language; and
+(b) in the case of a notice given to the vehicle’s current owner or a prescribed person,
+(i) be in the person’s official language of choice, if it is known, or
+(ii) be in both official languages.
+(3) Unless the notice of non-compliance contains a statement under subparagraph (4)(j)(i), a company shall give the notice of non-compliance to the vehicle’s current owner and to the prescribed person as soon as feasible, but not later than 60 days after the day on which the company gives the notice of non-compliance to the Minister.
+(3.1) If the notice of non-compliance contains a statement under subparagraph (4)(j)(i) and the Minister advises the company that the Minister has determined that the non-compliance is not inconsequential to safety, the company shall give the notice of non-compliance to the vehicle’s current owner and to the prescribed person as soon as feasible after the day on which the company receives the Minister’s determination, but not later than 60 days after that day.
+(4) A notice of non-compliance that is given to the Minister shall contain the following information:
+(a) the company’s name and its contact information for the purpose of correspondence;
+(b) the number, title or other identification that is assigned by the company to the notice;
+(c) for each vehicle that may be non-compliant, its prescribed class, make, model and model year and any other information that is necessary to permit its identification;
+(d) the period during which the vehicles were manufactured;
+(e) the estimated number of vehicles that could potentially be non-compliant;
+(f) the estimated percentage of the vehicles referred to in paragraph (e) that are non-compliant;
+(g) a description of the non-compliance, including the applicable regulatory requirement, and the causes and contributing factors, if known;
+(h) the vehicle systems or components that may be affected by the non-compliance;
+(i) a chronology of the principal events that led to the determination of the non-compliance, including the test results, observations, inspections and any other relevant information;
+(j) as the case may be,
+(i) a statement that the non-compliance is inconsequential to safety, including detailed information in support of the statement, or
+(ii) a description of the safety risk to persons arising from the non-compliance;
+(k) a description of the corrective measures to be taken in respect of the non-compliance and how they are to be implemented;
+(l) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented; and
+(m) the estimated date on which the notice of non-compliance will be sent to the vehicle’s current owner and the estimated date on which the notice of non-compliance will be sent to a prescribed person.
+(5) The company is not required to provide the Minister with the information referred to in paragraphs (4)(i), (k) and (l) if it is not available on the day on which the notice is given but shall provide that information as soon as it is available.
+(5.1) The company is not required to provide the Minister with the information referred to in paragraph (4)(m) if the notice of non-compliance contains a statement under subparagraph (4)(j)(i), but if the Minister advises the company that the Minister has determined that the non-compliance is not inconsequential to safety, the company shall provide that information within five working days after the day on which the company receives the Minister’s determination.
+(6) A notice of non-compliance that is given to the vehicle’s current owner shall contain the following information:
+(a) the company’s name;
+(b) the make, model, model year and the vehicle identification number;
+(c) the following statements:
+(i) “This notice is sent to you in accordance with the requirements of the Motor Vehicle Safety Act.”, and
+(ii) “This is to inform you that your vehicle may be non-compliant with the requirements of the Motor Vehicle Safety Regulations and that the non-compliance could affect the safety of a person.”;
+(d) the number, title or other identification that is assigned by the company to the notice;
+(e) the motor vehicle safety recall number that is issued by the Department of Transport;
+(f) a description of the non-compliance, including the causes;
+(g) the vehicle systems or components that may be affected by the non-compliance;
+(h) operating conditions or other factors that may cause a malfunction of the vehicle system or component;
+(i) the warning signs, if any, of the malfunction that could arise as a result of the non-compliance;
+(j) a description of the safety risk to persons arising from the non-compliance, if any;
+(k) a statement that the non-compliance could cause a crash, if applicable;
+(l) if the non-compliance is not likely to cause a crash, the type of injury that may result from the non-compliance;
+(m) a description of the corrective measures to be taken in respect of the non-compliance and how they are to be implemented, including,
+(i) a general description of the work involved,
+(ii) the estimated time required in order to take the corrective measures,
+(iii) a statement that the company will cover the costs of the corrective measures or an estimate of the cost of the corrective measures to the vehicle’s current owner, and
+(iv) information identifying the persons who can implement the corrective measures;
+(n) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented; and
+(o) a statement indicating that if the vehicle’s current owner has leased the vehicle, the owner shall send to the lessee a copy of the notice and any subsequent notice within 10 working days after the day on which the notice is received.
+(7) The company is not required to provide to the current owner the information referred to in paragraph (6)(m) if it is not available on the day on which the notice is given but shall provide that information
+(a) as soon as it is available; or
+(b) at the same time as the company provides the information required under subsection 10.4(1) of the Act.
+(8) The words “SAFETY”, “RECALL”, “RAPPEL” and “SÉCURITÉ” are required to be clearly visible
+(a) on the envelope, or through a window of the envelope, in upper case and in a font size that is larger than the one used for the recipient’s address, if the notice of non-compliance is given to the current owner in paper form; or
+(b) in the subject line of the communication, in upper case, if the notice of non-compliance is given to the current owner in electronic form.
+(9) A notice of non-compliance that is given to a prescribed person shall contain the following information:
+(a) the company’s name;
+(b) for each vehicle that may be non-compliant, its make, model, model year and vehicle identification number and any other information that is necessary to permit its identification;
+(c) the number, title or other identification that is assigned by the company to the notice;
+(d) a description of the non-compliance, including the causes;
+(e) operating conditions or other factors that may cause a malfunction of the vehicle system or component;
+(f) a description of the safety risk to persons arising from the non-compliance, if any;
+(g) a description of the corrective measures to be taken in respect of the non-compliance and how they are to be implemented; and
+(h) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented.
+(10) The company is not required to provide to the prescribed person the vehicle identification number under paragraph (<ins>9)(</ins>b) if
+<ins>(a) the vehicle identification number is published on the website that the company uses to communicate information directed at the Canadian market along with the number, title or other identification that is assigned by the company to the associated notice of non-compliance; or</ins>
+<ins>(b) the information in the notice of non-compliance is published in accordance with section 15.05.</ins>
+(11) The company is not required to provide to the prescribed person the information referred to in paragraph (9)(g) if it is not available on the day on which the notice is given but shall provide that information as soon as it is available.
+SOR/2019-253, s. 2
+<ins>SOR/2024-274, s. 2</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section modified" data-section-id="h-1190851">
+      <header>
+        <div>
+          <span class="diff-index">Reports</span>
+        </div>
+        <span class="diff-kind">修改</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text">15.02 (1) Within five working days after the day on which a company begins sending a notice of defect or non-compliance to current owners, the company shall provide to the Minister a report containing
+(a) a copy of the notice;
+(b) a sample of the envelope used to mail the notice;
+(c) the date on which the company began sending notices;
+(d) the day on which the company finished, or expects to finish, sending the notices;
+(e) the number of vehicles that are subject to the notice; and
+(f) the vehicle identification number for each vehicle that may contain the defect or may be non-compliant, unless that information is provided to the Minister under paragraph (3)(a) or is published in accordance with subsection 15(10) or 15.01(10).
+(2) Despite paragraph (1)(b), a company is not required to provide a sample of the envelope if it uses an envelope that has previously been provided as a sample to the Minister and the report includes the date on which the sample was provided.
+(3) Within five working days after the day on which a company begins sending a notice of defect or non-compliance to prescribed persons, the company shall provide to the Minister a report containing
+(a) a copy of the notice; and
+(b) if no notices are sent to current owners, the number of vehicles that are subject to the notice.
+(4) For a period of five years beginning on the 60th day after the day on which a company gives a notice to the Minister under subsection 10(1) or 10.1(1) of the Act, the company shall provide the Minister, within five working days after the day on which they are sent to their recipients, a copy of any of the following communications, with the date on which they were sent to their recipients:
+(a) communications sent to more than one current owner relating to the defect or non-compliance; and
+(b) communications sent to more than one prescribed person relating to
+(i) the information set out in subsection 15(9) or 15.01(9), and
+(ii) the defect or non-compliance.
+SOR/2019-253, s. 2
+
+15.03 (1) For the purposes of section 10.2 of the Act, a company that gives a notice of defect or non-compliance to a current owner or a prescribed person shall provide the Minister with quarterly reports that contain the following information:
+(a) the motor vehicle safety recall number issued by the Department of Transport;
+(b) the number, title or other identification that is assigned by the company to the notice;
+(c) the number of vehicles that are subject to the notice, including the day on which the number was updated by the company; and
+(d) the number of vehicles for which corrective measures have been taken, including vehicles that required only an inspection, and the day on which that number was determined by the company.
+(2) The company shall provide the Minister with quarterly reports, in accordance with the following schedule, for a period of two years beginning on the 60th day after the day on which the company gives a notice to the Minister under subsection 10(1) or 10.1(1) of the Act:
+(a) for the first calendar quarter, from January 1 through March 31, on or before April 30;
+(b) for the second calendar quarter, from April 1 through June 30, on or before July 30;
+(c) for the third calendar quarter, from July 1 through September 30, on or before October 30; and
+(d) for the fourth calendar quarter, from October 1 through December 31, on or before January 30 of the following year.
+SOR/2019-253, s. 2
+<del>15.1 (1) [Repealed, SOR/2024-239, s. 1]</del>
+<del>(2) [Repealed, SOR/2008-104, s. 4]</del>
+<del>SOR/97-141, s. 2</del>
+<del>SOR/97-421, s. 16</del>
+<del>SOR/2008-104, s. 4</del>
+<del>SOR/2024-239, s. 1</del></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text">15.02 (1) Within five working days after the day on which a company begins sending a notice of defect or non-compliance to current owners, the company shall provide to the Minister a report containing
+(a) a copy of the notice;
+(b) a sample of the envelope used to mail the notice;
+(c) the date on which the company began sending notices;
+(d) the day on which the company finished, or expects to finish, sending the notices;
+(e) the number of vehicles that are subject to the notice; and
+(f) the vehicle identification number for each vehicle that may contain the defect or may be non-compliant, unless that information is provided to the Minister under paragraph (3)(a) or is published in accordance with subsection 15(10) or 15.01(10).
+(2) Despite paragraph (1)(b), a company is not required to provide a sample of the envelope if it uses an envelope that has previously been provided as a sample to the Minister and the report includes the date on which the sample was provided.
+(3) Within five working days after the day on which a company begins sending a notice of defect or non-compliance to prescribed persons, the company shall provide to the Minister a report containing
+(a) a copy of the notice; and
+(b) if no notices are sent to current owners, the number of vehicles that are subject to the notice.
+(4) For a period of five years beginning on the 60th day after the day on which a company gives a notice to the Minister under subsection 10(1) or 10.1(1) of the Act, the company shall provide the Minister, within five working days after the day on which they are sent to their recipients, a copy of any of the following communications, with the date on which they were sent to their recipients:
+(a) communications sent to more than one current owner relating to the defect or non-compliance; and
+(b) communications sent to more than one prescribed person relating to
+(i) the information set out in subsection 15(9) or 15.01(9), and
+(ii) the defect or non-compliance.
+SOR/2019-253, s. 2
+<ins>SOR/2024-274, s. 3(F)</ins>
+15.03 (1) For the purposes of section 10.2 of the Act, a company that gives a notice of defect or non-compliance to a current owner or a prescribed person shall provide the Minister with quarterly reports that contain the following information:
+(a) the motor vehicle safety recall number issued by the Department of Transport;
+(b) the number, title or other identification that is assigned by the company to the notice;
+(c) the number of vehicles that are subject to the notice, including the day on which the number was updated by the company; and
+(d) the number of vehicles for which corrective measures have been taken, including vehicles that required only an inspection, and the day on which that number was determined by the company.
+(2) The company shall provide the Minister with quarterly reports, in accordance with the following schedule, for a period of two years beginning on the 60th day after the day on which the company gives a notice to the Minister under subsection 10(1) or 10.1(1) of the Act:
+(a) for the first calendar quarter, from January 1 through March 31, on or before April 30;
+(b) for the second calendar quarter, from April 1 through June 30, on or before July 30;
+(c) for the third calendar quarter, from July 1 through September 30, on or before October 30; and
+(d) for the fourth calendar quarter, from October 1 through December 31, on or before January 30 of the following year.
+SOR/2019-253, s. 2
+
+
+
+
+
+</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section added" data-section-id="h-1506110">
+      <header>
+        <div>
+          <span class="diff-index">Publication of Information</span>
+        </div>
+        <span class="diff-kind">新增</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><span class="diff-empty">旧版无此章节</span></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>15.04 (1) A company that gives a notice of defect or non-compliance to the Minister under subsection 10(1) or 10.1(1) of the Act must publish the following information, in both official languages, on the website that the company uses to communicate information directed at the Canadian market:</ins>
+<ins>(a) the date on which the notice was given to the Minister;</ins>
+<ins>(b) the make, model and model year of the vehicle referred to in the notice;</ins>
+<ins>(c) the number, title or other identification that is assigned by the company to the notice;</ins>
+<ins>(d) the motor vehicle safety recall number that is issued by the Department of Transport;</ins>
+<ins>(e) a description of</ins>
+<ins>(i) the nature of the defect, including the causes of the defect, and its location, or</ins>
+<ins>(ii) the non-compliance, including the causes;</ins>
+<ins>(f) a description of the safety risk to persons arising from the defect or non-compliance;</ins>
+<ins>(g) a statement that the defect or non-compliance could cause a crash, if applicable;</ins>
+<ins>(h) if the defect or non-compliance is not likely to cause a crash, the type of injury that may result from the defect or non-compliance;</ins>
+<ins>(i) a description of the corrective measures to be taken in respect of the defect or non-compliance and how they are to be implemented;</ins>
+<ins>(j) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented;</ins>
+<ins>(k) a statement that the parts and facilities that are necessary to correct the defect or non-compliance are available or, if they are not, the earliest date by which they are expected to be available;</ins>
+<ins>(l) if applicable, a statement indicating that information in respect of notices that are given before a specified date is not available on the website and how to obtain the information;</ins>
+<ins>(m) on each web page displaying the information referred to in paragraphs (a) to (l), instructions on how to</ins>
+<ins>(i) contact the company or an automobile dealership concerning any questions related to the notice,</ins>
+<ins>(ii) report a safety concern relating to a vehicle, and</ins>
+<ins>(iii) inform the company of a transfer of ownership of a vehicle or a change of address; and</ins>
+<ins>(n) on each web page displaying the information referred to in paragraphs (a) to (l), the date on which the information was last updated.</ins>
+<ins>(2) The company must publish the information referred to in subsection (1) as soon as feasible, but not later than 60 days after the day on which the company gives the notice to the Minister, and must update the information within seven days after the day on which there is any change to it.</ins>
+<ins>(3) Despite subsection (2), if the information referred to in paragraph (1)(d), (i) or (k) is not available on the day on which it is to be published, the company must publish the information within seven days after the day on which it becomes available.</ins>
+<ins>(4) The company must ensure that the information referred to in subsection (1) remains displayed on the website for at least 15 years beginning on the day on which the company gives the notice of defect or non-compliance to the Minister.</ins>
+<ins>(5) The information referred to in subparagraphs (1)(m)(i) to (iii) may be made available by way of a hyperlink.</ins>
+<ins>(6) The company must ensure that the information referred to in subsection (1) is</ins>
+<ins>(a) available free of charge;</ins>
+<ins>(b) accessible without the website user having to register or enter any information; and</ins>
+<ins>(c) displayed either directly on the website’s home page or made available by way of a hyperlink that contains the word “Recall” or “Recalls” and that is prominently displayed on that home page.</ins>
+<ins>(7) A company is not required to meet the requirements of this section if</ins>
+<ins>(a) the requirements have been met by another company that manufactured, sold or imported the vehicle;</ins>
+<ins>(b) the company has been designated by the Minister before this section applies to it;</ins>
+<ins>(c) the company meets the requirements of section 15.05; or</ins>
+<ins>(d) the company does not have a website to communicate information directed at the Canadian market.</ins>
+<ins>(8) This section applies to a company beginning on the first anniversary of the day on which this section comes into force.</ins>
+<ins>SOR/2024-274, s. 4</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section added" data-section-id="h-1506148">
+      <header>
+        <div>
+          <span class="diff-index">Publication of Information by Designated Companies</span>
+        </div>
+        <span class="diff-kind">新增</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><span class="diff-empty">旧版无此章节</span></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>15.05 (1) A company that is designated by the Minister and that gives a notice of defect or non-compliance to the Minister under subsection 10(1) or 10.1(1) of the Act must publish on the website that the company uses to communicate information directed at the Canadian market the following information, in both official languages, and make it available by means of a vehicle identification number search tool:</ins>
+<ins>(a) the date on which the notice was given to the Minister;</ins>
+<ins>(b) the make, model and model year of the vehicle referred to in the notice;</ins>
+<ins>(c) the number, title or other identification that is assigned by the company to the notice;</ins>
+<ins>(d) the motor vehicle safety recall number that is issued by the Department of Transport;</ins>
+<ins>(e) if the corrective measures in respect of the defect or non-compliance have not been implemented</ins>
+<ins>(i) a description of</ins>
+<ins>(A) the nature of the defect, including the causes of the defect, and its location, or</ins>
+<ins>(B) the non-compliance, including the causes,</ins>
+<ins>(ii) a description of the safety risk to persons arising from the defect or non-compliance,</ins>
+<ins>(iii) a statement that the defect or non-compliance could cause a crash, if applicable,</ins>
+<ins>(iv) if the defect or non-compliance is not likely to cause a crash, the type of injury that may result from the defect or non-compliance,</ins>
+<ins>(v) a description of the corrective measures to be taken in respect of the defect or non-compliance and how they are to be implemented,</ins>
+<ins>(vi) any precautions that may be taken to minimize the safety risk until the corrective measures are implemented, and</ins>
+<ins>(vii) a statement that the parts and facilities that are necessary to correct the defect or non-compliance are available or, if they are not, the earliest date by which they are expected to be available;</ins>
+<ins>(f) if the corrective measures in respect of the defect or non-compliance have been implemented</ins>
+<ins>(i) the information referred to in subparagraphs (e)(i) and (v), and</ins>
+<ins>(ii) a statement that the corrective measures have been implemented;</ins>
+<ins>(g) if applicable, a statement indicating that information in respect of notices that are given before a specified date is not available on the website and how to obtain the information;</ins>
+<ins>(h) on each web page displaying the information referred to in paragraphs (a) to (g), instructions on how to</ins>
+<ins>(i) contact the company or an automobile dealership concerning any questions related to the notice,</ins>
+<ins>(ii) report a safety concern relating to a vehicle, and</ins>
+<ins>(iii) inform the company of a transfer of ownership of a vehicle or a change of address; and</ins>
+<ins>(i) the date on which the information was last updated on each web page displaying the information referred to in paragraphs (a) to (g).</ins>
+<ins>(2) The information referred to in subparagraphs (1)(h)(i) to (iii) must also be displayed on the web page containing the search tool or be made available by way of a hyperlink from that page, unless that page is the website’s home page.</ins>
+<ins>(3) The company must publish the information referred to in subsection (1) as soon as feasible, but not later than 60 days after the day on which the company gives the notice to the Minister, and must update the information within seven days after the day on which there is any change to it.</ins>
+<ins>(4) Despite subsection (3), if the information referred to in subparagraph (1)(e)(v) or (vii) is not available on the day on which it is to be published, the company must publish the information within seven days after the day on which it becomes available.</ins>
+<ins>(5) The company must ensure that the information referred to in subsection (1) remains displayed on the website for at least 15 years beginning on the day on which the company gives the notice of defect or non-compliance to the Minister.</ins>
+<ins>(6) If no notice of defect or non-compliance is associated with a vehicle identification number when a search is carried out on the website, the company must ensure that a statement to that effect, as well as the following information, is displayed:</ins>
+<ins>(a) the make, model and model year of the vehicle;</ins>
+<ins>(b) if applicable, a statement indicating that information in respect of notices that are given before a specified date is not available on the website and how to obtain the information;</ins>
+<ins>(c) instructions on how to</ins>
+<ins>(i) contact the company for more information,</ins>
+<ins>(ii) report a safety concern relating to a vehicle, and</ins>
+<ins>(iii) inform the company of a transfer of ownership of a vehicle or a change of address; and</ins>
+<ins>(d) the date on which the information referred to in paragraph (a) or (b) was last updated.</ins>
+<ins>(7) If the search tool does not recognize the vehicle identification number, the company must ensure that a statement to that effect, as well as instructions on how to contact the company for more information, is displayed.</ins>
+<ins>(8) The information referred to in subparagraphs (1)(h)(i) to (iii) and paragraph 6(c) may be made available by way of a hyperlink.</ins>
+<ins>(9) The company must ensure that the search tool is available either directly on the website’s home page or by way of a hyperlink that contains the word “Recall” or “Recalls” and that is prominently displayed on that home page.</ins>
+<ins>(10) The company must ensure that the information referred to in subsections (1), (6) and (7) is</ins>
+<ins>(a) available free of charge;</ins>
+<ins>(b) accessible without the user having to register or enter any information; and</ins>
+<ins>(c) displayed before any other information on the search tool results page.</ins>
+<ins>(11) This section applies to a company beginning on the day that, in the eighteenth month after the month in which it is designated by the Minister, has the same calendar number as the day on which it is designated or, if that month has no day with that number, the last day of that eighteenth month, but this section does not apply if the requirements of this section have been met by another company that manufactured, sold or imported the vehicle.</ins>
+<ins>SOR/2024-274, s. 4</ins>
+<ins>15.1 (1) [Repealed, SOR/2024-239, s. 1]</ins>
+<ins>(2) [Repealed, SOR/2008-104, s. 4]</ins>
+<ins>SOR/97-141, s. 2</ins>
+<ins>SOR/97-421, s. 16</ins>
+<ins>SOR/2008-104, s. 4</ins>
+<ins>SOR/2024-239, s. 1</ins></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="diff-section added" data-section-id="title:2:related provisions:1">
+      <header>
+        <div>
+          <span class="diff-index">RELATED PROVISIONS</span>
+        </div>
+        <span class="diff-kind">新增</span>
+      </header>
+      <div class="diff-columns">
+        <div class="diff-pane old">
+          <small>旧版原文</small>
+          <div class="diff-text"><span class="diff-empty">旧版无此章节</span></div>
+        </div>
+        <div class="diff-pane new">
+          <small>新版原文</small>
+          <div class="diff-text"><ins>— SOR/98-457, s. 4</ins>
+<ins>4 These Regulations come into force</ins>
+<ins>(a) in respect of passenger cars, on September 1, 1999; and</ins>
+<ins>(b) in respect of multipurpose passenger vehicles and trucks, on September 1, 2000.</ins>
+<ins>— SOR/2000-44</ins>
+<ins>4 These Regulations come into force</ins>
+<ins>(a) in respect of passenger cars, on the day on which they are registered; and</ins>
+<ins>(b) in respect of multipurpose passenger vehicles and trucks, on September 1, 2000.</ins></div>
+        </div>
+      </div>
+    </article>
+  </div>
     </section>
+
 
     <section>
       <h2>M1 座椅设计影响</h2>
-      <ul><li>待官方原文核验（证据未涉及座椅总成、骨架、滑轨、固定点、ISOFIX、头枕、安全带约束等具体设计领域）</li></ul>
+      <ul><li>暂未发现涉及 M1 座椅总成、骨架、滑轨、固定点、ISOFIX 或头枕的条款变化</li></ul>
       <h3 style="margin-top:20px">试验与验证</h3>
-      <ul><li>待官方原文核验（证据未涉及任何试验方法）</li></ul>
+      <ul><li>暂未发现需要调整的座椅试验方法，仍以人工复核官方原文为准</li></ul>
     </section>
 
     <section>
       <h2>建议动作</h2>
-      <ol><li>获取并核验SOR/2024-274及相关法规变更的官方原文，确认是否涉及M1座椅相关要求</li><li>核验2025年7月23日与2026年1月30日两项法规变更的具体内容与适用范围</li><li>在官方原文确认前，不对现有座椅设计、试验或认证状态作任何调整结论</li></ol>
+      <ol><li>人工打开左右对比中的官方来源，确认新增和修改章节的适用范围</li><li>确认本轮变化不涉及 M1 座椅后，留存审核记录</li><li>后续通告如明确涉及座椅，再启动设计影响评估</li></ol>
     </section>
 
     <section>
       <h2>证据与官方链接</h2>
-      
+
         <article class="evidence">
-          <h3>Regulatory change 页面：版本变化条目1</h3>
-          <blockquote>[版本变化] October 21, 2020 | https://tc.canada.ca/en/corporate-services/consultations/updating-regulations-modernize-strengthen-motor-vehicle-safety-canadians | Updating regulations to modernize and strengthen motor vehicles safety for CanadiansOctober 21, 2020June 17, 2023SOR/2024-274 - January 01, 2025</blockquote>
-          <a href="https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change" target="_blank" rel="noreferrer noopener">
-            https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change
+          <h3>现行官方合并文本（2025-01-01）</h3>
+
+          <a href="https://laws-lois.justice.gc.ca/eng/regulations/C.R.C.,_c._1038/FullText.html" target="_blank" rel="noreferrer noopener">
+            https://laws-lois.justice.gc.ca/eng/regulations/C.R.C.,_c._1038/FullText.html
           </a>
         </article>
         <article class="evidence">
-          <h3>Regulatory change 页面：版本变化条目2</h3>
-          <blockquote>[版本变化] July 23, 2025 | https://tc.canada.ca/en/corporate-services/consultations/various-changes-motor-vehicle-safety-regulations-mvsr-2025 | Various changes to the regulations under the Motor Vehicle Safety Act (MVSA)July 23, 2025 &amp; January 30, 2026</blockquote>
-          <a href="https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change" target="_blank" rel="noreferrer noopener">
-            https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change
+          <h3>历史官方合并文本（2024-12-18）</h3>
+
+          <a href="https://laws-lois.justice.gc.ca/eng/regulations/C.R.C.,_c._1038/20241218/P1TT3xt3.html" target="_blank" rel="noreferrer noopener">
+            https://laws-lois.justice.gc.ca/eng/regulations/C.R.C.,_c._1038/20241218/P1TT3xt3.html
           </a>
         </article>
         <article class="evidence">
-          <h3>Regulatory change 页面：版本变化条目3</h3>
-          <blockquote>[版本变化] January 30, 2026 | https://tc.canada.ca/en/corporate-services/consultations/various-changes-regulations-under-motor-vehicle-safety-act-mvsa-2026 | Various changes to the regulations under the Motor Vehicle Safety Act (MVSA)July 23, 2025 &amp; January 30, 2026</blockquote>
-          <a href="https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change" target="_blank" rel="noreferrer noopener">
-            https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change
-          </a>
-        </article>
-        <article class="evidence">
-          <h3>Regulatory change 页面：抓取摘要</h3>
-          <blockquote>抓取摘要：Acts and regulations | List of regulations | Motor Vehicle Safety Regulations (C.R.C., c. 1038) | About the regulations | October 21, 2020 | July 23, 2025 | January 30, 2026</blockquote>
+          <h3>Transport Canada：Motor Vehicle Safety Regulations 变化记录</h3>
+
           <a href="https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change" target="_blank" rel="noreferrer noopener">
             https://tc.canada.ca/en/corporate-services/acts-regulations/list-regulations/motor-vehicle-safety-regulations-crc-c-1038/motor-vehicle-safety-regulations-crc-c-1038-regulatory-change
           </a>
@@ -475,8 +1149,8 @@
     <section class="feishu">
       <strong>飞书摘要（仅批准后使用）</strong>
       <p>【SeatScope 法规影响提示 · 待人工审核】</p>
-      <p>涉及标准：标准号待人工确认</p>
-      <p>摘要：官方“Regulatory change”页面显示该法规存在3项版本变化记录：2020年10月21日启动的“更新法规以现代化并加强加拿大机动车安全”条目，标注SOR/2024-274，日期为2025年1月1日；2025年7月23日“《机动车安全法》（MVSA）下的多项法规变更”；2026年1月30日“《机动车安全法》（MVSA）下的多项法规变更”。证据未提供任何具体条款、座椅相关技术要求、试验方法或过渡期内容，涉及M1座椅总成、骨架、滑轨、固定点、ISOFIX、头枕、安全带约束的影响待官方原文核验。</p>
+      <p>涉及标准：C.R.C., c. 1038</p>
+      <p>摘要：加拿大司法部官方合并文本显示，现行版本为 2025-01-01。与 2024-12-18 历史版本逐段比对，新增 3 个章节、修改 3 个章节、删除 0 个章节。变化章节包括：“Notice of Defect”、“Notice of Non-compliance”、“Reports”、“Publication of Information”、“Publication of Information by Designated Companies”、“RELATED PROVISIONS”。变化文本未出现座椅、头枕、ISOFIX、固定点或乘员约束等 M1 座椅技术条款，本轮不据此提出座椅设计或试验变更。</p>
       <p>审核人：锁老师（待确认）</p>
     </section>
 

@@ -2,13 +2,13 @@
   {
     "id": "report-b7bc7d89014385",
     "title": "《机动车安全法规》（C.R.C., c. 1038）监管变更",
-    "generatedAt": "2026-11-07T00:48:45.042Z",
+    "generatedAt": "2026-11-11T02:18:35.894Z",
     "changeIds": [
       "chg-b7bc7d89014385"
     ],
     "severity": "unassessed",
     "reviewStatus": "draft",
     "htmlPath": "reports/2026-11-07-chg-b7bc7d89014385.html",
-    "summary": "官方“Regulatory change”页面显示该法规存在3项版本变化记录：2020年10月21日启动的“更新法规以现代化并加强加拿大机动车安全”条目，标注SOR/2024-274，日期为2025年1月1日；2025年7月23日“《机动车安全法》（MVSA）下的多项法规变更”；2026年1月30日“《机动车安全法》（MVSA）下的多项法规变更”。证据未提供任何具体条款、座椅相关技术要求、试验方法或过渡期内容，涉及M1座椅总成、骨架、滑轨、固定点、ISOFIX、头枕、安全带约束的影响待官方原文核验。"
+    "summary": "加拿大司法部官方合并文本显示，现行版本为 2025-01-01。与 2024-12-18 历史版本逐段比对，新增 3 个章节、修改 3 个章节、删除 0 个章节。变化章节包括：“Notice of Defect”、“Notice of Non-compliance”、“Reports”、“Publication of Information”、“Publication of Information by Designated Companies”、“RELATED PROVISIONS”。变化文本未出现座椅、头枕、ISOFIX、固定点或乘员约束等 M1 座椅技术条款，本轮不据此提出座椅设计或试验变更。"
   }
 ]
